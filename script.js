@@ -648,3 +648,119 @@ function removeChar(str) {
 }
 console.log(removeChar("geefe"));
 */
+
+//--------------------------25 KATA-------------------------
+
+/*
+Define String.prototype.toAlternatingCase (or a similar function/method such as to_alternating_case/toAlternatingCase/ToAlternatingCase in your selected language; see the initial solution for details) such that each lowercase letter becomes uppercase and each uppercase letter becomes lowercase. For example:
+
+"hello WORLD".toAlternatingCase() === "HELLO world"
+*/
+
+// First solution
+/*
+String.prototype.toAlternatingCase = function () {
+  return this.split("").map((a) =>
+    a === a.toUpperCase() ? a.toLowerCase() : a.toUpperCase()
+  );
+};
+*/
+
+//--------------------------26 KATA-------------------------
+/*
+Bob is working as a bus driver. However, he has become extremely popular among the city's residents. With so many wanting to get aboard his passengers bus, he sometimes has to face the problem of not enough space left on the bus! He wants you to write a simple program telling him if he will be able to fit all the passengers.
+Task Overview:
+
+You have to write a function that accepts three parameters:
+
+     cap is the amount of people the bus can hold excluding the driver.
+     on is the number of people on the bus excluding the driver.
+     wait is the number of people waiting to get on to the bus excluding the driver.
+
+If there is enough space, return 0, and if there isn't, return the number of passengers he can't take.
+
+cap = 10, on = 5, wait = 5 --> 0 # He can fit all 5 passengers
+cap = 100, on = 60, wait = 50 --> 10 # He can't fit 10 of the 50 waiting
+*/
+/*
+// Solution
+function enough(cap, on, wait) {
+  return cap < on + wait ? wait + on - cap : 0;
+}
+
+// Solution
+function enough(cap, on, wait) {
+  return Math.max(wait + on - cap, 0);
+}
+*/
+
+//--------------------------27 KATA-------------------------
+
+/*
+Deoxyribonucleic acid, DNA is the primary information storage molecule in biological systems. It is composed of four nucleic acid bases Guanine ('G'), Cytosine ('C'), Adenine ('A'), and Thymine ('T').
+
+Ribonucleic acid, RNA, is the primary messenger molecule in cells. RNA differs slightly from DNA its chemical structure and contains no Thymine. In RNA Thymine is replaced by another nucleic acid Uracil ('U').
+
+Create a function which translates a given DNA string into RNA.
+
+For example:
+
+"GCAT"  =>  "GCAU"
+
+The input string can be of arbitrary length - in particular, it may be empty. All input is guaranteed to be valid, i.e. each input string will only ever consist of 'G', 'C', 'A' and/or 'T'.
+*/
+/*
+// Solution
+const str = "GCAT";
+function DNAtoRNA(dna) {
+  return str
+    .split("")
+    .map((dna) => (dna === "T" ? "U" : dna))
+    .join("");
+}
+
+// Second solution
+function DNAtoRNA(dna) {
+  return dna.replace(/T/g, "U");
+}
+*/
+
+//--------------------------28 KATA-------------------------
+
+/*
+There is a queue for the self-checkout tills at the supermarket. Your task is write a function to calculate the total time required for all the customers to check out!
+input
+
+    customers: an array of positive integers representing the queue. Each integer represents a customer, and its value is the amount of time they require to check out.
+    n: a positive integer, the number of checkout tills.
+
+output
+
+The function should return an integer, the total time required.
+Important
+
+Please look at the examples and clarifications below, to ensure you understand the task correctly :)
+Examples
+
+queueTime([5,3,4], 1)
+// should return 12
+// because when there is 1 till, the total time is just the sum of the times
+
+queueTime([10,2,3,3], 2)
+// should return 10
+// because here n=2 and the 2nd, 3rd, and 4th people in the 
+// queue finish before the 1st person has finished.
+
+queueTime([2,3,10], 2)
+// should return 12
+
+Clarifications
+
+    There is only ONE queue serving many tills, and
+    The order of the queue NEVER changes, and
+    The front person in the queue (i.e. the first element in the array/list) proceeds to a till as soon as it becomes free.
+
+N.B. You should assume that all the test input will be valid, as specified above.
+*/
+
+// Solution
