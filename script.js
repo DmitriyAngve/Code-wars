@@ -764,3 +764,205 @@ N.B. You should assume that all the test input will be valid, as specified above
 */
 
 // Solution
+/*
+function queueTime(customers, n) {
+  const w = new Array(n).fill(0);
+  for (let t of customers) {
+    let idx = w.indexOf(Math.min(...w));
+    w[idx] += t;
+  }
+  return Math.max(...w);
+}
+const y = queueTime([10, 2, 3, 3], 2);
+console.log(y);
+*/
+
+//--------------------------29 KATA-------------------------
+/*
+Nathan loves cycling.
+
+Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+
+You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+
+For example:
+
+time = 3 ----> litres = 1
+
+time = 6.7---> litres = 3
+
+time = 11.8--> litres = 5
+*/
+
+// Solution
+/*
+const time = 6.7;
+function litres(time) {
+  return Math.floor(time * 0.5);
+}
+console.log(litres(6.7));
+*/
+//--------------------------30 KATA-------------------------
+/*
+You are given the length and width of a 4-sided polygon. The polygon can either be a rectangle or a square.
+If it is a square, return its area. If it is a rectangle, return its perimeter.
+
+Example(Input1, Input2 --> Output):
+
+6, 10 --> 32
+3, 3 --> 9
+
+Note: for the purposes of this kata you will assume that it is a square if its length and width are equal, otherwise it is a rectangle
+*/
+/*
+// Solution
+const areaOrPerimeter = function (l, w) {
+  return l === w ? l * w : (l + w) * 2;
+};
+*/
+
+//--------------------------31 KATA-------------------------
+/*
+The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+Examples
+
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))((" 
+
+Notes
+
+Assertion messages may be unclear about what they display in some languages. If you read "...It Should encode XXX", the "XXX" is the expected result, not the input!
+*/
+
+// First solution
+/*
+function duplicateEncode(str) {
+  // create a variable to hold string value that IGNORES case
+  let word = str.toLowerCase();
+  // creat a variable to hold finished string after loop
+  let unique = "";
+  // loop through all letters in string (word)
+  for (let i = 0; i < word.length; i++) {
+    // check for any characters thaat repeats
+    if (word.lastIndexOf(word[i]) === word.indexOf(word[i])) {
+      // for each character that never dupes, place new symbol
+      unique += "(";
+      // for each character that IS a dupe, place another symbol
+    } else unique += ")";
+    // return the full string value
+  }
+  return unique;
+}
+console.log(duplicateEncode("recede"));
+*/
+
+// Second solution
+/*
+function duplicateEncode(word) {
+  word = word.toLowerCase();
+  return word.replace(/./g, (m) =>
+    word.indexOf(m) === word.lastIndexOf(m) ? "(" : ")"
+  );
+}
+console.log(duplicateEncode("recede"));
+*/
+
+//--------------------------32 KATA-------------------------
+/*
+Messi goals function
+Messi is a soccer player with goals in three leagues:
+    LaLiga
+    Copa del Rey
+    Champions
+Complete the function to return his total number of goals in all three leagues.
+
+Note: the input will always be valid.
+
+For example:
+
+5, 10, 2  -->  17
+*/
+/*
+function goals(laLigaGoals, copaDelReyGoals, championsLeagueGoals) {
+  return laLigaGoals + copaDelReyGoals + championsLeagueGoals;
+}
+*/
+
+//--------------------------33 KATA-------------------------
+/*
+ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+
+If the function is passed a valid PIN string, return true, else return false.
+Examples (Input --> Output)
+
+"1234"   -->  true
+"12345"  -->  false
+"a234"   -->  false
+*/
+
+/*
+
+// Solution
+const str = "1234";
+// const str2 = "1234";
+// console.log(+str);
+// console.log(+str2);
+// console.log(str.split("").join(""));
+// console.log(typeof Number.parseInt(str.split("").join("")));
+// console.log(typeof str);
+// console.log(typeof +str2);
+// console.log(isFinite(str));
+
+function validatePIN(pin) {
+  // const newArr = pin.split("").join("");
+  // console.log(typeof newArr);
+  // console.log(newArr.length);
+  // console.log(Number.isFinite(newArr));
+  // console.log(newArr);
+  // let arr = [];
+  // for (let i = 0; i < newArr.length; i++) {
+  //   console.log(arr);
+  // }
+  const pinlength = pin.length;
+  console.log(pinlength);
+  return (pin.length === 4 || pin.length === 6) && Number.isFinite(pin) === true
+    ? true
+    : false;
+}
+console.log(validatePIN("1234"));
+// console.log(Number.isFinite(+",20")); // false
+*/
+
+// Solution
+/*
+function validatePIN(pin) {
+  return /^(\d{4}|\d{6})$/.test(pin); // Проверяет на длину 4 или 6. Проверяет на наличие символов - не чисел
+}
+console.log(validatePIN("123566"));
+*/
+
+//--------------------------34 KATA-------------------------
+/*
+You are given an odd-length array of integers, in which all of them are the same, except for one single number.
+
+Complete the method which accepts such an array, and returns that single different number.
+
+The input array will always be valid! (odd-length >= 3)
+Examples
+
+[1, 1, 2] ==> 2
+[17, 17, 3, 17, 17, 17, 17] ==> 3
+*/
+/*
+function stray(numbers) {
+  let result = numbers.sort();
+  console.log(result);
+  if (result[0] !== result[1]) {
+    return result[0];
+  } else return result[result.length - 1];
+}
+
+console.log(stray([1, 0, 1, 1]));
+*/
