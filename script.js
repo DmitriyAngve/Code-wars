@@ -987,7 +987,22 @@ console.log(stray([1, 0, 1, 1]));
 
 // #3
 // Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
-function greet(name, owner) {
-  return name === owner ? "Hello boss" : "Hello guest";
+// function greet(name, owner) {
+//   return name === owner ? "Hello boss" : "Hello guest";
+// }
+
+// #4 Replace With Alphabet Position
+// Welcome.In this kata you are required to, given a string, replace every letter with its position in the alphabet. If anything in the text isn't a letter, ignore it and don't return it.
+function alphabetPosition(text) {
+  let result = "";
+
+  for (let i = 0; i < text.length; i++) {
+    let charCode = text.toUpperCase().charCodeAt(i);
+    if (charCode >= 65 && charCode <= 90) {
+      result += charCode - 64 + " ";
+    }
+  }
+
+  return result.trim();
 }
-console.log(greet("Dima", "dima"));
+console.log(alphabetPosition("The sunset sets at twelve o' clock."));
