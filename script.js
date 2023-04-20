@@ -966,3 +966,18 @@ function stray(numbers) {
 
 console.log(stray([1, 0, 1, 1]));
 */
+
+// 20.04.2023
+// let first = test.split("");
+// let second = original.split("");
+// console.log(first);
+// console.log(second);
+// return first === second;
+var isAnagram = function (test, original) {
+  return (
+    test.toLowerCase().split("").sort().join() ===
+    original.toLowerCase().split("").sort().join()
+  );
+};
+
+console.log(isAnagram("Twoo", "WooT"));
