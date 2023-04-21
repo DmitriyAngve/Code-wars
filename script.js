@@ -1117,3 +1117,4 @@ Example
 // }
 
 // console.log(solution("camelCasing"));
+//
