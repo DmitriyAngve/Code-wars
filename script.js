@@ -1040,13 +1040,28 @@ Note:
 
 Don't forget to convert the percent parameter as a percentage in the body of your function: if the parameter percent is 2 you have to convert it to 0.02.
 */
-function nbYear(p0, percent, aug, p) {
-  let years = 0;
-  while (p0 < p) {
-    p0 += Math.floor(p0 * (percent / 100) + aug);
-    years++;
-  }
+// function nbYear(p0, percent, aug, p) {
+//   let years = 0;
+//   while (p0 < p) {
+//     p0 += Math.floor(p0 * (percent / 100) + aug);
+//     years++;
+//   }
 
-  return years;
+//   return years;
+// }
+// console.log(nbYear(1500, 5, 100, 5000));
+
+// #2
+// Write function bmi that calculates body mass index (bmi = weight / height2).
+function bmi(weight, height) {
+  let bmi = weight / Math.pow(height, 2);
+  return bmi <= 18.5
+    ? "Underweight"
+    : bmi <= 25
+    ? "Normal"
+    : bmi <= 30
+    ? "Overweight"
+    : "Obese";
 }
-console.log(nbYear(1500, 5, 100, 5000));
+
+console.log(bmi(100, 1.87));
