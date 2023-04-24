@@ -1128,6 +1128,7 @@ Example: (Input --> Output)
 
 "Dermatoglyphics" --> true "aba" --> false "moOse" --> false (ignore letter case)
 */
+/*
 function isIsogram(str) {
   let arr = str.toLowerCase().split("");
   const set = new Set(arr);
@@ -1135,3 +1136,50 @@ function isIsogram(str) {
   return set.size === arr.length ? true : false;
 }
 console.log(isIsogram("Dermatoglyphics"));
+*/
+
+//  #2
+
+/*
+Count the number of Duplicates
+
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+Example
+
+"abcde" -> 0 # no characters repeats more than once
+"aabbcde" -> 2 # 'a' and 'b'
+"aabBcde" -> 2 # 'a' occurs twice and 'b' twice (`b` and `B`)
+"indivisibility" -> 1 # 'i' occurs six times
+"Indivisibilities" -> 2 # 'i' occurs seven times and 's' occurs twice
+"aA11" -> 2 # 'a' and '1'
+"ABBA" -> 2 # 'A' and 'B' each occur twice
+Strings
+Fundamentals
+*/
+/*
+function duplicateCount(text) {
+  const normalizeStr = text.toLowerCase();
+  const counter = {};
+  for (const char of normalizeStr) {
+    if (counter[char]) {
+      counter[char]++;
+    } else {
+      counter[char] = 1;
+    }
+  }
+
+  let count = 0;
+  for (const char in counter) {
+    if (counter[char] > 1) {
+      count++;
+    }
+  }
+  return count;
+}
+console.log(duplicateCount("Indivisibility"));
+
+// Second solution :
+function duplicateCount(text){
+  return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
+}
+*/
