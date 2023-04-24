@@ -1248,6 +1248,7 @@ Numerical Score 	Letter Grade
 
 Tested values are all between 0 and 100. Theres is no need to check for negative values or values greater than 100.
 */
+/*
 function getGrade(s1, s2, s3) {
   let score = (s1 + s2 + s3) / 3;
   console.log(score);
@@ -1269,3 +1270,29 @@ function getGrade(s1, s2, s3) {
 }
 
 console.log(getGrade(89, 89, 90));
+*/
+/*
+function getGrade (s1, s2, s3) {
+  var s = (s1 + s2 + s3) / 3
+  return s >= 90 ? "A" : s >= 80 ? "B" : s >= 70 ? "C" : s >= 60 ? "D" : "F"
+}
+*/
+
+// # 6
+/*
+Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types.
+
+
+*/
+function findShort(s) {
+  let words = s.split(" ");
+  const short = words.reduce(
+    (shortest, word) => Math.min(shortest, word.length),
+    Infinity
+  );
+  return short;
+}
+
+console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
