@@ -1440,9 +1440,41 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 2 --> 3 + 5 = 8
 
 */
-
+/*
 function rowSumOddNumbers(n) {
   // Для решения этой задачи нам нужно знать, что каждая строка треугольника является последовательностью нечетных чисел, начиная с (2n-1) и заканчивая (2n-1)+2(n-1), где n - номер строки.
   return Math.pow(n, 3);
 }
 console.log(rowSumOddNumbers(42));
+*/
+// return n*n*n
+
+// #8
+// Reverse Letter
+/*
+Task
+
+Given a string str, reverse it and omit all non-alphabetic characters.
+Example
+
+For str = "krishan", the output should be "nahsirk".
+
+For str = "ultr53o?n", the output should be "nortlu".
+Input/Output
+
+    [input] string str
+
+A string consists of lowercase latin letters, digits and symbols.
+
+    [output] a string
+*/
+function reverseLetter(str) {
+  return str
+    .replace(/[^a-zA-Z]/g, "")
+    .split("")
+    .reverse()
+    .join("");
+}
+
+console.log(reverseLetter("ultr53o?n"));
+console.log(reverseLetter("krishan"));
