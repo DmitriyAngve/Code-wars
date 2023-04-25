@@ -1490,7 +1490,33 @@ Input constraints:
     0 <= m <= 59
     0 <= s <= 59
 */
+/*
 function past(h, m, s) {
   return h * 3600 * 1000 + m * 60 * 1000 + s * 1000;
 }
 console.log(past(1, 1, 1));
+*/
+
+// #10
+// Difference of Volumes of Cuboids
+/*
+In this simple exercise, you will create a program that will take two lists of integers, a and b. Each list will consist of 3 positive integers above 0, representing the dimensions of cuboids a and b. You must find the difference of the cuboids' volumes regardless of which is bigger.
+For example, if the parameters passed are ([2, 2, 3], [5, 4, 1]), the volume of a is 12 and the volume of b is 20. Therefore, the function should return 8.
+Your function will be tested with pre-made examples as well as random ones.
+If you can, try writing it in one line of code.
+*/
+function findDifference(a, b) {
+  let volume1 = a.reduce((acc, curr) => acc * curr);
+  let volume2 = b.reduce((acc, curr) => acc * curr);
+  if (volume1 > volume2) {
+    return volume1 - volume2;
+  } else {
+    return volume2 - volume1;
+  }
+}
+
+// function find_difference(a, b) {
+//   return Math.abs(a.reduce((previous, current) => previous * current) - b.reduce((previous, current) => previous * current));
+// }
+
+console.log(findDifference([9, 7, 2], [5, 2, 2]));
