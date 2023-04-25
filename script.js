@@ -1309,8 +1309,33 @@ Let's look at a few examples:
     array = [1, 2, 3, 4] and N = 2, then the result is 3^2 == 9;
     array = [1, 2, 3] and N = 3, but N is outside of the array, so the result is -1.
 */
+/*
 function index(array, n) {
   return array[n] ** n || -1;
 }
 
 console.log(index([1, 3, 10, 100], 3));
+*/
+
+// 25.04.2022
+
+// #1
+/*
+Trolls are attacking your comment section!
+
+A common way to deal with this situation is to remove all of the vowels from the trolls' comments, neutralizing the threat.
+
+Your task is to write a function that takes a string and return a new string with all vowels removed.
+
+For example, the string "This website is for losers LOL!" would become "Ths wbst s fr lsrs LL!".
+
+Note: for this kata y isn't considered a vowel.
+
+*/
+/*
+function disemvowel(str) {
+  return str.replace(/[aeiou]/gi, "");
+}
+
+console.log(disemvowel("This website is for losers LOL!"));
+*/
