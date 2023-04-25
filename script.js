@@ -1350,6 +1350,7 @@ Example
 
 Input:  1,3,5,6,7,8 Output: 1,2,3,4,5,6,7,8
 */
+/*
 function pipeFix(numbers) {
   let result = [];
   let min = Math.min(...numbers);
@@ -1361,3 +1362,25 @@ function pipeFix(numbers) {
 }
 
 console.log(pipeFix([1, 3, 5, 6, 7, 8]));
+*/
+
+// #4
+/*
+Complete the function/method so that it returns the url with anything after the anchor (#) removed.
+Examples
+
+"www.codewars.com#about" --> "www.codewars.com"
+"www.codewars.com?page=1" -->"www.codewars.com?page=1"
+*/
+
+function removeUrlAnchor(url) {
+  let newStr = url.split("#")[0];
+  return newStr;
+}
+// string.replace(/то, что меняем/g, "на что меняем")
+console.log(removeUrlAnchor("www.codewars.com#about"));
+
+// Second solution
+function removeUrlAnchor(url) {
+  return url.replace(/#.*/gi, "");
+}
