@@ -1405,3 +1405,18 @@ function addBinary(a, b) {
 
 console.log(addBinary(1, 1));
 */
+
+// #6
+function minMax(arr) {
+  let min = Math.min(...arr);
+  let max = Math.max(...arr);
+  let newArr = [];
+  newArr.push(min, max);
+  return newArr;
+}
+console.log(minMax([1, 2, 3, 4, 5]));
+/*
+function minMax(arr){
+  return [Math.min(...arr), Math.max(...arr)];
+}
+*/
