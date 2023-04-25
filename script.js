@@ -1536,6 +1536,7 @@ true xor true == false // Both are true.  "xor" only returns true if EXACTLY one
 Task
 Since we cannot define keywords in Javascript (well, at least I don't know how to do it), your task is to define a function xor(a, b) where a and b are the two expressions to be evaluated. Your xor function should have the behaviour described above, returning true if exactly one of the two expressions evaluate to true, false otherwise.
 */
+/*
 function xor(a, b) {
   return a != b;
 }
@@ -1544,3 +1545,25 @@ console.log(xor(false, false));
 console.log(xor(true, false));
 console.log(xor(false, true));
 console.log(xor(true, true));
+*/
+
+// #12
+/*
+Remove an exclamation mark from the end of a string. For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+Examples
+remove("Hi!") == "Hi"
+remove("Hi!!!") == "Hi!!"
+remove("!Hi") == "!Hi"
+remove("!Hi!") == "!Hi"
+remove("Hi! Hi!") == "Hi! Hi"
+remove("Hi") == "Hi"
+ */
+function remove(str) {
+  if (str.charAt(str.length - 1) === "!") {
+    return str.slice(0, -1);
+  }
+  return str;
+}
+
+// const remove = s => s.replace(/!$/, '');
+console.log(remove("!Hi!"));
