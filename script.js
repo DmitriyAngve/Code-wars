@@ -1407,6 +1407,7 @@ console.log(addBinary(1, 1));
 */
 
 // #6
+/*
 function minMax(arr) {
   let min = Math.min(...arr);
   let max = Math.max(...arr);
@@ -1420,3 +1421,28 @@ function minMax(arr){
   return [Math.min(...arr), Math.max(...arr)];
 }
 */
+
+// #7
+// Sum of odd numbers
+/*
+Given the triangle of consecutive odd numbers:
+
+             1
+          3     5
+       7     9    11
+   13    15    17    19
+21    23    25    27    29
+...
+
+Calculate the sum of the numbers in the nth row of this triangle (starting at index 1) e.g.: (Input --> Output)
+
+1 -->  1
+2 --> 3 + 5 = 8
+
+*/
+
+function rowSumOddNumbers(n) {
+  // Для решения этой задачи нам нужно знать, что каждая строка треугольника является последовательностью нечетных чисел, начиная с (2n-1) и заканчивая (2n-1)+2(n-1), где n - номер строки.
+  return Math.pow(n, 3);
+}
+console.log(rowSumOddNumbers(42));
