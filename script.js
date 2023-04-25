@@ -1440,9 +1440,83 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 2 --> 3 + 5 = 8
 
 */
-
+/*
 function rowSumOddNumbers(n) {
   // Для решения этой задачи нам нужно знать, что каждая строка треугольника является последовательностью нечетных чисел, начиная с (2n-1) и заканчивая (2n-1)+2(n-1), где n - номер строки.
   return Math.pow(n, 3);
 }
 console.log(rowSumOddNumbers(42));
+*/
+
+// #9
+// Sum of the first nth term of Series
+/*
+Your task is to write a function which returns the sum of following series upto nth term(parameter).
+Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
+Rules:
+    You need to round the answer to 2 decimal places and return it as String.
+
+    If the given value is 0 then it should return 0.00
+
+    You will only be given Natural Numbers as arguments.
+Examples:(Input --> Output)
+1 --> 1 --> "1.00"
+2 --> 1 + 1/4 --> "1.25"
+5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> "1.57"
+ */
+/*
+function SeriesSum(n) {
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += 1 / (1 + i * 3);
+  }
+  return sum.toFixed(2);
+}
+
+console.log(SeriesSum(5));
+*/
+
+// #9
+/*
+Clock shows h hours, m minutes and s seconds after midnight.
+Your task is to write a function which returns the time since midnight in milliseconds.
+Example:
+h = 0
+m = 1
+s = 1
+result = 61000
+Input constraints:
+    0 <= h <= 23
+    0 <= m <= 59
+    0 <= s <= 59
+*/
+/*
+function past(h, m, s) {
+  return h * 3600 * 1000 + m * 60 * 1000 + s * 1000;
+}
+console.log(past(1, 1, 1));
+*/
+
+// #10
+// Difference of Volumes of Cuboids
+/*
+In this simple exercise, you will create a program that will take two lists of integers, a and b. Each list will consist of 3 positive integers above 0, representing the dimensions of cuboids a and b. You must find the difference of the cuboids' volumes regardless of which is bigger.
+For example, if the parameters passed are ([2, 2, 3], [5, 4, 1]), the volume of a is 12 and the volume of b is 20. Therefore, the function should return 8.
+Your function will be tested with pre-made examples as well as random ones.
+If you can, try writing it in one line of code.
+*/
+function findDifference(a, b) {
+  let volume1 = a.reduce((acc, curr) => acc * curr);
+  let volume2 = b.reduce((acc, curr) => acc * curr);
+  if (volume1 > volume2) {
+    return volume1 - volume2;
+  } else {
+    return volume2 - volume1;
+  }
+}
+
+// function find_difference(a, b) {
+//   return Math.abs(a.reduce((previous, current) => previous * current) - b.reduce((previous, current) => previous * current));
+// }
+
+console.log(findDifference([9, 7, 2], [5, 2, 2]));
