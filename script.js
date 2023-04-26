@@ -1788,9 +1788,35 @@ Your function takes two arguments:
     current age of his son (years)
 Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old). The answer is always greater or equal to 0, no matter if it was in the past or it is in the future.
 */
+/*
 function twiceAsOld(x, y) {
   let z = x - y * 2;
   return Math.abs(z);
 }
 
 console.log(twiceAsOld(55, 30));
+*/
+
+// #10
+/*
+In this kata you will create a function that takes in a list and returns a list with the reverse order.
+Examples (Input -> Output)
+ */
+/*
+function reverseList(list) {
+  return list.reverse();
+}
+console.log(reverseList([1, 2, 3, 4]));
+*/
+
+// #11
+
+/*
+Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.
+ */
+
+function getAge(inputString) {
+  return parseInt(inputString.charAt(0));
+}
+
+console.log(getAge("4 years old"));
