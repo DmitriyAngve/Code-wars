@@ -1592,6 +1592,7 @@ Notes
     Repetition in numbers may occur .
     You cannot swap the operands. For instance, in the given example you cannot get expression (1 + 3) * 2 = 8
 */
+/*
 function expressionMatter(a, b, c) {
   const expressions = [
     a + b + c,
@@ -1605,3 +1606,53 @@ function expressionMatter(a, b, c) {
 }
 
 console.log(expressionMatter(2, 1, 2));
+*/
+
+// #2
+
+/*
+A square of squares
+You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
+However, sometimes, you can't arrange them into a square. Instead, you end up with an ordinary rectangle! Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait! That's it! You just have to check if your number of building blocks is a perfect square.
+Task
+Given an integral number, determine if it's a square number:
+    In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
+The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+Examples
+-1  =>  false
+ 0  =>  true
+ 3  =>  false
+ 4  =>  true
+25  =>  true
+26  =>  false
+*/
+/*
+var isSquare = function (n) {
+  return n < 0 ? false : n === 0 ? true : Number.isInteger(Math.sqrt(n));
+};
+console.log(isSquare(-1));
+console.log(isSquare(0));
+console.log(isSquare(3));
+console.log(isSquare(25));
+*/
+
+// #3
+/*
+Your task is to construct a building which will be a pile of n cubes. The cube at the bottom will have a volume of n3 n^3 n3, the cube above will have volume of (n−1)3 (n-1)^3 (n−1)3 and so on until the top which will have a volume of 13 1^3 13.
+You are given the total volume m of the building. Being given m can you find the number n of cubes you will have to build?
+The parameter of the function findNb (find_nb, find-nb, findNb, ...) will be an integer m and you have to return the integer n such as n3+(n−1)3+(n−2)3+...+13=m n^3 + (n-1)^3 + (n-2)^3 + ... + 1^3 = m n3+(n−1)3+(n−2)3+...+13=m if such a n exists or -1 if there is no such n.
+Examples:
+findNb(1071225) --> 45
+findNb(91716553919377) --> -1
+*/
+function findNb(m) {
+  let n = 0;
+  let sum = 0;
+  while (sum < m) {
+    n++;
+    sum += Math.pow(n, 3);
+  }
+  return sum === m ? n : -1;
+}
+
+console.log(findNb(1071225));
