@@ -1440,9 +1440,168 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 2 --> 3 + 5 = 8
 
 */
-
+/*
 function rowSumOddNumbers(n) {
   // Для решения этой задачи нам нужно знать, что каждая строка треугольника является последовательностью нечетных чисел, начиная с (2n-1) и заканчивая (2n-1)+2(n-1), где n - номер строки.
   return Math.pow(n, 3);
 }
 console.log(rowSumOddNumbers(42));
+*/
+
+// #9
+// Sum of the first nth term of Series
+/*
+Your task is to write a function which returns the sum of following series upto nth term(parameter).
+Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
+Rules:
+    You need to round the answer to 2 decimal places and return it as String.
+
+    If the given value is 0 then it should return 0.00
+
+    You will only be given Natural Numbers as arguments.
+Examples:(Input --> Output)
+1 --> 1 --> "1.00"
+2 --> 1 + 1/4 --> "1.25"
+5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> "1.57"
+ */
+/*
+function SeriesSum(n) {
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += 1 / (1 + i * 3);
+  }
+  return sum.toFixed(2);
+}
+
+console.log(SeriesSum(5));
+*/
+
+// #9
+/*
+Clock shows h hours, m minutes and s seconds after midnight.
+Your task is to write a function which returns the time since midnight in milliseconds.
+Example:
+h = 0
+m = 1
+s = 1
+result = 61000
+Input constraints:
+    0 <= h <= 23
+    0 <= m <= 59
+    0 <= s <= 59
+*/
+/*
+function past(h, m, s) {
+  return h * 3600 * 1000 + m * 60 * 1000 + s * 1000;
+}
+console.log(past(1, 1, 1));
+*/
+
+// #10
+// Difference of Volumes of Cuboids
+/*
+In this simple exercise, you will create a program that will take two lists of integers, a and b. Each list will consist of 3 positive integers above 0, representing the dimensions of cuboids a and b. You must find the difference of the cuboids' volumes regardless of which is bigger.
+For example, if the parameters passed are ([2, 2, 3], [5, 4, 1]), the volume of a is 12 and the volume of b is 20. Therefore, the function should return 8.
+Your function will be tested with pre-made examples as well as random ones.
+If you can, try writing it in one line of code.
+*/
+/*
+function findDifference(a, b) {
+  let volume1 = a.reduce((acc, curr) => acc * curr);
+  let volume2 = b.reduce((acc, curr) => acc * curr);
+  if (volume1 > volume2) {
+    return volume1 - volume2;
+  } else {
+    return volume2 - volume1;
+  }
+}
+
+// function find_difference(a, b) {
+//   return Math.abs(a.reduce((previous, current) => previous * current) - b.reduce((previous, current) => previous * current));
+// }
+
+console.log(findDifference([9, 7, 2], [5, 2, 2]));
+*/
+
+// #11
+/*
+Exclusive "or" (xor) Logical Operator
+Overview
+In some scripting languages like PHP, there exists a logical operator (e.g. &&, ||, and, or, etc.) called the "Exclusive Or" (hence the name of this Kata). The exclusive or evaluates two booleans. It then returns true if exactly one of the two expressions are true, false otherwise. For example:
+
+false xor false == false // since both are false
+true xor false == true // exactly one of the two expressions are true
+false xor true == true // exactly one of the two expressions are true
+true xor true == false // Both are true.  "xor" only returns true if EXACTLY one of the two expressions evaluate to true.
+Task
+Since we cannot define keywords in Javascript (well, at least I don't know how to do it), your task is to define a function xor(a, b) where a and b are the two expressions to be evaluated. Your xor function should have the behaviour described above, returning true if exactly one of the two expressions evaluate to true, false otherwise.
+*/
+/*
+function xor(a, b) {
+  return a != b;
+}
+
+console.log(xor(false, false));
+console.log(xor(true, false));
+console.log(xor(false, true));
+console.log(xor(true, true));
+*/
+
+// #12
+/*
+Remove an exclamation mark from the end of a string. For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+Examples
+remove("Hi!") == "Hi"
+remove("Hi!!!") == "Hi!!"
+remove("!Hi") == "!Hi"
+remove("!Hi!") == "!Hi"
+remove("Hi! Hi!") == "Hi! Hi"
+remove("Hi") == "Hi"
+ */
+/*
+function remove(str) {
+  if (str.charAt(str.length - 1) === "!") {
+    return str.slice(0, -1);
+  }
+  return str;
+}
+
+// const remove = s => s.replace(/!$/, '');
+console.log(remove("!Hi!"));
+*/
+
+// 26.04.2022
+
+// #1
+/*
+Task
+    Given three integers a ,b ,c, return the largest number obtained after inserting the following operators and brackets: +, *, ()
+    In other words , try every combination of a,b,c with [*+()] , and return the Maximum Obtained (Read the notes for more detail about it)
+Example
+With the numbers are 1, 2 and 3 , here are some ways of placing signs and brackets:
+    1 * (2 + 3) = 5
+    1 * 2 * 3 = 6
+    1 + 2 * 3 = 7
+    (1 + 2) * 3 = 9
+So the maximum value that you can obtain is 9.
+Notes
+    The numbers are always positive.
+    The numbers are in the range (1  ≤  a, b, c  ≤  10).
+    You can use the same operation more than once.
+    It's not necessary to place all the signs and brackets.
+    Repetition in numbers may occur .
+    You cannot swap the operands. For instance, in the given example you cannot get expression (1 + 3) * 2 = 8
+*/
+function expressionMatter(a, b, c) {
+  const expressions = [
+    a + b + c,
+    a * b * c,
+    (a + b) * c,
+    a * (b + c),
+    a + b * c,
+    a * b + c,
+  ];
+  return Math.max(...expressions);
+}
+
+console.log(expressionMatter(2, 1, 2));
