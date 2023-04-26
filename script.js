@@ -1713,7 +1713,7 @@ Example
 titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
 titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
 */
-
+/*
 function titleCase(title, minorWords) {
   const minorWordsArr = minorWords ? minorWords.toLowerCase().split(" ") : [];
   console.log(minorWordsArr);
@@ -1732,3 +1732,28 @@ function titleCase(title, minorWords) {
 }
 
 console.log(titleCase("a clash of KINGS", "a an the of"));
+*/
+
+// #7
+
+/*
+Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of the number's decimal digits.
+For example: (Input --> Output)
+10 --> 1
+99 --> 18
+-32 --> 5
+Let's assume that all numbers in the input will be integer values.
+*/
+function sumDigits(number) {
+  let str = number.toString();
+  let str2 = str.split("");
+  console.log(str2);
+  let sum = 0;
+  for (let i = 0; i < str2.length; i++) {
+    if (str2[i] === "-") continue;
+    sum += parseInt(str2[i]);
+  }
+  return sum;
+}
+
+console.log(sumDigits(-42));
