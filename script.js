@@ -1440,9 +1440,246 @@ Calculate the sum of the numbers in the nth row of this triangle (starting at in
 2 --> 3 + 5 = 8
 
 */
-
+/*
 function rowSumOddNumbers(n) {
   // Для решения этой задачи нам нужно знать, что каждая строка треугольника является последовательностью нечетных чисел, начиная с (2n-1) и заканчивая (2n-1)+2(n-1), где n - номер строки.
   return Math.pow(n, 3);
 }
 console.log(rowSumOddNumbers(42));
+*/
+
+// #9
+// Sum of the first nth term of Series
+/*
+Your task is to write a function which returns the sum of following series upto nth term(parameter).
+Series: 1 + 1/4 + 1/7 + 1/10 + 1/13 + 1/16 +...
+Rules:
+    You need to round the answer to 2 decimal places and return it as String.
+
+    If the given value is 0 then it should return 0.00
+
+    You will only be given Natural Numbers as arguments.
+Examples:(Input --> Output)
+1 --> 1 --> "1.00"
+2 --> 1 + 1/4 --> "1.25"
+5 --> 1 + 1/4 + 1/7 + 1/10 + 1/13 --> "1.57"
+ */
+/*
+function SeriesSum(n) {
+  let sum = 0;
+  for (let i = 0; i < n; i++) {
+    sum += 1 / (1 + i * 3);
+  }
+  return sum.toFixed(2);
+}
+
+console.log(SeriesSum(5));
+*/
+
+// #9
+/*
+Clock shows h hours, m minutes and s seconds after midnight.
+Your task is to write a function which returns the time since midnight in milliseconds.
+Example:
+h = 0
+m = 1
+s = 1
+result = 61000
+Input constraints:
+    0 <= h <= 23
+    0 <= m <= 59
+    0 <= s <= 59
+*/
+/*
+function past(h, m, s) {
+  return h * 3600 * 1000 + m * 60 * 1000 + s * 1000;
+}
+console.log(past(1, 1, 1));
+*/
+
+// #10
+// Difference of Volumes of Cuboids
+/*
+In this simple exercise, you will create a program that will take two lists of integers, a and b. Each list will consist of 3 positive integers above 0, representing the dimensions of cuboids a and b. You must find the difference of the cuboids' volumes regardless of which is bigger.
+For example, if the parameters passed are ([2, 2, 3], [5, 4, 1]), the volume of a is 12 and the volume of b is 20. Therefore, the function should return 8.
+Your function will be tested with pre-made examples as well as random ones.
+If you can, try writing it in one line of code.
+*/
+/*
+function findDifference(a, b) {
+  let volume1 = a.reduce((acc, curr) => acc * curr);
+  let volume2 = b.reduce((acc, curr) => acc * curr);
+  if (volume1 > volume2) {
+    return volume1 - volume2;
+  } else {
+    return volume2 - volume1;
+  }
+}
+
+// function find_difference(a, b) {
+//   return Math.abs(a.reduce((previous, current) => previous * current) - b.reduce((previous, current) => previous * current));
+// }
+
+console.log(findDifference([9, 7, 2], [5, 2, 2]));
+*/
+
+// #11
+/*
+Exclusive "or" (xor) Logical Operator
+Overview
+In some scripting languages like PHP, there exists a logical operator (e.g. &&, ||, and, or, etc.) called the "Exclusive Or" (hence the name of this Kata). The exclusive or evaluates two booleans. It then returns true if exactly one of the two expressions are true, false otherwise. For example:
+
+false xor false == false // since both are false
+true xor false == true // exactly one of the two expressions are true
+false xor true == true // exactly one of the two expressions are true
+true xor true == false // Both are true.  "xor" only returns true if EXACTLY one of the two expressions evaluate to true.
+Task
+Since we cannot define keywords in Javascript (well, at least I don't know how to do it), your task is to define a function xor(a, b) where a and b are the two expressions to be evaluated. Your xor function should have the behaviour described above, returning true if exactly one of the two expressions evaluate to true, false otherwise.
+*/
+/*
+function xor(a, b) {
+  return a != b;
+}
+
+console.log(xor(false, false));
+console.log(xor(true, false));
+console.log(xor(false, true));
+console.log(xor(true, true));
+*/
+
+// #12
+/*
+Remove an exclamation mark from the end of a string. For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+Examples
+remove("Hi!") == "Hi"
+remove("Hi!!!") == "Hi!!"
+remove("!Hi") == "!Hi"
+remove("!Hi!") == "!Hi"
+remove("Hi! Hi!") == "Hi! Hi"
+remove("Hi") == "Hi"
+ */
+/*
+function remove(str) {
+  if (str.charAt(str.length - 1) === "!") {
+    return str.slice(0, -1);
+  }
+  return str;
+}
+
+// const remove = s => s.replace(/!$/, '');
+console.log(remove("!Hi!"));
+*/
+
+// 26.04.2022
+
+// #1
+/*
+Task
+    Given three integers a ,b ,c, return the largest number obtained after inserting the following operators and brackets: +, *, ()
+    In other words , try every combination of a,b,c with [*+()] , and return the Maximum Obtained (Read the notes for more detail about it)
+Example
+With the numbers are 1, 2 and 3 , here are some ways of placing signs and brackets:
+    1 * (2 + 3) = 5
+    1 * 2 * 3 = 6
+    1 + 2 * 3 = 7
+    (1 + 2) * 3 = 9
+So the maximum value that you can obtain is 9.
+Notes
+    The numbers are always positive.
+    The numbers are in the range (1  ≤  a, b, c  ≤  10).
+    You can use the same operation more than once.
+    It's not necessary to place all the signs and brackets.
+    Repetition in numbers may occur .
+    You cannot swap the operands. For instance, in the given example you cannot get expression (1 + 3) * 2 = 8
+*/
+/*
+function expressionMatter(a, b, c) {
+  const expressions = [
+    a + b + c,
+    a * b * c,
+    (a + b) * c,
+    a * (b + c),
+    a + b * c,
+    a * b + c,
+  ];
+  return Math.max(...expressions);
+}
+
+console.log(expressionMatter(2, 1, 2));
+*/
+
+// #2
+
+/*
+A square of squares
+You like building blocks. You especially like building blocks that are squares. And what you even like more, is to arrange them into a square of square building blocks!
+However, sometimes, you can't arrange them into a square. Instead, you end up with an ordinary rectangle! Those blasted things! If you just had a way to know, whether you're currently working in vain… Wait! That's it! You just have to check if your number of building blocks is a perfect square.
+Task
+Given an integral number, determine if it's a square number:
+    In mathematics, a square number or perfect square is an integer that is the square of an integer; in other words, it is the product of some integer with itself.
+The tests will always use some integral number, so don't worry about that in dynamic typed languages.
+Examples
+-1  =>  false
+ 0  =>  true
+ 3  =>  false
+ 4  =>  true
+25  =>  true
+26  =>  false
+*/
+/*
+var isSquare = function (n) {
+  return n < 0 ? false : n === 0 ? true : Number.isInteger(Math.sqrt(n));
+};
+console.log(isSquare(-1));
+console.log(isSquare(0));
+console.log(isSquare(3));
+console.log(isSquare(25));
+*/
+
+// #3
+/*
+Your task is to construct a building which will be a pile of n cubes. The cube at the bottom will have a volume of n3 n^3 n3, the cube above will have volume of (n−1)3 (n-1)^3 (n−1)3 and so on until the top which will have a volume of 13 1^3 13.
+You are given the total volume m of the building. Being given m can you find the number n of cubes you will have to build?
+The parameter of the function findNb (find_nb, find-nb, findNb, ...) will be an integer m and you have to return the integer n such as n3+(n−1)3+(n−2)3+...+13=m n^3 + (n-1)^3 + (n-2)^3 + ... + 1^3 = m n3+(n−1)3+(n−2)3+...+13=m if such a n exists or -1 if there is no such n.
+Examples:
+findNb(1071225) --> 45
+findNb(91716553919377) --> -1
+*/
+/*
+function findNb(m) {
+  let n = 0;
+  let sum = 0;
+  while (sum < m) {
+    n++;
+    sum += Math.pow(n, 3);
+  }
+  return sum === m ? n : -1;
+}
+
+console.log(findNb(1071225));
+
+// Second solution
+function findNb(m) {
+  var n = 0
+  while (m > 0) m -= ++n**3
+  return m ? -1 : n
+}
+*/
+
+// #4
+
+/*
+Task
+You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+Examples
+[7, 1]  =>  [1, 7]
+[5, 8, 6, 3, 4]  =>  [3, 8, 6, 5, 4]
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]  =>  [1, 8, 3, 6, 5, 4, 7, 2, 9, 0]
+*/
+/*
+function sortArray(array) {
+  const oddNumbers = array.filter((num) => num % 2 !== 0).sort((a, b) => a - b);
+  return array.map((num) => (num % 2 !== 0 ? oddNumbers.shift() : num));
+}
+console.log(sortArray([5, 3, 2, 8, 1, 4]));
+*/
