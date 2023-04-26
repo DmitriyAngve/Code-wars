@@ -1744,6 +1744,7 @@ For example: (Input --> Output)
 -32 --> 5
 Let's assume that all numbers in the input will be integer values.
 */
+/*
 function sumDigits(number) {
   let str = number.toString();
   let str2 = str.split("");
@@ -1757,3 +1758,22 @@ function sumDigits(number) {
 }
 
 console.log(sumDigits(-42));
+*/
+
+// #8
+
+/*
+Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+Example:
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+*/
+String.prototype.toJadenCase = function () {
+  let str1 = this.split(" ");
+  let arr = str1.map((word, index) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+  return arr.join(" ");
+};
+
+console.log(toJadenCase("How can mirrors be real if our eyes aren't real"));
