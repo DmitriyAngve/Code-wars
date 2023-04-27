@@ -2003,8 +2003,51 @@ etc.
 Input may be any positive or negative integer (including 0).
 You can assume that all inputs are valid integers.
 */
+/*
 function roundToNext5(n) {
   let str = Math.ceil(n / 5) * 5;
   return str;
 }
 console.log(roundToNext5(2));
+*/
+
+// #9
+/*
+The first century spans from the year 1 up to and including the year 100, the second century - from the year 101 up to and including the year 200, etc.
+Task
+Given a year, return the century it is in.
+Examples
+1705 --> 18
+1900 --> 19
+1601 --> 17
+2000 --> 20
+Note: this kata uses strict construction as shown in the description and the examples, you can read more about it here
+Fundamentals
+Mathematics
+ */
+/*
+function century(year) {
+  return Math.ceil(year / 100);
+}
+
+console.log(century(89));
+/*
+
+// #10
+/*
+The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+What if the string is empty? Then the result should be empty object literal, {}.
+*/
+function countChars(str) {
+  let counts = {};
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (counts[char]) {
+      counts[char]++;
+    } else {
+      counts[char] = 1;
+    }
+  }
+  return counts;
+}
+console.log(countChars("aba"));
