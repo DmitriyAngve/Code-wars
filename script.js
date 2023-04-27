@@ -1814,9 +1814,42 @@ console.log(reverseList([1, 2, 3, 4]));
 /*
 Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.
  */
-
+/*
 function getAge(inputString) {
   return parseInt(inputString.charAt(0));
 }
 
 console.log(getAge("4 years old"));
+*/
+
+// 27.04
+
+// #1
+
+/*
+Who remembers back to their time in the schoolyard, when girls would take a flower and tear its petals, saying each of the following phrases each time a petal was torn:
+    "I love you"
+    "a little"
+    "a lot"
+    "passionately"
+    "madly"
+    "not at all"
+If there are more than 6 petals, you start over with "I love you" for 7 petals, "a little" for 8 petals and so on.
+When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
+Your goal in this kata is to determine which phrase the girls would say at the last petal for a flower of a given number of petals. The number of petals is always greater than 0.
+ */
+
+function howMuchILoveYou(nbPetals) {
+  const nbArr = [
+    "I love you",
+    "a little",
+    "a lot",
+    "passionately",
+    "madly",
+    "not at all",
+  ];
+  // const index = (nbPetals - 1) % nbArr.length;
+  return nbArr[nbPetals % 6];
+}
+
+console.log(howMuchILoveYou(7));
