@@ -1873,7 +1873,7 @@ For example, a multiplication table (string) for number == 5 looks like below:
 P. S. You can use \n in string to jump to the next line.
 Note: newlines should be added between rows, but there should be no trailing newline at the end. If you're unsure about the format, look at the sample tests.
 */
-
+/*
 function multiTable(number) {
   let str = "";
   for (let i = 1; i <= 10; i++) {
@@ -1882,3 +1882,24 @@ function multiTable(number) {
   return str.trim();
 }
 console.log(multiTable(5));
+*/
+
+// #3
+
+/*
+Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+For example:
+solution([1, 2, 10, 50, 5]); // should return [1,2,5,10,50]
+solution(null); // should return []
+ */
+/*
+function solution(nums) {
+  if (nums === null || nums.length === 0) {
+    return [];
+  }
+  return nums.sort((a, b) => a - b);
+}
+console.log(solution([1, 2, 3, 10, 5]));
+*/
+
+// #4
