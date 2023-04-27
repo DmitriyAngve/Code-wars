@@ -1915,7 +1915,7 @@ foo9 -> foo10
 foo099 -> foo100
 Attention: If the number has leading zeros the amount of digits should be considered.
 */
-
+/*
 function incrementString(str) {
   let match = str.match(/\d+$/);
   if (match) {
@@ -1932,3 +1932,54 @@ console.log(incrementString("foo099"));
 
 // let incrementString = (str) =>
 //   str.replace(/([0-8]|\d?9+)?$/, (e) => (e ? +e + 1 : 1));
+*/
+
+// #5
+/*
+Bob needs a fast way to calculate the volume of a cuboid with three values: the length, width and height of the cuboid. Write a function to help Bob with this calculation.
+*/
+/*
+class Kata {
+  static getVolumeOfCuboid(length, width, height) {
+    return length * width * height;
+  }
+}
+
+console.log(getVolumeOfCuboid(1, 2, 2));
+*/
+
+// #6
+
+/*
+A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+Return true if yes, false otherwise :)
+*/
+/*
+function hero(bullets, dragons) {
+  return bullets >= dragons * 2 ? true : false;
+}
+console.log(hero(257, 116));
+*/
+
+// #7
+/*
+Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+For example:
+uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+uniqueInOrder([1,2,2,3,3])       == [1,2,3]
+*/
+function uniqueInOrder(iterable) {
+  let result = [];
+
+  for (let i = 0; i < iterable.length; i++) {
+    if (iterable[i] !== iterable[i - 1]) {
+      result.push(iterable[i]);
+    }
+  }
+
+  return result;
+}
+
+console.log(uniqueInOrder([1, 2, 2, 3, 3]));
+console.log(uniqueInOrder("AAAABBBCCDAABBB"));
