@@ -1683,3 +1683,328 @@ function sortArray(array) {
 }
 console.log(sortArray([5, 3, 2, 8, 1, 4]));
 */
+
+// #5
+
+/*
+Write a function that removes the spaces from the string, then return the resultant string.
+Examples:
+Input -> Output
+"8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
+"8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+"8aaaaa dddd r     " -> "8aaaaaddddr"
+*/
+/*
+function noSpace(x) {
+  return x.replace(/\s/g, "");
+}
+console.log(noSpace("8 j 8   mBliB8g  imjB8B8  jl  B"), "8j8mBliB8gimjB8B8jlB");
+*/
+
+// #6
+/*
+A string is considered to be in title case if each word in the string is either (a) capitalised (that is, only the first letter of the word is in upper case) or (b) considered to be an exception and put entirely into lower case unless it is the first word, which is always capitalised.
+
+Write a function that will convert a string into title case, given an optional list of exceptions (minor words). The list of minor words will be given as a string with each word separated by a space. Your function should ignore the case of the minor words string -- it should behave in the same way even if the case of the minor word string is changed.
+Arguments
+    First argument (required): the original string to be converted.
+    Second argument (optional): space-delimited list of minor words that must always be lowercase except for the first word in the string. The JavaScript/CoffeeScript tests will pass undefined when this argument is unused.
+Example
+titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
+titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
+*/
+/*
+function titleCase(title, minorWords) {
+  const minorWordsArr = minorWords ? minorWords.toLowerCase().split(" ") : [];
+  console.log(minorWordsArr);
+
+  const titleArr = title.toLowerCase().split(" ");
+
+  const result = titleArr.map((word, index) => {
+    if (index === 0 || !minorWordsArr.includes(word)) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    } else {
+      return word;
+    }
+  });
+
+  return result.join(" ");
+}
+
+console.log(titleCase("a clash of KINGS", "a an the of"));
+*/
+
+// #7
+
+/*
+Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of the number's decimal digits.
+For example: (Input --> Output)
+10 --> 1
+99 --> 18
+-32 --> 5
+Let's assume that all numbers in the input will be integer values.
+*/
+/*
+function sumDigits(number) {
+  let str = number.toString();
+  let str2 = str.split("");
+  console.log(str2);
+  let sum = 0;
+  for (let i = 0; i < str2.length; i++) {
+    if (str2[i] === "-") continue;
+    sum += parseInt(str2[i]);
+  }
+  return sum;
+}
+
+console.log(sumDigits(-42));
+*/
+
+// #8
+
+/*
+Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+Example:
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+*/
+/*
+String.prototype.toJadenCase = function () {
+  let str1 = this.split(" ");
+  let arr = str1.map((word, index) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+  return arr.join(" ");
+};
+
+console.log(toJadenCase("How can mirrors be real if our eyes aren't real"));
+*/
+
+// #9
+
+/*
+Your function takes two arguments:
+    current father's age (years)
+    current age of his son (years)
+Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old). The answer is always greater or equal to 0, no matter if it was in the past or it is in the future.
+*/
+/*
+function twiceAsOld(x, y) {
+  let z = x - y * 2;
+  return Math.abs(z);
+}
+
+console.log(twiceAsOld(55, 30));
+*/
+
+// #10
+/*
+In this kata you will create a function that takes in a list and returns a list with the reverse order.
+Examples (Input -> Output)
+ */
+/*
+function reverseList(list) {
+  return list.reverse();
+}
+console.log(reverseList([1, 2, 3, 4]));
+*/
+
+// #11
+
+/*
+Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.
+ */
+/*
+function getAge(inputString) {
+  return parseInt(inputString.charAt(0));
+}
+
+console.log(getAge("4 years old"));
+*/
+
+// 27.04
+
+// #1
+
+/*
+Who remembers back to their time in the schoolyard, when girls would take a flower and tear its petals, saying each of the following phrases each time a petal was torn:
+    "I love you"
+    "a little"
+    "a lot"
+    "passionately"
+    "madly"
+    "not at all"
+If there are more than 6 petals, you start over with "I love you" for 7 petals, "a little" for 8 petals and so on.
+When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
+Your goal in this kata is to determine which phrase the girls would say at the last petal for a flower of a given number of petals. The number of petals is always greater than 0.
+ */
+/*
+function howMuchILoveYou(nbPetals) {
+  const nbArr = [
+    "I love you",
+    "a little",
+    "a lot",
+    "passionately",
+    "madly",
+    "not at all",
+  ];
+  // const index = (nbPetals - 1) % nbArr.length;
+  return nbArr[nbPetals % 6];
+}
+
+console.log(howMuchILoveYou(7));
+*/
+
+// #2
+
+/*
+Your goal is to return multiplication table for number that is always an integer from 1 to 10.
+For example, a multiplication table (string) for number == 5 looks like below:
+1 * 5 = 5
+2 * 5 = 10
+3 * 5 = 15
+4 * 5 = 20
+5 * 5 = 25
+6 * 5 = 30
+7 * 5 = 35
+8 * 5 = 40
+9 * 5 = 45
+10 * 5 = 50
+P. S. You can use \n in string to jump to the next line.
+Note: newlines should be added between rows, but there should be no trailing newline at the end. If you're unsure about the format, look at the sample tests.
+*/
+/*
+function multiTable(number) {
+  let str = "";
+  for (let i = 1; i <= 10; i++) {
+    str += `${i} * ${number} = ${i * number}\n`;
+  }
+  return str.trim();
+}
+console.log(multiTable(5));
+*/
+
+// #3
+
+/*
+Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+For example:
+solution([1, 2, 10, 50, 5]); // should return [1,2,5,10,50]
+solution(null); // should return []
+ */
+/*
+function solution(nums) {
+  if (nums === null || nums.length === 0) {
+    return [];
+  }
+  return nums.sort((a, b) => a - b);
+}
+console.log(solution([1, 2, 3, 10, 5]));
+*/
+
+// #4
+
+/*Your job is to write a function which increments a string, to create a new string.
+    If the string already ends with a number, the number should be incremented by 1.
+    If the string does not end with a number. the number 1 should be appended to the new string.
+Examples:
+foo -> foo1
+foobar23 -> foobar24
+foo0042 -> foo0043
+foo9 -> foo10
+foo099 -> foo100
+Attention: If the number has leading zeros the amount of digits should be considered.
+*/
+/*
+function incrementString(str) {
+  let match = str.match(/\d+$/);
+  if (match) {
+    let num = (parseInt(match[0]) + 1)
+      .toString()
+      .padStart(match[0].length, "0");
+    return str.slice(0, match[0].length) + num;
+  } else {
+    return str + "1";
+  }
+}
+
+console.log(incrementString("foo099"));
+
+// let incrementString = (str) =>
+//   str.replace(/([0-8]|\d?9+)?$/, (e) => (e ? +e + 1 : 1));
+*/
+
+// #5
+/*
+Bob needs a fast way to calculate the volume of a cuboid with three values: the length, width and height of the cuboid. Write a function to help Bob with this calculation.
+*/
+/*
+class Kata {
+  static getVolumeOfCuboid(length, width, height) {
+    return length * width * height;
+  }
+}
+
+console.log(getVolumeOfCuboid(1, 2, 2));
+*/
+
+// #6
+
+/*
+A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+Return true if yes, false otherwise :)
+*/
+/*
+function hero(bullets, dragons) {
+  return bullets >= dragons * 2 ? true : false;
+}
+console.log(hero(257, 116));
+*/
+
+// #7
+/*
+Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+For example:
+uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+uniqueInOrder([1,2,2,3,3])       == [1,2,3]
+*/
+/*
+function uniqueInOrder(iterable) {
+  let result = [];
+
+  for (let i = 0; i < iterable.length; i++) {
+    if (iterable[i] !== iterable[i - 1]) {
+      result.push(iterable[i]);
+    }
+  }
+
+  return result;
+}
+
+console.log(uniqueInOrder([1, 2, 2, 3, 3]));
+console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+*/
+
+// #8
+/*
+Given an integer as input, can you round it to the next (meaning, "greater than or equal") multiple of 5?
+Examples:
+input:    output:
+0    ->   0
+2    ->   5
+3    ->   5
+12   ->   15
+21   ->   25
+30   ->   30
+-2   ->   0
+-5   ->   -5
+etc.
+Input may be any positive or negative integer (including 0).
+You can assume that all inputs are valid integers.
+*/
+function roundToNext5(n) {
+  let str = Math.ceil(n / 5) * 5;
+  return str;
+}
+console.log(roundToNext5(2));
