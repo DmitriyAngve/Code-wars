@@ -2294,6 +2294,7 @@ Return True if you're better, else False!
 Note:
 Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
 */
+/*
 function betterThanAverage(classPoints, yourPoints) {
   const sum = classPoints.reduce((a, b) => a + b, 0 / classPoints.length);
   const avg = (sum + yourPoints) / (classPoints.length + 1);
@@ -2301,3 +2302,21 @@ function betterThanAverage(classPoints, yourPoints) {
 }
 
 console.log(betterThanAverage([41, 75, 72, 56, 80, 82, 81, 33], 50));
+*/
+
+// #11
+/*
+There is an array with some numbers. All numbers are equal except for one. Try to find it!
+findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+It’s guaranteed that array contains at least 3 numbers.
+The tests contain some very huge arrays, so think about performance.
+*/
+
+function findUniq(arr) {
+  return arr.filter(
+    (val, ind, self) => self.indexOf(val) === self.lastIndexOf(val)
+  )[0];
+}
+//  return arr.filter((value, index, self) => self.indexOf(value) === self.lastIndexOf(value))[0];
+console.log(findUniq([1, 1, 1, 2, 1, 1]));
