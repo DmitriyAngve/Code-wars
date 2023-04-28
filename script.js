@@ -2179,6 +2179,7 @@ A few examples:(Input1, Input2, Input3 --> Output)
 5, 2, "multiply" --> 10
 5, 2, "divide"   --> 2.5
 */
+/*
 function arithmetic(a, b, operator) {
   if (operator === "add") return a + b;
   if (operator === "subtract") return a - b;
@@ -2187,3 +2188,36 @@ function arithmetic(a, b, operator) {
 }
 
 console.log(arithmetic(1, 2, "add"));
+*/
+
+// #7
+/*
+Given an array of integers, find the one that appears an odd number of times.
+There will always be only one integer that appears an odd number of times.
+Examples
+[7] should return 7, because it occurs 1 time (which is odd).
+[0] should return 0, because it occurs 1 time (which is odd).
+[1,1,2] should return 2, because it occurs 1 time (which is odd).
+[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+*/
+// function findOdd(arr) {
+//   const count = {};
+
+//   for (let i = 0; i < arr.length; i++) {
+//     const elem = arr[i];
+//     count[elem] = (count[elem] || 0) + 1;
+//   }
+
+//   for (const elem in count) {
+//     if (count[elem] % 2 === 1) {
+//       return Number(elem);
+//     }
+//   }
+
+//   return null;
+// }
+
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]));
