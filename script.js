@@ -2217,7 +2217,45 @@ Examples
 
 //   return null;
 // }
-
+/*
 const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
 
 console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]));
+*/
+
+// #8
+
+/*
+    Kids drink toddy.
+    Teens drink coke.
+    Young adults drink beer.
+    Adults drink whisky.
+Make a function that receive age, and return what they drink.
+Rules:
+    Children under 14 old.
+    Teens under 18 old.
+    Young under 21 old.
+    Adults have 21 or more.
+Examples: (Input --> Output)
+13 --> "drink toddy"
+17 --> "drink coke"
+18 --> "drink beer"
+20 --> "drink beer"
+30 --> "drink whisky"
+*/
+function peopleWithAgeDrink(old) {
+  return old < 14
+    ? "drink toddy"
+    : old < 18
+    ? "drink coke"
+    : old < 21
+    ? "drink beer"
+    : "drink whisky";
+}
+
+// function getGrade (s1, s2, s3) {
+//   var s = (s1 + s2 + s3) / 3
+//   return s >= 90 ? "A" : s >= 80 ? "B" : s >= 70 ? "C" : s >= 60 ? "D" : "F"
+// }
+
+console.log(peopleWithAgeDrink(22));
