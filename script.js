@@ -2117,6 +2117,7 @@ Examples:
 checkCoupon("123", "123", "July 9, 2015", "July 9, 2015")  ===  true
 checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false
 */
+/*
 function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
   const time1 = new Date(currentDate).getTime() / 1000;
   const time2 = new Date(expirationDate).getTime() / 1000;
@@ -2127,3 +2128,28 @@ function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
 console.log(
   checkCoupon("123", "123", "September 5, 2014", "September 5, 2014")
 );
+*/
+
+// #4
+/*
+Rock Paper Scissors
+Let's play! You have to return which player won! In case of a draw return Draw!.
+Examples(Input1, Input2 --> Output):
+"scissors", "paper" --> "Player 1 won!"
+"scissors", "rock" --> "Player 2 won!"
+"paper", "paper" --> "Draw!"
+*/
+const rps = (p1, p2) => {
+  if (p1 === p2) {
+    return "Draw!";
+  } else if (
+    (p1 === "rock" && p2 === "scissors") ||
+    (p1 === "paper" && p2 === "rock") ||
+    (p1 === "scissors" && p2 === "paper")
+  ) {
+    return "Player 1 won!";
+  } else {
+    return "Player 2 won!";
+  }
+};
+console.log(rps("scissors", "rock"));
