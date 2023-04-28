@@ -2095,6 +2095,7 @@ Get rid of them. Only the ending ones.
 Zero alone is fine, don't worry about it. Poor guy anyway
 Fundamentals
 */
+/*
 function noBoringZeros(n) {
   while (n % 10 === 0 && n !== 0) {
     n = n / 10;
@@ -2103,3 +2104,26 @@ function noBoringZeros(n) {
 }
 
 console.log(noBoringZeros(96000));
+*/
+
+// #3
+/*
+Your online store likes to give out coupons for special occasions. Some customers try to cheat the system by entering invalid codes or using expired coupons.
+Task
+Your mission:
+Write a function called checkCoupon which verifies that a coupon code is valid and not expired.
+A coupon is no more valid on the day AFTER the expiration date. All dates will be passed as strings in this format: "MONTH DATE, YEAR".
+Examples:
+checkCoupon("123", "123", "July 9, 2015", "July 9, 2015")  ===  true
+checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false
+*/
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
+  const time1 = new Date(currentDate).getTime() / 1000;
+  const time2 = new Date(expirationDate).getTime() / 1000;
+
+  return enteredCode === correctCode && time1 <= time2 ? true : false;
+}
+
+console.log(
+  checkCoupon("123", "123", "September 5, 2014", "September 5, 2014")
+);
