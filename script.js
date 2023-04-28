@@ -2075,8 +2075,31 @@ What We're Testing
 We're testing basic loops and math operations. This is for beginners who are just learning loops and math operations.
 Advanced users may find this extremely easy and can easily write this in one line.
 */
+/*
 function sum(numbers) {
   return numbers.reduce((acc, val) => acc + val, 0);
 }
 
 console.log(sum([1, 5.2, 4, 0, -1]));
+*/
+
+// #2
+/*
+Numbers ending with zeros are boring.
+They might be fun in your world, but not here.
+Get rid of them. Only the ending ones.
+1450 -> 145
+960000 -> 96
+1050 -> 105
+-1050 -> -105
+Zero alone is fine, don't worry about it. Poor guy anyway
+Fundamentals
+*/
+function noBoringZeros(n) {
+  while (n % 10 === 0 && n !== 0) {
+    n = n / 10;
+  }
+  return n;
+}
+
+console.log(noBoringZeros(96000));
