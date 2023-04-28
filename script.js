@@ -2139,17 +2139,28 @@ Examples(Input1, Input2 --> Output):
 "scissors", "rock" --> "Player 2 won!"
 "paper", "paper" --> "Draw!"
 */
+/*
 const rps = (p1, p2) => {
-  if (p1 === p2) {
-    return "Draw!";
-  } else if (
-    (p1 === "rock" && p2 === "scissors") ||
-    (p1 === "paper" && p2 === "rock") ||
-    (p1 === "scissors" && p2 === "paper")
-  ) {
-    return "Player 1 won!";
-  } else {
-    return "Player 2 won!";
-  }
+  if (p1 === p2) return "Draw!";
+  if (p1 === "rock" && p2 === "scissors") return "Player 1 won!";
+  if (p1 === "scissors" && p2 === "paper") return "Player 1 won!";
+  if (p1 === "paper" && p2 === "rock") return "Player 1 won!";
+  return "Player 2 won!";
 };
 console.log(rps("scissors", "rock"));
+*/
+
+// #5
+/*
+ou need to write a function that reverses the words in a given string. A word can also fit an empty string. If this is not clear enough, here are some examples:
+As the input may have trailing spaces, you will also need to ignore unneccesary whitespace.
+Example (Input --> Output)
+"Hello World" --> "World Hello"
+"Hi There." --> "There. Hi"
+Happy coding!
+*/
+function reverse(string) {
+  let newStr = string.split(" ").reverse().join(" ");
+  return newStr;
+}
+console.log(reverse("no one cares"));
