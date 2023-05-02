@@ -2391,6 +2391,7 @@ Examples:
 * With `name` not given 
   or `name` = ""        => return "Hello, World!"
 */
+/*
 function hello(name) {
   return name
     ? `Hello, ${name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()}!`
@@ -2398,3 +2399,37 @@ function hello(name) {
 }
 
 console.log(hello(""));
+/*
+
+// #4
+/*
+Write Number in Expanded Form
+You will be given a number and you will need to return it as a string in Expanded Form. For example:
+expandedForm(12); // Should return '10 + 2'
+expandedForm(42); // Should return '40 + 2'
+expandedForm(70304); // Should return '70000 + 300 + 4'
+NOTE: All numbers will be whole numbers greater than 0.
+If you liked this kata, check out part 2!!
+*/
+function expandedForm(num) {
+  let digits = String(num).split("");
+  let result = [];
+  for (let i = 0; i < digits.length; i++) {
+    let digit = Number(digits[i]);
+    let place = Math.pow(10, digits.length - i - 1);
+    if (digit !== 0) {
+      result.push(digit * place);
+    }
+  }
+  return result.join(" + ");
+}
+
+// Better solution
+// const expandedForm = n => n.toString()
+//                             .split("")
+//                             .reverse()
+//                             .map( (a, i) => a * Math.pow(10, i))
+//                             .filter(a => a > 0)
+//                             .reverse()
+//                             .join(" + ");
+console.log(expandedForm(70333));
