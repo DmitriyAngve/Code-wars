@@ -2313,6 +2313,7 @@ It’s guaranteed that array contains at least 3 numbers.
 The tests contain some very huge arrays, so think about performance.
 */
 
+/*
 function findUniq(arr) {
   return arr.filter(
     (val, ind, self) => self.indexOf(val) === self.lastIndexOf(val)
@@ -2320,3 +2321,32 @@ function findUniq(arr) {
 }
 //  return arr.filter((value, index, self) => self.indexOf(value) === self.lastIndexOf(value))[0];
 console.log(findUniq([1, 1, 1, 2, 1, 1]));
+*/
+
+// 02.05
+// #1
+/*
+What if we need the length of the words separated by a space to be added at the end of that same word and have it returned as an array?
+Example(Input --> Output)
+"apple ban" --> ["apple 5", "ban 3"]
+"you will win" -->["you 3", "will 4", "win 3"]
+Your task is to write a function that takes a String and returns an Array/list with the length of each word added to each element.
+Note: String will have at least one element; words will always be separated by a space.
+*/
+function addLength(str) {
+  let newStr = str.split(" ");
+  let newArr = [];
+  let space = " ";
+  console.log(newStr);
+  for (let i = 0; i < newStr.length; i++) {
+    y = newStr[i] + space + newStr[i].length;
+    newArr.push(y);
+  }
+  return newArr;
+}
+/*
+function addLength(str){
+  return str.split(" ").map(s => `${s} ${s.length}`)
+}
+*/
+console.log(addLength("you will win"));
