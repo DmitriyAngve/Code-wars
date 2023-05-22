@@ -2495,6 +2495,7 @@ console.log(
 */
 
 // 22.05
+// #1
 /*
 Create a function with two arguments that will return an array of the first n multiples of x.
 
@@ -2506,6 +2507,7 @@ Examples
 countBy(1,10) === [1,2,3,4,5,6,7,8,9,10]
 countBy(2,5) === [2,4,6,8,10]
 */
+/*
 function countBy(x, n) {
   let z = [];
   for (let i = 1; i <= n; i++) {
@@ -2514,3 +2516,32 @@ function countBy(x, n) {
   return z;
 }
 console.log(countBy(2, 5));
+*/
+
+// #2
+
+/*
+Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+
+Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+
+Examples:
+
+Testing: [0, 0, 0, 1] ==> 1
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 0, 1] ==> 5
+Testing: [1, 0, 0, 1] ==> 9
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 1, 0] ==> 6
+Testing: [1, 1, 1, 1] ==> 15
+Testing: [1, 0, 1, 1] ==> 11
+
+However, the arrays can have varying lengths, not just limited to 4.
+
+*/
+function binaryArrayToNumber(arr) {
+  let decimal = arr.join("");
+  return parseInt(decimal, 2);
+}
+
+console.log(binaryArrayToNumber([0, 0, 0, 1]));
