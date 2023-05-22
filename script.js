@@ -2558,6 +2558,7 @@ Rules
 Example
 wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
  */
+/*
 function wave(str) {
   let result = [];
   for (let i = 0; i < str.length; i++) {
@@ -2571,3 +2572,18 @@ function wave(str) {
 }
 
 console.log(wave("hello"));
+*/
+
+// #4
+/*
+Define a function that removes duplicates from an array of numbers and returns it as a result.
+
+The order of the sequence has to stay the same.
+
+*/
+function distinct(a) {
+  let set = new Set(a);
+  return [...set];
+}
+
+console.log(distinct([1, 1, 2]));
