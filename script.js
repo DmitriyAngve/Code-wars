@@ -2726,6 +2726,7 @@ Write a function that returns a string in which firstname is swapped with last n
 Example(Input --> Output)
 "john McClane" --> "McClane john"
 */
+/*
 function nameShuffler(str) {
   // let newstr = str.split(" ");
   // return `"${newstr[1]} ${newstr[0]}"`;
@@ -2734,3 +2735,24 @@ function nameShuffler(str) {
 }
 
 console.log(nameShuffler("Mary jeggins"));
+*/
+
+// #7
+/*
+This time no story, no theory. The examples below show you how to write function accum:
+Examples:
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+The parameter of accum is a string which includes only letters from a..z and A..Z.
+*/
+function accum(s) {
+  let result = "";
+  for (let i = 0; i < s.length; i++) {
+    let letter = s[i].toUpperCase();
+    result += letter + letter.toLowerCase().repeat(i) + "-";
+  }
+  return result.slice(0, -1);
+}
+
+console.log(accum("ZpglnRxqenU"));
