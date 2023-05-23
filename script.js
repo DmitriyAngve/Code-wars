@@ -2700,8 +2700,20 @@ arrayDiff([1,2],[1]) == [2]
 If a value is present in b, all of its occurrences must be removed from the other:
 arrayDiff([1,2,2,2,3],[2]) == [1,3]
 */
+/*
 function arrayDiff(a, b) {
   return a.filter((el) => !b.includes(el));
 }
 
 console.log(arrayDiff([1, 2, 2, 2, 3], [2]));
+*/
+
+// #5
+/*
+Create a method that accepts a list and an item, and returns true if the item belongs to the list, otherwise false.
+*/
+function include(arr, item) {
+  return arr.includes(item) ? true : false;
+}
+
+console.log(include([1, 2, 2, 4], 3));
