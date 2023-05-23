@@ -2712,8 +2712,25 @@ console.log(arrayDiff([1, 2, 2, 2, 3], [2]));
 /*
 Create a method that accepts a list and an item, and returns true if the item belongs to the list, otherwise false.
 */
+/*
 function include(arr, item) {
   return arr.includes(item) ? true : false;
 }
 
 console.log(include([1, 2, 2, 4], 3));
+*/
+
+// #6
+/*
+Write a function that returns a string in which firstname is swapped with last name.
+Example(Input --> Output)
+"john McClane" --> "McClane john"
+*/
+function nameShuffler(str) {
+  // let newstr = str.split(" ");
+  // return `"${newstr[1]} ${newstr[0]}"`;
+  const [firstName, lastName] = str.split(" ");
+  return `${lastName} ${firstName}`;
+}
+
+console.log(nameShuffler("Mary jeggins"));
