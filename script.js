@@ -2746,6 +2746,7 @@ accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 accum("cwAt") -> "C-Ww-Aaa-Tttt"
 The parameter of accum is a string which includes only letters from a..z and A..Z.
 */
+/*
 function accum(s) {
   let result = "";
   for (let i = 0; i < s.length; i++) {
@@ -2756,3 +2757,21 @@ function accum(s) {
 }
 
 console.log(accum("ZpglnRxqenU"));
+*/
+
+// #8
+/*
+Your task is to write function factorial.
+*/
+function factorial(n) {
+  if (n === 0) {
+    return 1;
+  }
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+console.log(factorial(4));
