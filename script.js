@@ -2777,4 +2777,3 @@ function factorial(n) {
 
 console.log(factorial(4));
 */
-console.log(4);
