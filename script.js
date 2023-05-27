@@ -2763,6 +2763,7 @@ console.log(accum("ZpglnRxqenU"));
 /*
 Your task is to write function factorial.
 */
+/*
 function factorial(n) {
   if (n === 0) {
     return 1;
@@ -2775,3 +2776,6 @@ function factorial(n) {
 }
 
 console.log(factorial(4));
+*/
+
+// #1
