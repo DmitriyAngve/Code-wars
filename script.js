@@ -3033,6 +3033,7 @@ console.log(sayHello(["Wallace", "Russel", "Osbourne"], "Phoenix", "Arizona"));
 A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
 Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
 */
+/*
 function isPangram(string) {
   const letter = string
     .toLowerCase()
@@ -3049,3 +3050,45 @@ function isPangram(string) {
 }
 
 console.log(isPangram("This is not a pangram."));
+*/
+
+// #13
+/*
+Input: Array of elements
+["h","o","l","a"]
+Output: String with comma delimited elements of the array in th same order.
+"h,o,l,a"
+*/
+/*
+function printArray(array) {
+  return array.join(",");
+}
+
+console.log(printArray(["h", "o", "l", "a"]));
+*/
+
+// #14
+/*
+Your task is to create a function that does four basic mathematical operations.
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+Examples(Operator, value1, value2) --> output
+('+', 4, 7) --> 11
+('-', 15, 18) --> -3
+('*', 5, 5) --> 25
+('/', 49, 7) --> 7
+*/
+function basicOp(operation, value1, value2) {
+  switch (operation) {
+    case "+":
+      return value1 + value2;
+    case "-":
+      return value1 - value2;
+    case "*":
+      return value1 * value2;
+    case "/":
+      return value1 / value2;
+  }
+}
+
+console.log(basicOp("+", 4, 7));
