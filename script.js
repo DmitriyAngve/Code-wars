@@ -2811,6 +2811,7 @@ digPow(92, 1) should return -1 since there is no k such as 9¹ + 2² equals 92 *
 digPow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
 digPow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
 */
+/*
 function digPow(n, p) {
   const digits = String(n).split("");
   let sum = 0;
@@ -2825,3 +2826,54 @@ function digPow(n, p) {
 }
 
 console.log(digPow(46288, 3));
+*/
+
+// #3
+
+/*
+Complete the function that receives as input a string, and produces outputs according to the following table:
+Input 	Output
+"Jabroni" |	"Patron Tequila"
+"School Counselor" |	"Anything with Alcohol"
+"Programmer" |	"Hipster Craft Beer"
+"Bike Gang Member" |	"Moonshine"
+"Politician" |	"Your tax dollars"
+"Rapper" |	"Cristal"
+anything else 	"Beer"
+Note: anything else is the default case: if the input to the function is not any of the values in the table, then the return value should be "Beer".
+Make sure you cover the cases where certain words do not show up with correct capitalization. For example, the input "pOLitiCIaN" should still return "Your tax dollars".
+*/
+function getDrinkByProfession(param) {
+  let par = param.toLowerCase();
+  switch (par) {
+    case "jabroni":
+      return "Patron Tequila";
+    case "school counselor":
+      return "Anything with Alcohol";
+    case "programmer":
+      return "Hipster Craft Beer";
+    case "bike gang member":
+      return "Moonshine";
+    case "politician":
+      return "Your tax dollars";
+    case "rapper":
+      return "Cristal";
+  }
+  return "Beer";
+}
+
+console.log(getDrinkByProfession("bike ganG member"));
+
+/*
+SECOND SOLUTION
+const drinks = {
+  "jabroni": "Patron Tequila",
+  "school counselor": "Anything with Alcohol",
+  "programmer": "Hipster Craft Beer",
+  "bike gang member": "Moonshine",
+  "politician": "Your tax dollars",
+  "rapper": "Cristal"
+}
+
+const getDrinkByProfession = profession => drinks[profession.toLowerCase()] || "Beer"
+*/
