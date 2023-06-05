@@ -3160,6 +3160,7 @@ Examples:(Input --> Output)
 625 --> 676
 114 --> -1 since 114 is not a perfect square
 */
+/*
 function findNextSquare(sq) {
   let result = Math.pow(Math.sqrt(sq) + 1, 2);
   if (Number.isInteger(result)) {
@@ -3170,3 +3171,30 @@ function findNextSquare(sq) {
 }
 
 console.log(findNextSquare(114));
+
+*/
+
+// #19
+/*
+You are given a string containing a sequence of character sequences separated by commas.
+Write a function which returns a new string containing the same character sequences except the first and the last ones but this time separated by spaces.
+If the input string is empty or the removal of the first and last items would cause the resulting string to be empty, return an empty value (represented as a generic value NULL in the examples below).
+Examples
+"1,2,3"      =>  "2"
+"1,2,3,4"    =>  "2 3"
+"1,2,3,4,5"  =>  "2 3 4"
+""     =>  NULL
+"1"    =>  NULL
+"1,2"  =>  NULL
+*/
+function array(string) {
+  let result = string.split(",");
+  console.log(result);
+  if (result.length < 3) {
+    return null;
+  } else {
+    return result.slice(1, -1).join(" ");
+  }
+}
+
+console.log(array("A1,B2,C3,D4,E5"));
