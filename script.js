@@ -2934,7 +2934,7 @@ You need to return the highest scoring word as a string.
 If two words score the same, return the word that appears earliest in the original string.
 All letters will be lowercase and all inputs will be valid.
 */
-
+/*
 function high(x) {
   const words = x.split(" ");
 
@@ -2953,3 +2953,75 @@ function high(x) {
 }
 
 console.log(high("Man i need a taxi up to ubud"));
+*/
+
+// #8
+/*
+Description:
+You want to create secret messages which can be deciphered by the Decipher this! kata. Here are the conditions:
+    Your message is a string containing space separated words.
+    You need to encrypt each word in the message using the following rules:
+        The first letter must be converted to its ASCII code.
+        The second letter must be switched with the last letter
+    Keepin' it simple: There are no special characters in the input.
+Examples:
+encryptThis("Hello") === "72olle"
+encryptThis("good") === "103doo"
+encryptThis("hello world") === "104olle 119drlo"
+*/
+/*
+const encryptThis = (text) =>
+  text
+    .split(" ")
+    .map((word) =>
+      word
+        .replace(/(^\w)(\w)(\w*)(\w$)/, `$1$4$3$2`)
+        .replace(/^\w/, word.charCodeAt(0))
+    )
+    .join(" ");
+
+console.log(encryptThis("A wise old owl lived in an oak"));
+*/
+
+// #9
+/*
+Write a function that always returns 5
+Sounds easy right? Just bear in mind that you can't use any of the following characters: 0123456789*+-/
+*/
+/*
+function unusualFive(str) {
+  str = "Plane";
+  return str.length;
+}
+
+console.log(unusualFive());
+*/
+
+// #10
+
+/*
+We need a simple function that determines if a plural is needed or not. It should take a number, and return true if a plural should be used with that number or false if not. This would be useful when printing out a string such as 5 minutes, 14 apples, or 1 sun.
+    You only need to worry about english grammar rules for this kata, where anything that isn't singular (one of something), it is plural (not one of something).
+All values will be positive integers or floats, or zero.
+*/
+/*
+function plural(n) {
+  return n !== 1;
+}
+
+console.log(plural(0));
+*/
+
+// #11
+/*
+Create a method sayHello/say_hello/SayHello that takes as input a name, city, and state to welcome a person. Note that name will be an array consisting of one or more values that should be joined together with one space between each, and the length of the name array in test cases will vary.
+Example:
+sayHello(['John', 'Smith'], 'Phoenix', 'Arizona')
+This example will return the string Hello, John Smith! Welcome to Phoenix, Arizona!
+*/
+function sayHello(name, city, state) {
+  const fullName = name.join(" ");
+  return `Hello, ${fullName}! Welcome to ${city}, ${state}!`;
+}
+
+console.log(sayHello(["Wallace", "Russel", "Osbourne"], "Phoenix", "Arizona"));
