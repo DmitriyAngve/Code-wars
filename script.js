@@ -2917,8 +2917,39 @@ console.log(angle(4));
 You will be given an array a and a value x. All you need to do is check whether the provided array contains the value, without using a loop.
 Array can contain numbers or strings. x can be either. Return true if the array contains the value, false if not. With strings you will need to account for case.
 */
+/*
 function check(a, x) {
   return a.includes(x, 0);
 }
 
 console.log(check([66, 101], 66));
+*/
+
+// #7
+/*
+Given a string of words, you need to find the highest scoring word.
+Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+For example, the score of abad is 8 (1 + 2 + 1 + 4).
+You need to return the highest scoring word as a string.
+If two words score the same, return the word that appears earliest in the original string.
+All letters will be lowercase and all inputs will be valid.
+*/
+
+function high(x) {
+  const words = x.split(" ");
+
+  const maxWord = words.reduce((maxWord, word) => {
+    const score = word.split("").reduce((total, letter) => {
+      return total + (letter.charCodeAt(0) - 96);
+    }, 0);
+
+    if (score > (maxWord.score || 0)) {
+      return { word, score };
+    } else {
+      return maxWord;
+    }
+  }, {});
+  return maxWord.word || "";
+}
+
+console.log(high("Man i need a taxi up to ubud"));
