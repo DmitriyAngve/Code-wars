@@ -2843,6 +2843,7 @@ anything else 	"Beer"
 Note: anything else is the default case: if the input to the function is not any of the values in the table, then the return value should be "Beer".
 Make sure you cover the cases where certain words do not show up with correct capitalization. For example, the input "pOLitiCIaN" should still return "Your tax dollars".
 */
+/*
 function getDrinkByProfession(param) {
   let par = param.toLowerCase();
   switch (par) {
@@ -2861,7 +2862,7 @@ function getDrinkByProfession(param) {
   }
   return "Beer";
 }
-
+/*
 console.log(getDrinkByProfession("bike ganG member"));
 
 /*
@@ -2874,6 +2875,50 @@ const drinks = {
   "politician": "Your tax dollars",
   "rapper": "Cristal"
 }
-
 const getDrinkByProfession = profession => drinks[profession.toLowerCase()] || "Beer"
 */
+
+// #4
+
+/*
+Given a non-negative integer n, write a function to_binary/ToBinary which returns that number in a binary format.
+to_binary(1)  / should return 1 
+to_binary(5)  / should return 101 
+to_binary(11) / should return 1011 
+
+Example:
+
+toBinary(1)  / should return 1 
+toBinary(5)  / should return 101 
+toBinary(11) / should return 1011 
+*/
+/*
+function toBinary(n) {
+  return +n.toString(2);
+}
+
+console.log(toBinary(1));
+*/
+
+// #5
+/*
+Find the total sum of internal angles (in degrees) in an n-sided simple polygon. N will be greater than 2.
+*/
+/*
+function angle(n) {
+  return 180 * (n - 2);
+}
+
+console.log(angle(4));
+*/
+// #6
+/*
+*** No Loops Allowed ***
+You will be given an array a and a value x. All you need to do is check whether the provided array contains the value, without using a loop.
+Array can contain numbers or strings. x can be either. Return true if the array contains the value, false if not. With strings you will need to account for case.
+*/
+function check(a, x) {
+  return a.includes(x, 0);
+}
+
+console.log(check([66, 101], 66));
