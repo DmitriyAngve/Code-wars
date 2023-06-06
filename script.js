@@ -3322,6 +3322,7 @@ Complete the function which returns the weekday according to the input number:
     7 returns "Saturday"
     Otherwise returns "Wrong, please enter a number between 1 and 7"
 */
+/*
 function whatday(num) {
   if (num < 1 || num > 7) {
     return "Wrong, please enter a number between 1 and 7";
@@ -3344,5 +3345,40 @@ function whatday(num) {
     }
   }
 }
-
 console.log(whatday(1));
+*/
+
+// #7
+/*
+Return a new array consisting of elements which are multiple of their own index in input array (length > 1).
+Some cases:
+[22, -6, 32, 82, 9, 25] =>  [-6, 32, 25]
+[68, -1, 1, -7, 10, 10] => [-1, 10]
+[-56,-85,72,-26,-14,76,-27,72,35,-21,-67,87,0,21,59,27,-92,68] => [-85, 72, 0, 68]
+*/
+/*
+function multipleOfIndex(array) {
+  return array.filter((el, index) => el % index === 0);
+}
+console.log(multipleOfIndex([22, -6, 32, 82, 9, 25]));
+*/
+
+// #8
+/*
+Sentence Smash
+Write a function that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
+Example
+['hello', 'world', 'this', 'is', 'great']  =>  'hello world this is great'
+*/
+/*
+function smash(words) {
+  return words.join(" ");
+}
+
+console.log(smash(["hello", "world", "this", "is", "great"]));
+*/
+
+// #9
+/*
+
+*/
