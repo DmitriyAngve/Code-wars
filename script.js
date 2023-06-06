@@ -3427,6 +3427,7 @@ Example
 In descending order: [10, 2, 1]
 Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
 */
+/*
 function sumOfDifferences(arr) {
   let sum = 0;
   let sorted = arr.sort((a, b) => b - a);
@@ -3439,14 +3440,53 @@ function sumOfDifferences(arr) {
 }
 
 console.log(sumOfDifferences([1, 2, 10]));
-
-/*
-function sumOfMinimums(arr) {
-  let sum = 0;
-  let sorted = arr.map((arr) => arr.sort((a, b) => a - b));
-  for (let i = 0; i < sorted.length; i++) {
-    sum += sorted[i][0];
-  }
-  return sum;
-}
 */
+
+// #12
+/*
+When provided with a letter, return its position in the alphabet.
+Input :: "a"
+Ouput :: "Position of alphabet: 1"
+*/
+/*
+function position(letter) {
+  return `Position of alphabet: ${letter.charCodeAt(0) - 96}`;
+}
+
+console.log(position("z"));
+*/
+// #13
+/*
+Create a function that converts US dollars (USD) to Chinese Yuan (CNY) . The input is the amount of USD as an integer, and the output should be a string that states the amount of Yuan followed by 'Chinese Yuan'
+Examples (Input -> Output)
+15  -> '101.25 Chinese Yuan'
+465 -> '3138.75 Chinese Yuan'
+The conversion rate you should use is 6.75 CNY for every 1 USD. All numbers should be represented as a string with 2 decimal places. (e.g. "21.00" NOT "21.0" or "21")
+*/
+/*
+function usdcny(usd) {
+  return `${(usd * 6.75).toFixed(2)} Chinese Yuan`;
+}
+
+console.log(usdcny(465));
+*/
+
+// #14
+/*
+As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
+The input to the function will be an array of three distinct numbers
+For example:
+gimme([2, 3, 1]) => 0
+2 is the number that fits between 1 and 3 and the index of 2 in the input array is 0.
+Another example (just to make sure it is clear):
+gimme([5, 10, 14]) => 1
+10 is the number that fits between 5 and 14 and the index of 10 in the input array is 1.
+*/
+function gimme(triplet) {
+  const sorted = triplet
+    .map((el, ind) => ind)
+    .sort((a, b) => triplet[a] - triplet[b]);
+  return sorted[1];
+}
+
+console.log(gimme([5, 10, 14]));
