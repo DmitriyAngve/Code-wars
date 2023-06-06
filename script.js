@@ -3187,6 +3187,7 @@ Examples
 "1"    =>  NULL
 "1,2"  =>  NULL
 */
+/*
 function array(string) {
   let result = string.split(",");
   console.log(result);
@@ -3198,3 +3199,26 @@ function array(string) {
 }
 
 console.log(array("A1,B2,C3,D4,E5"));
+*/
+
+// 06.06.2023
+
+// #1
+/*
+If　a = 1, b = 2, c = 3 ... z = 26
+Then l + o + v + e = 54
+and f + r + i + e + n + d + s + h + i + p = 108
+So friendship is twice as strong as love :-)
+Your task is to write a function which calculates the value of a word based off the sum of the alphabet positions of its characters.
+The input will always be made of only lowercase letters and will never be empty.
+*/
+function wordsToMarks(string) {
+  const str = string.split("");
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    sum += string[i].charCodeAt(0) - 96;
+  }
+  return sum;
+}
+
+console.log(wordsToMarks("friends"));
