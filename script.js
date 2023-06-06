@@ -3500,6 +3500,7 @@ You will need a rental car in order for you to get around in your vacation. The 
 Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. Alternatively, if you rent the car for 3 or more days, you get $20 off your total.
 Write a code that gives out the total amount for different days(d).
 */
+/*
 function rentalCarCost(d) {
   if (d >= 7) {
     return d * 40 - 50;
@@ -3513,3 +3514,31 @@ function rentalCarCost(d) {
 }
 
 console.log(rentalCarCost(1));
+*/
+
+// #16
+
+/*
+ Find the sum of all multiples of n below m
+Keep in Mind
+    n and m are natural numbers (positive integers)
+    m is excluded from the multiples
+Examples
+sumMul(2, 9)   ==> 2 + 4 + 6 + 8 = 20
+sumMul(3, 13)  ==> 3 + 6 + 9 + 12 = 30
+sumMul(4, 123) ==> 4 + 8 + 12 + ... = 1860
+sumMul(4, -7)  ==> "INVALID"
+*/
+function sumMul(n, m) {
+  if (n <= 0 || m <= 0) {
+    return "INVALID";
+  }
+
+  let sum = 0;
+  for (let i = n; i < m; i += n) {
+    sum += i;
+  }
+  return sum;
+}
+
+console.log(sumMul(2, 9));
