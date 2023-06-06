@@ -3402,6 +3402,7 @@ Your task is to find the nearest square number, nearest_sq(n) or nearestSq(n), o
 For example, if n = 111, then nearest\_sq(n) (nearestSq(n)) equals 121, since 111 is closer to 121, the square of 11, than 100, the square of 10.
 If the n is already the perfect square (e.g. n = 144, n = 81, etc.), you need to just return n.
 */
+/*
 function nearestSq(n) {
   const sqrt = Math.sqrt(n);
   const lowSqrt = Math.floor(sqrt) ** 2;
@@ -3416,15 +3417,36 @@ function nearestSq(n) {
 
 console.log(nearestSq(111));
 console.log(nearestSq(100));
+*/
+
+// #11
 /*
-function findNextSquare(sq) {
-  let result = Math.pow(Math.sqrt(sq) + 1, 2);
-  if (Number.isInteger(result)) {
-    return result;
-  } else {
-    return -1;
+Your task is to sum the differences between consecutive pairs in the array in descending order.
+Example
+[2, 1, 10]  -->  9
+In descending order: [10, 2, 1]
+Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
+*/
+function sumOfDifferences(arr) {
+  let sum = 0;
+  let sorted = arr.sort((a, b) => b - a);
+  console.log(arr);
+  for (let i = 0; i < sorted.length - 1; i++) {
+    let difference = sorted[i] - sorted[i + 1];
+    sum += difference;
   }
+  return sum;
 }
 
-console.log(findNextSquare(114));
+console.log(sumOfDifferences([1, 2, 10]));
+
+/*
+function sumOfMinimums(arr) {
+  let sum = 0;
+  let sorted = arr.map((arr) => arr.sort((a, b) => a - b));
+  for (let i = 0; i < sorted.length; i++) {
+    sum += sorted[i][0];
+  }
+  return sum;
+}
 */
