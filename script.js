@@ -3212,6 +3212,7 @@ So friendship is twice as strong as love :-)
 Your task is to write a function which calculates the value of a word based off the sum of the alphabet positions of its characters.
 The input will always be made of only lowercase letters and will never be empty.
 */
+/*
 function wordsToMarks(string) {
   const str = string.split("");
   let sum = 0;
@@ -3222,3 +3223,33 @@ function wordsToMarks(string) {
 }
 
 console.log(wordsToMarks("friends"));
+*/
+
+// #2
+/*
+Given a 2D ( nested ) list ( array, vector, .. ) of size m * n, your task is to find the sum of the minimum values in each row.
+For Example:
+[ [ 1, 2, 3, 4, 5 ]        #  minimum value of row is 1
+, [ 5, 6, 7, 8, 9 ]        #  minimum value of row is 5
+, [ 20, 21, 34, 56, 100 ]  #  minimum value of row is 20
+]
+So the function should return 26 because the sum of the minimums is 1 + 5 + 20 = 26.
+Note: You will always be given a non-empty list containing positive values.
+ENJOY CODING :)
+*/
+function sumOfMinimums(arr) {
+  let sum = 0;
+  let sorted = arr.map((arr) => arr.sort((a, b) => a - b));
+  for (let i = 0; i < sorted.length; i++) {
+    sum += sorted[i][0];
+  }
+  return sum;
+}
+
+console.log(
+  sumOfMinimums([
+    [1, 2, 3, 4, 5],
+    [5, 6, 7, 8, 9],
+    [20, 21, 34, 56, 100],
+  ])
+);
