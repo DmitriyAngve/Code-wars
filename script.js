@@ -1683,3 +1683,1862 @@ function sortArray(array) {
 }
 console.log(sortArray([5, 3, 2, 8, 1, 4]));
 */
+
+// #5
+
+/*
+Write a function that removes the spaces from the string, then return the resultant string.
+Examples:
+Input -> Output
+"8 j 8   mBliB8g  imjB8B8  jl  B" -> "8j8mBliB8gimjB8B8jlB"
+"8 8 Bi fk8h B 8 BB8B B B  B888 c hl8 BhB fd" -> "88Bifk8hB8BB8BBBB888chl8BhBfd"
+"8aaaaa dddd r     " -> "8aaaaaddddr"
+*/
+/*
+function noSpace(x) {
+  return x.replace(/\s/g, "");
+}
+console.log(noSpace("8 j 8   mBliB8g  imjB8B8  jl  B"), "8j8mBliB8gimjB8B8jlB");
+*/
+
+// #6
+/*
+A string is considered to be in title case if each word in the string is either (a) capitalised (that is, only the first letter of the word is in upper case) or (b) considered to be an exception and put entirely into lower case unless it is the first word, which is always capitalised.
+
+Write a function that will convert a string into title case, given an optional list of exceptions (minor words). The list of minor words will be given as a string with each word separated by a space. Your function should ignore the case of the minor words string -- it should behave in the same way even if the case of the minor word string is changed.
+Arguments
+    First argument (required): the original string to be converted.
+    Second argument (optional): space-delimited list of minor words that must always be lowercase except for the first word in the string. The JavaScript/CoffeeScript tests will pass undefined when this argument is unused.
+Example
+titleCase('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
+titleCase('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
+*/
+/*
+function titleCase(title, minorWords) {
+  const minorWordsArr = minorWords ? minorWords.toLowerCase().split(" ") : [];
+  console.log(minorWordsArr);
+
+  const titleArr = title.toLowerCase().split(" ");
+
+  const result = titleArr.map((word, index) => {
+    if (index === 0 || !minorWordsArr.includes(word)) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    } else {
+      return word;
+    }
+  });
+
+  return result.join(" ");
+}
+
+console.log(titleCase("a clash of KINGS", "a an the of"));
+*/
+
+// #7
+
+/*
+Write a function named sumDigits which takes a number as input and returns the sum of the absolute value of each of the number's decimal digits.
+For example: (Input --> Output)
+10 --> 1
+99 --> 18
+-32 --> 5
+Let's assume that all numbers in the input will be integer values.
+*/
+/*
+function sumDigits(number) {
+  let str = number.toString();
+  let str2 = str.split("");
+  console.log(str2);
+  let sum = 0;
+  for (let i = 0; i < str2.length; i++) {
+    if (str2[i] === "-") continue;
+    sum += parseInt(str2[i]);
+  }
+  return sum;
+}
+
+console.log(sumDigits(-42));
+*/
+
+// #8
+
+/*
+Your task is to convert strings to how they would be written by Jaden Smith. The strings are actual quotes from Jaden Smith, but they are not capitalized in the same way he originally typed them.
+Example:
+Not Jaden-Cased: "How can mirrors be real if our eyes aren't real"
+Jaden-Cased:     "How Can Mirrors Be Real If Our Eyes Aren't Real"
+*/
+/*
+String.prototype.toJadenCase = function () {
+  let str1 = this.split(" ");
+  let arr = str1.map((word, index) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  });
+  return arr.join(" ");
+};
+
+console.log(toJadenCase("How can mirrors be real if our eyes aren't real"));
+*/
+
+// #9
+
+/*
+Your function takes two arguments:
+    current father's age (years)
+    current age of his son (years)
+Сalculate how many years ago the father was twice as old as his son (or in how many years he will be twice as old). The answer is always greater or equal to 0, no matter if it was in the past or it is in the future.
+*/
+/*
+function twiceAsOld(x, y) {
+  let z = x - y * 2;
+  return Math.abs(z);
+}
+
+console.log(twiceAsOld(55, 30));
+*/
+
+// #10
+/*
+In this kata you will create a function that takes in a list and returns a list with the reverse order.
+Examples (Input -> Output)
+ */
+/*
+function reverseList(list) {
+  return list.reverse();
+}
+console.log(reverseList([1, 2, 3, 4]));
+*/
+
+// #11
+
+/*
+Assume the test input string is always a valid string. For example, the test input may be "1 year old" or "5 years old". The first character in the string is always a number.
+ */
+/*
+function getAge(inputString) {
+  return parseInt(inputString.charAt(0));
+}
+
+console.log(getAge("4 years old"));
+*/
+
+// 27.04
+
+// #1
+
+/*
+Who remembers back to their time in the schoolyard, when girls would take a flower and tear its petals, saying each of the following phrases each time a petal was torn:
+    "I love you"
+    "a little"
+    "a lot"
+    "passionately"
+    "madly"
+    "not at all"
+If there are more than 6 petals, you start over with "I love you" for 7 petals, "a little" for 8 petals and so on.
+When the last petal was torn there were cries of excitement, dreams, surging thoughts and emotions.
+Your goal in this kata is to determine which phrase the girls would say at the last petal for a flower of a given number of petals. The number of petals is always greater than 0.
+ */
+/*
+function howMuchILoveYou(nbPetals) {
+  const nbArr = [
+    "I love you",
+    "a little",
+    "a lot",
+    "passionately",
+    "madly",
+    "not at all",
+  ];
+  // const index = (nbPetals - 1) % nbArr.length;
+  return nbArr[nbPetals % 6];
+}
+
+console.log(howMuchILoveYou(7));
+*/
+
+// #2
+
+/*
+Your goal is to return multiplication table for number that is always an integer from 1 to 10.
+For example, a multiplication table (string) for number == 5 looks like below:
+1 * 5 = 5
+2 * 5 = 10
+3 * 5 = 15
+4 * 5 = 20
+5 * 5 = 25
+6 * 5 = 30
+7 * 5 = 35
+8 * 5 = 40
+9 * 5 = 45
+10 * 5 = 50
+P. S. You can use \n in string to jump to the next line.
+Note: newlines should be added between rows, but there should be no trailing newline at the end. If you're unsure about the format, look at the sample tests.
+*/
+/*
+function multiTable(number) {
+  let str = "";
+  for (let i = 1; i <= 10; i++) {
+    str += `${i} * ${number} = ${i * number}\n`;
+  }
+  return str.trim();
+}
+console.log(multiTable(5));
+*/
+
+// #3
+
+/*
+Finish the solution so that it sorts the passed in array of numbers. If the function passes in an empty array or null/nil value then it should return an empty array.
+For example:
+solution([1, 2, 10, 50, 5]); // should return [1,2,5,10,50]
+solution(null); // should return []
+ */
+/*
+function solution(nums) {
+  if (nums === null || nums.length === 0) {
+    return [];
+  }
+  return nums.sort((a, b) => a - b);
+}
+console.log(solution([1, 2, 3, 10, 5]));
+*/
+
+// #4
+
+/*Your job is to write a function which increments a string, to create a new string.
+    If the string already ends with a number, the number should be incremented by 1.
+    If the string does not end with a number. the number 1 should be appended to the new string.
+Examples:
+foo -> foo1
+foobar23 -> foobar24
+foo0042 -> foo0043
+foo9 -> foo10
+foo099 -> foo100
+Attention: If the number has leading zeros the amount of digits should be considered.
+*/
+/*
+function incrementString(str) {
+  let match = str.match(/\d+$/);
+  if (match) {
+    let num = (parseInt(match[0]) + 1)
+      .toString()
+      .padStart(match[0].length, "0");
+    return str.slice(0, match[0].length) + num;
+  } else {
+    return str + "1";
+  }
+}
+
+console.log(incrementString("foo099"));
+
+// let incrementString = (str) =>
+//   str.replace(/([0-8]|\d?9+)?$/, (e) => (e ? +e + 1 : 1));
+*/
+
+// #5
+/*
+Bob needs a fast way to calculate the volume of a cuboid with three values: the length, width and height of the cuboid. Write a function to help Bob with this calculation.
+*/
+/*
+class Kata {
+  static getVolumeOfCuboid(length, width, height) {
+    return length * width * height;
+  }
+}
+
+console.log(getVolumeOfCuboid(1, 2, 2));
+*/
+
+// #6
+
+/*
+A hero is on his way to the castle to complete his mission. However, he's been told that the castle is surrounded with a couple of powerful dragons! each dragon takes 2 bullets to be defeated, our hero has no idea how many bullets he should carry.. Assuming he's gonna grab a specific given number of bullets and move forward to fight another specific given number of dragons, will he survive?
+Return true if yes, false otherwise :)
+*/
+/*
+function hero(bullets, dragons) {
+  return bullets >= dragons * 2 ? true : false;
+}
+console.log(hero(257, 116));
+*/
+
+// #7
+/*
+Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+For example:
+uniqueInOrder('AAAABBBCCDAABBB') == ['A', 'B', 'C', 'D', 'A', 'B']
+uniqueInOrder('ABBCcAD')         == ['A', 'B', 'C', 'c', 'A', 'D']
+uniqueInOrder([1,2,2,3,3])       == [1,2,3]
+*/
+/*
+function uniqueInOrder(iterable) {
+  let result = [];
+
+  for (let i = 0; i < iterable.length; i++) {
+    if (iterable[i] !== iterable[i - 1]) {
+      result.push(iterable[i]);
+    }
+  }
+
+  return result;
+}
+
+console.log(uniqueInOrder([1, 2, 2, 3, 3]));
+console.log(uniqueInOrder("AAAABBBCCDAABBB"));
+*/
+
+// #8
+/*
+Given an integer as input, can you round it to the next (meaning, "greater than or equal") multiple of 5?
+Examples:
+input:    output:
+0    ->   0
+2    ->   5
+3    ->   5
+12   ->   15
+21   ->   25
+30   ->   30
+-2   ->   0
+-5   ->   -5
+etc.
+Input may be any positive or negative integer (including 0).
+You can assume that all inputs are valid integers.
+*/
+/*
+function roundToNext5(n) {
+  let str = Math.ceil(n / 5) * 5;
+  return str;
+}
+console.log(roundToNext5(2));
+*/
+
+// #9
+/*
+The first century spans from the year 1 up to and including the year 100, the second century - from the year 101 up to and including the year 200, etc.
+Task
+Given a year, return the century it is in.
+Examples
+1705 --> 18
+1900 --> 19
+1601 --> 17
+2000 --> 20
+Note: this kata uses strict construction as shown in the description and the examples, you can read more about it here
+Fundamentals
+Mathematics
+ */
+/*
+function century(year) {
+  return Math.ceil(year / 100);
+}
+
+console.log(century(89));
+/*
+
+// #10
+/*
+The main idea is to count all the occurring characters in a string. If you have a string like aba, then the result should be {'a': 2, 'b': 1}.
+What if the string is empty? Then the result should be empty object literal, {}.
+*/
+/*
+
+function countChars(str) {
+  let counts = {};
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if (counts[char]) {
+      counts[char]++;
+    } else {
+      counts[char] = 1;
+    }
+  }
+  return counts;
+}
+console.log(countChars("aba"));
+*/
+
+// 28.04
+
+// #1
+/*
+Write a function that takes an array of numbers and returns the sum of the numbers. The numbers can be negative or non-integer. If the array does not contain any numbers then you should return 0.
+Examples
+Input: [1, 5.2, 4, 0, -1]
+Output: 9.2
+Input: []
+Output: 0
+Input: [-2.398]
+Output: -2.398
+Assumptions
+    You can assume that you are only given numbers.
+    You cannot assume the size of the array.
+    You can assume that you do get an array and if the array is empty, return 0.
+What We're Testing
+We're testing basic loops and math operations. This is for beginners who are just learning loops and math operations.
+Advanced users may find this extremely easy and can easily write this in one line.
+*/
+/*
+function sum(numbers) {
+  return numbers.reduce((acc, val) => acc + val, 0);
+}
+
+console.log(sum([1, 5.2, 4, 0, -1]));
+*/
+
+// #2
+/*
+Numbers ending with zeros are boring.
+They might be fun in your world, but not here.
+Get rid of them. Only the ending ones.
+1450 -> 145
+960000 -> 96
+1050 -> 105
+-1050 -> -105
+Zero alone is fine, don't worry about it. Poor guy anyway
+Fundamentals
+*/
+/*
+function noBoringZeros(n) {
+  while (n % 10 === 0 && n !== 0) {
+    n = n / 10;
+  }
+  return n;
+}
+
+console.log(noBoringZeros(96000));
+*/
+
+// #3
+/*
+Your online store likes to give out coupons for special occasions. Some customers try to cheat the system by entering invalid codes or using expired coupons.
+Task
+Your mission:
+Write a function called checkCoupon which verifies that a coupon code is valid and not expired.
+A coupon is no more valid on the day AFTER the expiration date. All dates will be passed as strings in this format: "MONTH DATE, YEAR".
+Examples:
+checkCoupon("123", "123", "July 9, 2015", "July 9, 2015")  ===  true
+checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false
+*/
+/*
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
+  const time1 = new Date(currentDate).getTime() / 1000;
+  const time2 = new Date(expirationDate).getTime() / 1000;
+
+  return enteredCode === correctCode && time1 <= time2 ? true : false;
+}
+
+console.log(
+  checkCoupon("123", "123", "September 5, 2014", "September 5, 2014")
+);
+*/
+
+// #4
+/*
+Rock Paper Scissors
+Let's play! You have to return which player won! In case of a draw return Draw!.
+Examples(Input1, Input2 --> Output):
+"scissors", "paper" --> "Player 1 won!"
+"scissors", "rock" --> "Player 2 won!"
+"paper", "paper" --> "Draw!"
+*/
+/*
+const rps = (p1, p2) => {
+  if (p1 === p2) return "Draw!";
+  if (p1 === "rock" && p2 === "scissors") return "Player 1 won!";
+  if (p1 === "scissors" && p2 === "paper") return "Player 1 won!";
+  if (p1 === "paper" && p2 === "rock") return "Player 1 won!";
+  return "Player 2 won!";
+};
+console.log(rps("scissors", "rock"));
+*/
+
+// #5
+/*
+ou need to write a function that reverses the words in a given string. A word can also fit an empty string. If this is not clear enough, here are some examples:
+As the input may have trailing spaces, you will also need to ignore unneccesary whitespace.
+Example (Input --> Output)
+"Hello World" --> "World Hello"
+"Hi There." --> "There. Hi"
+Happy coding!
+*/
+/*
+function reverse(string) {
+  let newStr = string.split(" ").reverse().join(" ");
+  return newStr;
+}
+console.log(reverse("no one cares"));
+*/
+
+// #6
+
+/*
+Given two numbers and an arithmetic operator (the name of it, as a string), return the result of the two numbers having that operator used on them.
+a and b will both be positive integers, and a will always be the first number in the operation, and b always the second.
+The four operators are "add", "subtract", "divide", "multiply".
+A few examples:(Input1, Input2, Input3 --> Output)
+5, 2, "add"      --> 7
+5, 2, "subtract" --> 3
+5, 2, "multiply" --> 10
+5, 2, "divide"   --> 2.5
+*/
+/*
+function arithmetic(a, b, operator) {
+  if (operator === "add") return a + b;
+  if (operator === "subtract") return a - b;
+  if (operator === "multiply") return a * b;
+  if (operator === "divide") return a / b;
+}
+
+console.log(arithmetic(1, 2, "add"));
+*/
+
+// #7
+/*
+Given an array of integers, find the one that appears an odd number of times.
+There will always be only one integer that appears an odd number of times.
+Examples
+[7] should return 7, because it occurs 1 time (which is odd).
+[0] should return 0, because it occurs 1 time (which is odd).
+[1,1,2] should return 2, because it occurs 1 time (which is odd).
+[0,1,0,1,0] should return 0, because it occurs 3 times (which is odd).
+[1,2,2,3,3,3,4,3,3,3,2,2,1] should return 4, because it appears 1 time (which is odd).
+*/
+// function findOdd(arr) {
+//   const count = {};
+
+//   for (let i = 0; i < arr.length; i++) {
+//     const elem = arr[i];
+//     count[elem] = (count[elem] || 0) + 1;
+//   }
+
+//   for (const elem in count) {
+//     if (count[elem] % 2 === 1) {
+//       return Number(elem);
+//     }
+//   }
+
+//   return null;
+// }
+/*
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+console.log(findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]));
+*/
+
+// #8
+
+/*
+    Kids drink toddy.
+    Teens drink coke.
+    Young adults drink beer.
+    Adults drink whisky.
+Make a function that receive age, and return what they drink.
+Rules:
+    Children under 14 old.
+    Teens under 18 old.
+    Young under 21 old.
+    Adults have 21 or more.
+Examples: (Input --> Output)
+13 --> "drink toddy"
+17 --> "drink coke"
+18 --> "drink beer"
+20 --> "drink beer"
+30 --> "drink whisky"
+*/
+/*
+function peopleWithAgeDrink(old) {
+  return old < 14
+    ? "drink toddy"
+    : old < 18
+    ? "drink coke"
+    : old < 21
+    ? "drink beer"
+    : "drink whisky";
+}
+
+// function getGrade (s1, s2, s3) {
+//   var s = (s1 + s2 + s3) / 3
+//   return s >= 90 ? "A" : s >= 80 ? "B" : s >= 70 ? "C" : s >= 60 ? "D" : "F"
+// }
+
+console.log(peopleWithAgeDrink(22));
+*/
+/*
+function binToDec(bin) {
+  return parseInt(bin, 2);
+}
+*/
+
+// #9
+
+/*
+Write a function get_char() / getChar() which takes a number and returns the corresponding ASCII char for that value.
+Example:
+get_char(65)
+should return:
+'A'
+*/
+/*
+function getChar(c) {
+  return String.fromCharCode(c);
+}
+
+console.log(getChar(55));
+*/
+
+// #10
+
+/*
+There was a test in your class and you passed it. Congratulations!
+But you're an ambitious person. You want to know if you're better than the average student in your class.
+You receive an array with your peers' test scores. Now calculate the average and compare your score!
+Return True if you're better, else False!
+Note:
+Your points are not included in the array of your class's points. For calculating the average point you may add your point to the given array!
+*/
+/*
+function betterThanAverage(classPoints, yourPoints) {
+  const sum = classPoints.reduce((a, b) => a + b, 0 / classPoints.length);
+  const avg = (sum + yourPoints) / (classPoints.length + 1);
+  return yourPoints > avg;
+}
+
+console.log(betterThanAverage([41, 75, 72, 56, 80, 82, 81, 33], 50));
+*/
+
+// #11
+/*
+There is an array with some numbers. All numbers are equal except for one. Try to find it!
+findUniq([ 1, 1, 1, 2, 1, 1 ]) === 2
+findUniq([ 0, 0, 0.55, 0, 0 ]) === 0.55
+It’s guaranteed that array contains at least 3 numbers.
+The tests contain some very huge arrays, so think about performance.
+*/
+
+/*
+function findUniq(arr) {
+  return arr.filter(
+    (val, ind, self) => self.indexOf(val) === self.lastIndexOf(val)
+  )[0];
+}
+//  return arr.filter((value, index, self) => self.indexOf(value) === self.lastIndexOf(value))[0];
+console.log(findUniq([1, 1, 1, 2, 1, 1]));
+*/
+
+// 02.05
+// #1
+/*
+What if we need the length of the words separated by a space to be added at the end of that same word and have it returned as an array?
+Example(Input --> Output)
+"apple ban" --> ["apple 5", "ban 3"]
+"you will win" -->["you 3", "will 4", "win 3"]
+Your task is to write a function that takes a String and returns an Array/list with the length of each word added to each element.
+Note: String will have at least one element; words will always be separated by a space.
+*/
+/*
+function addLength(str) {
+  let newStr = str.split(" ");
+  let newArr = [];
+  let space = " ";
+  console.log(newStr);
+  for (let i = 0; i < newStr.length; i++) {
+    y = newStr[i] + space + newStr[i].length;
+    newArr.push(y);
+  }
+  return newArr;
+}
+
+// function addLength(str){
+//   return str.split(" ").map(s => `${s} ${s.length}`)
+// }
+
+console.log(addLength("you will win"));
+*/
+
+// #2
+
+/*
+In a factory a printer prints labels for boxes. For one kind of boxes the printer has to use colors which, for the sake of simplicity, are named with letters from a to m.
+The colors used by the printer are recorded in a control string. For example a "good" control string would be aaabbbbhaijjjm meaning that the printer used three times color a, four times color b, one time color h then one time color a...
+Sometimes there are problems: lack of colors, technical malfunction and a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm with letters not from a to m.
+You have to write a function printer_error which given a string will return the error rate of the printer as a string representing a rational whose numerator is the number of errors and the denominator the length of the control string. Don't reduce this fraction to a simpler expression.
+The string has a length greater or equal to one and contains only letters from ato z.
+Examples:
+s="aaabbbbhaijjjm"
+printer_error(s) => "0/14"
+s="aaaxbbbbyyhwawiwjjjwwm"
+printer_error(s) => "8/22"
+*/
+/*
+function printerError(s) {
+  const regex = /[a-m]/gi;
+  const matches = s.match(regex);
+  const errors = s.length - matches.length;
+  const result = `${errors}/${s.length}`;
+  return result;
+}
+
+console.log(
+  printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz")
+);
+*/
+
+// #3
+/*
+Define a method hello that returns "Hello, Name!" to a given name, or says Hello, World! if name is not given (or passed as an empty String).
+Assuming that name is a String and it checks for user typos to return a name with a first capital letter (Xxxx).
+Examples:
+* With `name` = "john"  => return "Hello, John!"
+* With `name` = "aliCE" => return "Hello, Alice!"
+* With `name` not given 
+  or `name` = ""        => return "Hello, World!"
+*/
+/*
+function hello(name) {
+  return name
+    ? `Hello, ${name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()}!`
+    : "Hello, World!";
+}
+
+console.log(hello(""));
+/*
+
+// #4
+/*
+Write Number in Expanded Form
+You will be given a number and you will need to return it as a string in Expanded Form. For example:
+expandedForm(12); // Should return '10 + 2'
+expandedForm(42); // Should return '40 + 2'
+expandedForm(70304); // Should return '70000 + 300 + 4'
+NOTE: All numbers will be whole numbers greater than 0.
+If you liked this kata, check out part 2!!
+*/
+/*
+function expandedForm(num) {
+  let digits = String(num).split("");
+  let result = [];
+  for (let i = 0; i < digits.length; i++) {
+    let digit = Number(digits[i]);
+    let place = Math.pow(10, digits.length - i - 1);
+    if (digit !== 0) {
+      result.push(digit * place);
+    }
+  }
+  return result.join(" + ");
+}
+
+// Better solution
+// const expandedForm = n => n.toString()
+//                             .split("")
+//                             .reverse()
+//                             .map( (a, i) => a * Math.pow(10, i))
+//                             .filter(a => a > 0)
+//                             .reverse()
+//                             .join(" + ");
+console.log(expandedForm(70333));
+
+*/
+// #5
+/*
+Create a function that accepts a string and a single character, and returns an integer of the count of occurrences the 2nd argument is found in the first one.
+If no occurrences can be found, a count of 0 should be returned.
+("Hello", "o")  ==>  1
+("Hello", "l")  ==>  2
+("", "z")       ==>  0
+str_count("Hello", 'o'); // returns 1
+str_count("Hello", 'l'); // returns 2
+str_count("", 'z'); // returns 0
+Notes
+    The first argument can be an empty string
+    In languages with no distinct character data type, the second argument will be a string of length 1
+*/
+/*
+function strCount(str, letter) {
+  const regex = new RegExp(letter, "g");
+  const matches = str.match(regex);
+  return matches ? matches.length : 0;
+}
+
+console.log(strCount("", "z"));
+/*
+
+// #6 
+/*
+The first input array is the key to the correct answers to an exam, like ["a", "a", "b", "d"]. The second one contains a student's submitted answers.
+The two arrays are not empty and are the same length. Return the score for this array of answers, giving +4 for each correct answer, -1 for each incorrect answer, and +0 for each blank answer, represented as an empty string (in C the space character is used).
+If the score < 0, return 0.
+For example:
+checkExam(["a", "a", "b", "b"], ["a", "c", "b", "d"]) → 6
+checkExam(["a", "a", "c", "b"], ["a", "a", "b",  ""]) → 7
+checkExam(["a", "a", "b", "c"], ["a", "a", "b", "c"]) → 16
+checkExam(["b", "c", "b", "a"], ["",  "a", "a", "c"]) → 0
+*/
+/*
+function checkExam(array1, array2) {
+  let count = 0;
+  for (let i = 0; i < array1.length; i++) {
+    if (array1[i] === array2[i]) {
+      count += 4;
+    } else if (array2[i] === "") {
+      count += 0;
+    } else {
+      count -= 1;
+    }
+  }
+  return count >= 0 ? count : 0;
+}
+
+console.log(
+  checkExam(
+    ["c", "a", "a", "c", "b", "c", "b"],
+    ["b", "a", "", "", "a", "", ""]
+  )
+);
+*/
+
+// 22.05
+// #1
+/*
+Create a function with two arguments that will return an array of the first n multiples of x.
+
+Assume both the given number and the number of times to count will be positive numbers greater than 0.
+
+Return the results as an array or list ( depending on language ).
+Examples
+
+countBy(1,10) === [1,2,3,4,5,6,7,8,9,10]
+countBy(2,5) === [2,4,6,8,10]
+*/
+/*
+function countBy(x, n) {
+  let z = [];
+  for (let i = 1; i <= n; i++) {
+    z.push(i * x);
+  }
+  return z;
+}
+console.log(countBy(2, 5));
+*/
+
+// #2
+
+/*
+Given an array of ones and zeroes, convert the equivalent binary value to an integer.
+
+Eg: [0, 0, 0, 1] is treated as 0001 which is the binary representation of 1.
+
+Examples:
+
+Testing: [0, 0, 0, 1] ==> 1
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 0, 1] ==> 5
+Testing: [1, 0, 0, 1] ==> 9
+Testing: [0, 0, 1, 0] ==> 2
+Testing: [0, 1, 1, 0] ==> 6
+Testing: [1, 1, 1, 1] ==> 15
+Testing: [1, 0, 1, 1] ==> 11
+
+However, the arrays can have varying lengths, not just limited to 4.
+
+*/
+/*
+function binaryArrayToNumber(arr) {
+  let decimal = arr.join("");
+  return parseInt(decimal, 2);
+}
+
+console.log(binaryArrayToNumber([0, 0, 0, 1]));
+*/
+
+// #3
+/*
+Task
+In this simple Kata your task is to create a function that turns a string into a Mexican Wave. You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up. 
+Rules
+ 1.  The input string will always be lower case but maybe empty.
+ 2.  If the character in the string is whitespace then pass over it as if it was an empty seat
+Example
+wave("hello") => ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+ */
+/*
+function wave(str) {
+  let result = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      continue;
+    }
+    let waveStr = str.slice(0, i) + str[i].toUpperCase() + str.slice(i + 1);
+    result.push(waveStr);
+  }
+  return result;
+}
+
+console.log(wave("hello"));
+*/
+
+// #4
+/*
+Define a function that removes duplicates from an array of numbers and returns it as a result.
+
+The order of the sequence has to stay the same.
+
+*/
+/*
+function distinct(a) {
+  let set = new Set(a);
+  return [...set];
+}
+
+console.log(distinct([1, 1, 2]));
+*/
+
+// 23.05
+
+// #1
+/*
+Create a function that accepts a list/array and a number n, and returns a list/array of the first n elements from the list/array.
+*/
+/*
+function take(arr, n) {
+  return arr.slice(0, n);
+}
+
+console.log(take([0, 1, 2, 3, 5, 8, 13], 3));
+*/
+
+// #2
+/*
+The number 898989 is the first integer with more than one digit that fulfills the property partially introduced in the title of this kata. What's the use of saying "Eureka"? Because this sum gives the same number: 89=81+9289 = 8^1 + 9^289=81+92
+The next number in having this property is 135135135:
+See this property again: 135=11+32+53135 = 1^1 + 3^2 + 5^3135=11+32+53
+Task
+We need a function to collect these numbers, that may receive two integers aaa, bbb that defines the range [a,b][a, b][a,b] (inclusive) and outputs a list of the sorted numbers in the range that fulfills the property described above.
+Examples
+Let's see some cases (input -> output):
+1, 10  --> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+1, 100 --> [1, 2, 3, 4, 5, 6, 7, 8, 9, 89]
+*/
+/*
+function sumDigPow(a, b) {
+  let result = [];
+  for (let num = a; num <= b; num++) {
+    let dig = num.toString().slice("");
+    let sum = 0;
+
+    for (let i = 0; i < dig.length; i++) {
+      sum += Math.pow(parseInt(dig[i]), i + 1);
+    }
+    if (sum === num) {
+      result.push(num);
+    }
+  }
+  return result;
+}
+
+console.log(sumDigPow(1, 100));
+*/
+
+// #3
+
+/*
+Your task is to write a function which returns the sum of a sequence of integers.
+The sequence is defined by 3 non-negative values: begin, end, step.
+If begin value is greater than the end, your function should return 0. If end is not the result of an integer number of steps, then don't add it to the sum. See the 4th example below.
+Examples
+2,2,2 --> 2
+2,6,2 --> 12 (2 + 4 + 6)
+1,5,1 --> 15 (1 + 2 + 3 + 4 + 5)
+1,5,3  --> 5 (1 + 4)
+*/
+/*
+const sequenceSum = (begin, end, step) => {
+  if (begin > end) {
+    return 0;
+  }
+  let sum = 0;
+  for (let i = begin; i <= end; i += step) {
+    sum += i;
+  }
+  return sum;
+};
+
+console.log(sequenceSum(1, 5, 1));
+*/
+
+// #4
+
+/*
+In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example: 5! = 5 * 4 * 3 * 2 * 1 = 120. By convention the value of 0! is 1.
+Write a function to calculate factorial for a given input. If input is below 0 or above 12 throw an exception of type throw a RangeError (JavaScript).
+More details about factorial can be found here.
+*/
+/*
+function factorial(n) {
+  if (n < 0 || n > 12) {
+    throw new RangeError("Input is out of range.");
+  }
+
+  if (n === 0) {
+    return 1;
+  }
+
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+
+  return result;
+}
+
+console.log(factorial(5));
+*/
+
+// #5
+
+/*
+Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+It should remove all values from list a, which are present in list b keeping their order.
+arrayDiff([1,2],[1]) == [2]
+If a value is present in b, all of its occurrences must be removed from the other:
+arrayDiff([1,2,2,2,3],[2]) == [1,3]
+*/
+/*
+function arrayDiff(a, b) {
+  return a.filter((el) => !b.includes(el));
+}
+
+console.log(arrayDiff([1, 2, 2, 2, 3], [2]));
+*/
+
+// #5
+/*
+Create a method that accepts a list and an item, and returns true if the item belongs to the list, otherwise false.
+*/
+/*
+function include(arr, item) {
+  return arr.includes(item) ? true : false;
+}
+
+console.log(include([1, 2, 2, 4], 3));
+*/
+
+// #6
+/*
+Write a function that returns a string in which firstname is swapped with last name.
+Example(Input --> Output)
+"john McClane" --> "McClane john"
+*/
+/*
+function nameShuffler(str) {
+  // let newstr = str.split(" ");
+  // return `"${newstr[1]} ${newstr[0]}"`;
+  const [firstName, lastName] = str.split(" ");
+  return `${lastName} ${firstName}`;
+}
+
+console.log(nameShuffler("Mary jeggins"));
+*/
+
+// #7
+/*
+This time no story, no theory. The examples below show you how to write function accum:
+Examples:
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+The parameter of accum is a string which includes only letters from a..z and A..Z.
+*/
+/*
+function accum(s) {
+  let result = "";
+  for (let i = 0; i < s.length; i++) {
+    let letter = s[i].toUpperCase();
+    result += letter + letter.toLowerCase().repeat(i) + "-";
+  }
+  return result.slice(0, -1);
+}
+
+console.log(accum("ZpglnRxqenU"));
+*/
+
+// #8
+/*
+Your task is to write function factorial.
+*/
+/*
+function factorial(n) {
+  if (n === 0) {
+    return 1;
+  }
+  let result = 1;
+  for (let i = 1; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+console.log(factorial(4));
+*/
+
+// 05.06.2023
+
+/*
+Implement a function which convert the given boolean value into its string representation.
+Note: Only valid inputs will be given.
+*/
+
+// #1
+/*
+function booleanToString(b) {
+  return b.toString();
+}
+
+console.log(booleanToString(true));
+*/
+// #2
+
+/*
+Some numbers have funny properties. For example:
+    89 --> 8¹ + 9² = 89 * 1
+    695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2
+    46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+Given a positive integer n written as abcd... (a, b, c, d... being digits) and a positive integer p
+    we want to find a positive integer k, if it exists, such that the sum of the digits of n taken to the successive powers of p is equal to k * n.
+In other words:
+    Is there an integer k such as : (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k
+If it is the case we will return k, if not return -1.
+Note: n and p will always be given as strictly positive integers.
+digPow(89, 1) should return 1 since 8¹ + 9² = 89 = 89 * 1
+digPow(92, 1) should return -1 since there is no k such as 9¹ + 2² equals 92 * k
+digPow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
+digPow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+*/
+/*
+function digPow(n, p) {
+  const digits = String(n).split("");
+  let sum = 0;
+  for (let i = 0; i < digits.length; i++) {
+    sum += digits[i] ** (p + i);
+  }
+  if (sum % n === 0) {
+    return sum / n;
+  } else {
+    return -1;
+  }
+}
+
+console.log(digPow(46288, 3));
+*/
+
+// #3
+
+/*
+Complete the function that receives as input a string, and produces outputs according to the following table:
+Input 	Output
+"Jabroni" |	"Patron Tequila"
+"School Counselor" |	"Anything with Alcohol"
+"Programmer" |	"Hipster Craft Beer"
+"Bike Gang Member" |	"Moonshine"
+"Politician" |	"Your tax dollars"
+"Rapper" |	"Cristal"
+anything else 	"Beer"
+Note: anything else is the default case: if the input to the function is not any of the values in the table, then the return value should be "Beer".
+Make sure you cover the cases where certain words do not show up with correct capitalization. For example, the input "pOLitiCIaN" should still return "Your tax dollars".
+*/
+/*
+function getDrinkByProfession(param) {
+  let par = param.toLowerCase();
+  switch (par) {
+    case "jabroni":
+      return "Patron Tequila";
+    case "school counselor":
+      return "Anything with Alcohol";
+    case "programmer":
+      return "Hipster Craft Beer";
+    case "bike gang member":
+      return "Moonshine";
+    case "politician":
+      return "Your tax dollars";
+    case "rapper":
+      return "Cristal";
+  }
+  return "Beer";
+}
+/*
+console.log(getDrinkByProfession("bike ganG member"));
+
+/*
+SECOND SOLUTION
+const drinks = {
+  "jabroni": "Patron Tequila",
+  "school counselor": "Anything with Alcohol",
+  "programmer": "Hipster Craft Beer",
+  "bike gang member": "Moonshine",
+  "politician": "Your tax dollars",
+  "rapper": "Cristal"
+}
+const getDrinkByProfession = profession => drinks[profession.toLowerCase()] || "Beer"
+*/
+
+// #4
+
+/*
+Given a non-negative integer n, write a function to_binary/ToBinary which returns that number in a binary format.
+to_binary(1)  / should return 1 
+to_binary(5)  / should return 101 
+to_binary(11) / should return 1011 
+
+Example:
+
+toBinary(1)  / should return 1 
+toBinary(5)  / should return 101 
+toBinary(11) / should return 1011 
+*/
+/*
+function toBinary(n) {
+  return +n.toString(2);
+}
+
+console.log(toBinary(1));
+*/
+
+// #5
+/*
+Find the total sum of internal angles (in degrees) in an n-sided simple polygon. N will be greater than 2.
+*/
+/*
+function angle(n) {
+  return 180 * (n - 2);
+}
+
+console.log(angle(4));
+*/
+// #6
+/*
+*** No Loops Allowed ***
+You will be given an array a and a value x. All you need to do is check whether the provided array contains the value, without using a loop.
+Array can contain numbers or strings. x can be either. Return true if the array contains the value, false if not. With strings you will need to account for case.
+*/
+/*
+function check(a, x) {
+  return a.includes(x, 0);
+}
+
+console.log(check([66, 101], 66));
+*/
+
+// #7
+/*
+Given a string of words, you need to find the highest scoring word.
+Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+For example, the score of abad is 8 (1 + 2 + 1 + 4).
+You need to return the highest scoring word as a string.
+If two words score the same, return the word that appears earliest in the original string.
+All letters will be lowercase and all inputs will be valid.
+*/
+/*
+function high(x) {
+  const words = x.split(" ");
+
+  const maxWord = words.reduce((maxWord, word) => {
+    const score = word.split("").reduce((total, letter) => {
+      return total + (letter.charCodeAt(0) - 96);
+    }, 0);
+
+    if (score > (maxWord.score || 0)) {
+      return { word, score };
+    } else {
+      return maxWord;
+    }
+  }, {});
+  return maxWord.word || "";
+}
+
+console.log(high("Man i need a taxi up to ubud"));
+*/
+
+// #8
+/*
+Description:
+You want to create secret messages which can be deciphered by the Decipher this! kata. Here are the conditions:
+    Your message is a string containing space separated words.
+    You need to encrypt each word in the message using the following rules:
+        The first letter must be converted to its ASCII code.
+        The second letter must be switched with the last letter
+    Keepin' it simple: There are no special characters in the input.
+Examples:
+encryptThis("Hello") === "72olle"
+encryptThis("good") === "103doo"
+encryptThis("hello world") === "104olle 119drlo"
+*/
+/*
+const encryptThis = (text) =>
+  text
+    .split(" ")
+    .map((word) =>
+      word
+        .replace(/(^\w)(\w)(\w*)(\w$)/, `$1$4$3$2`)
+        .replace(/^\w/, word.charCodeAt(0))
+    )
+    .join(" ");
+
+console.log(encryptThis("A wise old owl lived in an oak"));
+*/
+
+// #9
+/*
+Write a function that always returns 5
+Sounds easy right? Just bear in mind that you can't use any of the following characters: 0123456789*+-/
+*/
+/*
+function unusualFive(str) {
+  str = "Plane";
+  return str.length;
+}
+
+console.log(unusualFive());
+*/
+
+// #10
+
+/*
+We need a simple function that determines if a plural is needed or not. It should take a number, and return true if a plural should be used with that number or false if not. This would be useful when printing out a string such as 5 minutes, 14 apples, or 1 sun.
+    You only need to worry about english grammar rules for this kata, where anything that isn't singular (one of something), it is plural (not one of something).
+All values will be positive integers or floats, or zero.
+*/
+/*
+function plural(n) {
+  return n !== 1;
+}
+
+console.log(plural(0));
+*/
+
+// #11
+/*
+Create a method sayHello/say_hello/SayHello that takes as input a name, city, and state to welcome a person. Note that name will be an array consisting of one or more values that should be joined together with one space between each, and the length of the name array in test cases will vary.
+Example:
+sayHello(['John', 'Smith'], 'Phoenix', 'Arizona')
+This example will return the string Hello, John Smith! Welcome to Phoenix, Arizona!
+*/
+/*
+function sayHello(name, city, state) {
+  const fullName = name.join(" ");
+  return `Hello, ${fullName}! Welcome to ${city}, ${state}!`;
+}
+
+console.log(sayHello(["Wallace", "Russel", "Osbourne"], "Phoenix", "Arizona"));
+*/
+
+// #12
+/*
+A pangram is a sentence that contains every single letter of the alphabet at least once. For example, the sentence "The quick brown fox jumps over the lazy dog" is a pangram, because it uses the letters A-Z at least once (case is irrelevant).
+Given a string, detect whether or not it is a pangram. Return True if it is, False if not. Ignore numbers and punctuation.
+*/
+/*
+function isPangram(string) {
+  const letter = string
+    .toLowerCase()
+    .replace(/[^a-z]/g, "")
+    .split("");
+  console.log(letter);
+  const unique = [...new Set(letter)];
+  console.log(unique);
+  if (unique.length === 26) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(isPangram("This is not a pangram."));
+*/
+
+// #13
+/*
+Input: Array of elements
+["h","o","l","a"]
+Output: String with comma delimited elements of the array in th same order.
+"h,o,l,a"
+*/
+/*
+function printArray(array) {
+  return array.join(",");
+}
+
+console.log(printArray(["h", "o", "l", "a"]));
+*/
+
+// #14
+/*
+Your task is to create a function that does four basic mathematical operations.
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+Examples(Operator, value1, value2) --> output
+('+', 4, 7) --> 11
+('-', 15, 18) --> -3
+('*', 5, 5) --> 25
+('/', 49, 7) --> 7
+*/
+/*
+function basicOp(operation, value1, value2) {
+  switch (operation) {
+    case "+":
+      return value1 + value2;
+    case "-":
+      return value1 - value2;
+    case "*":
+      return value1 * value2;
+    case "/":
+      return value1 / value2;
+  }
+}
+
+console.log(basicOp("+", 4, 7));
+*/
+
+// #15
+/*
+Given a list of integers, determine whether the sum of its elements is odd or even.
+Give your answer as a string matching "odd" or "even".
+If the input array is empty consider it as: [0] (array with a zero).
+Examples:
+Input: [0]
+Output: "even"
+Input: [0, 1, 4]
+Output: "odd"
+Input: [0, -1, -5]
+Output: "even"
+Have fun!
+*/
+/*
+function oddOrEven(array) {
+  if (array.length === 0) {
+    return "even";
+  } else {
+    return array.reduce((acc, el) => acc + el, 0) % 2 === 0 ? "even" : "odd";
+  }
+}
+
+console.log(oddOrEven([0]));
+*/
+
+// #16
+
+/*
+JavaScript Arrays support a filter function (starting in JavaScript 1.6). Use the filter functionality to complete the function given.
+The solution would work like the following:
+getEvenNumbers([2,4,5,6]) // should == [2,4,6]
+*/
+/*
+function getEvenNumbers(numbersArray) {
+  return numbersArray.filter((el) => el % 2 === 0);
+}
+
+console.log(getEvenNumbers([12, 14, 15]));
+*/
+
+// #17
+/*
+You need to write regex that will validate a password to make sure it meets the following criteria:
+    At least six characters long
+    contains a lowercase letter
+    contains an uppercase letter
+    contains a digit
+    only contains alphanumeric characters (note that '_' is not alphanumeric)
+*/
+/*
+const REGEXP = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/;
+*/
+
+// #18
+
+/*
+You might know some pretty large perfect squares. But what about the NEXT one?
+Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.
+If the parameter is itself not a perfect square then -1 should be returned. You may assume the parameter is non-negative.
+Examples:(Input --> Output)
+121 --> 144
+625 --> 676
+114 --> -1 since 114 is not a perfect square
+*/
+/*
+function findNextSquare(sq) {
+  let result = Math.pow(Math.sqrt(sq) + 1, 2);
+  if (Number.isInteger(result)) {
+    return result;
+  } else {
+    return -1;
+  }
+}
+
+console.log(findNextSquare(114));
+*/
+
+// #19
+/*
+You are given a string containing a sequence of character sequences separated by commas.
+Write a function which returns a new string containing the same character sequences except the first and the last ones but this time separated by spaces.
+If the input string is empty or the removal of the first and last items would cause the resulting string to be empty, return an empty value (represented as a generic value NULL in the examples below).
+Examples
+"1,2,3"      =>  "2"
+"1,2,3,4"    =>  "2 3"
+"1,2,3,4,5"  =>  "2 3 4"
+""     =>  NULL
+"1"    =>  NULL
+"1,2"  =>  NULL
+*/
+/*
+function array(string) {
+  let result = string.split(",");
+  console.log(result);
+  if (result.length < 3) {
+    return null;
+  } else {
+    return result.slice(1, -1).join(" ");
+  }
+}
+
+console.log(array("A1,B2,C3,D4,E5"));
+*/
+
+// 06.06.2023
+
+// #1
+/*
+If　a = 1, b = 2, c = 3 ... z = 26
+Then l + o + v + e = 54
+and f + r + i + e + n + d + s + h + i + p = 108
+So friendship is twice as strong as love :-)
+Your task is to write a function which calculates the value of a word based off the sum of the alphabet positions of its characters.
+The input will always be made of only lowercase letters and will never be empty.
+*/
+/*
+function wordsToMarks(string) {
+  const str = string.split("");
+  let sum = 0;
+  for (let i = 0; i < str.length; i++) {
+    sum += string[i].charCodeAt(0) - 96;
+  }
+  return sum;
+}
+
+console.log(wordsToMarks("friends"));
+*/
+
+// #2
+/*
+Given a 2D ( nested ) list ( array, vector, .. ) of size m * n, your task is to find the sum of the minimum values in each row.
+For Example:
+[ [ 1, 2, 3, 4, 5 ]        #  minimum value of row is 1
+, [ 5, 6, 7, 8, 9 ]        #  minimum value of row is 5
+, [ 20, 21, 34, 56, 100 ]  #  minimum value of row is 20
+]
+So the function should return 26 because the sum of the minimums is 1 + 5 + 20 = 26.
+Note: You will always be given a non-empty list containing positive values.
+ENJOY CODING :)
+*/
+/*
+function sumOfMinimums(arr) {
+  let sum = 0;
+  let sorted = arr.map((arr) => arr.sort((a, b) => a - b));
+  for (let i = 0; i < sorted.length; i++) {
+    sum += sorted[i][0];
+  }
+  return sum;
+}
+
+console.log(
+  sumOfMinimums([
+    [1, 2, 3, 4, 5],
+    [5, 6, 7, 8, 9],
+    [20, 21, 34, 56, 100],
+  ])
+);
+*/
+
+// #3
+/*
+ROT13 is a simple letter substitution cipher that replaces a letter with the letter 13 letters after it in the alphabet. ROT13 is an example of the Caesar cipher.
+Create a function that takes a string and returns the string ciphered with Rot13. If there are numbers or special characters included in the string, they should be returned as they are. Only letters from the latin/english alphabet should be shifted, like in the original Rot13 "implementation".
+*/
+/*
+function rot13(message) {
+  let arr = message.split("");
+  let rot = arr.map((char) => {
+    const charCode = char.charCodeAt(0);
+    if (char >= "A" && char <= "Z") {
+      return String.fromCharCode(((charCode - 65 + 13) % 26) + 65);
+    } else if (char >= "a" && char <= "z") {
+      return String.fromCharCode(((charCode - 97 + 13) % 26) + 97);
+    } else {
+      return char;
+    }
+  });
+  return rot.join("");
+}
+
+console.log(rot13("friends"));
+*/
+
+// #4
+/*
+Each number should be formatted that it is rounded to two decimal places. You don't need to check whether the input is a valid number because only valid numbers are used in the tests.
+Example:    
+5.5589 is rounded 5.56   
+3.3424 is rounded 3.34
+*/
+/*
+function twoDecimalPlaces(num) {
+  return Math.round(num * 100) / 100;
+}
+
+console.log(twoDecimalPlaces(110.09));
+*/
+
+// #5
+/*
+The purpose of this kata is to work out just how many bottles of duty free whiskey you would have to buy such that the saving over the normal high street price would effectively cover the cost of your holiday.
+You will be given the high street price (normPrice), the duty free discount (discount) and the cost of the holiday.
+For example, if a bottle cost £10 normally and the discount in duty free was 10%, you would save £1 per bottle. If your holiday cost £500, the answer you should return would be 500.
+All inputs will be integers. Please return an integer. Round down.
+*/
+/*
+function dutyFree(normPrice, discount, hol) {
+  return Math.floor(hol / (normPrice * (discount / 100)));
+}
+
+console.log(dutyFree(12, 50, 1000));
+*/
+
+// #6
+/*
+Complete the function which returns the weekday according to the input number:
+    1 returns "Sunday"
+    2 returns "Monday"
+    3 returns "Tuesday"
+    4 returns "Wednesday"
+    5 returns "Thursday"
+    6 returns "Friday"
+    7 returns "Saturday"
+    Otherwise returns "Wrong, please enter a number between 1 and 7"
+*/
+/*
+function whatday(num) {
+  if (num < 1 || num > 7) {
+    return "Wrong, please enter a number between 1 and 7";
+  } else {
+    switch (num) {
+      case 1:
+        return "Sunday";
+      case 2:
+        return "Monday";
+      case 3:
+        return "Tuesday";
+      case 4:
+        return "Wednesday";
+      case 5:
+        return "Thursday";
+      case 6:
+        return "Friday";
+      case 7:
+        return "Saturday";
+    }
+  }
+}
+console.log(whatday(1));
+*/
+
+// #7
+/*
+Return a new array consisting of elements which are multiple of their own index in input array (length > 1).
+Some cases:
+[22, -6, 32, 82, 9, 25] =>  [-6, 32, 25]
+[68, -1, 1, -7, 10, 10] => [-1, 10]
+[-56,-85,72,-26,-14,76,-27,72,35,-21,-67,87,0,21,59,27,-92,68] => [-85, 72, 0, 68]
+*/
+/*
+function multipleOfIndex(array) {
+  return array.filter((el, index) => el % index === 0);
+}
+console.log(multipleOfIndex([22, -6, 32, 82, 9, 25]));
+*/
+
+// #8
+/*
+Sentence Smash
+Write a function that takes an array of words and smashes them together into a sentence and returns the sentence. You can ignore any need to sanitize words or add punctuation, but you should add spaces between each word. Be careful, there shouldn't be a space at the beginning or the end of the sentence!
+Example
+['hello', 'world', 'this', 'is', 'great']  =>  'hello world this is great'
+*/
+/*
+function smash(words) {
+  return words.join(" ");
+}
+
+console.log(smash(["hello", "world", "this", "is", "great"]));
+*/
+
+// #9
+/*
+Your task is to make two functions ( max and min, or maximum and minimum, etc., depending on the language ) that receive a list of integers as input, and return the largest and lowest number in that list, respectively.
+Examples (Input -> Output)
+* [4,6,2,1,9,63,-134,566]         -> max = 566, min = -134
+* [-52, 56, 30, 29, -54, 0, -110] -> min = -110, max = 56
+* [42, 54, 65, 87, 0]             -> min = 0, max = 87
+* [5]                             -> min = 5, max = 5
+*/
+/*
+var min = function (list) {
+  return Math.min(...list);
+};
+
+var max = function (list) {
+  return Math.max(...list);
+};
+*/
+
+// #10
+/*
+Your task is to find the nearest square number, nearest_sq(n) or nearestSq(n), of a positive integer n.
+For example, if n = 111, then nearest\_sq(n) (nearestSq(n)) equals 121, since 111 is closer to 121, the square of 11, than 100, the square of 10.
+If the n is already the perfect square (e.g. n = 144, n = 81, etc.), you need to just return n.
+*/
+/*
+function nearestSq(n) {
+  const sqrt = Math.sqrt(n);
+  const lowSqrt = Math.floor(sqrt) ** 2;
+  const highSqrt = Math.ceil(sqrt) ** 2;
+
+  if (n - lowSqrt <= highSqrt - n) {
+    return lowSqrt;
+  } else {
+    return highSqrt;
+  }
+}
+
+console.log(nearestSq(111));
+console.log(nearestSq(100));
+*/
+
+// #11
+/*
+Your task is to sum the differences between consecutive pairs in the array in descending order.
+Example
+[2, 1, 10]  -->  9
+In descending order: [10, 2, 1]
+Sum: (10 - 2) + (2 - 1) = 8 + 1 = 9
+*/
+/*
+function sumOfDifferences(arr) {
+  let sum = 0;
+  let sorted = arr.sort((a, b) => b - a);
+  console.log(arr);
+  for (let i = 0; i < sorted.length - 1; i++) {
+    let difference = sorted[i] - sorted[i + 1];
+    sum += difference;
+  }
+  return sum;
+}
+
+console.log(sumOfDifferences([1, 2, 10]));
+*/
+
+// #12
+/*
+When provided with a letter, return its position in the alphabet.
+Input :: "a"
+Ouput :: "Position of alphabet: 1"
+*/
+/*
+function position(letter) {
+  return `Position of alphabet: ${letter.charCodeAt(0) - 96}`;
+}
+
+console.log(position("z"));
+*/
+// #13
+/*
+Create a function that converts US dollars (USD) to Chinese Yuan (CNY) . The input is the amount of USD as an integer, and the output should be a string that states the amount of Yuan followed by 'Chinese Yuan'
+Examples (Input -> Output)
+15  -> '101.25 Chinese Yuan'
+465 -> '3138.75 Chinese Yuan'
+The conversion rate you should use is 6.75 CNY for every 1 USD. All numbers should be represented as a string with 2 decimal places. (e.g. "21.00" NOT "21.0" or "21")
+*/
+/*
+function usdcny(usd) {
+  return `${(usd * 6.75).toFixed(2)} Chinese Yuan`;
+}
+
+console.log(usdcny(465));
+*/
+
+// #14
+/*
+As a part of this Kata, you need to create a function that when provided with a triplet, returns the index of the numerical element that lies between the other two elements.
+The input to the function will be an array of three distinct numbers
+For example:
+gimme([2, 3, 1]) => 0
+2 is the number that fits between 1 and 3 and the index of 2 in the input array is 0.
+Another example (just to make sure it is clear):
+gimme([5, 10, 14]) => 1
+10 is the number that fits between 5 and 14 and the index of 10 in the input array is 1.
+*/
+/*
+function gimme(triplet) {
+  const sorted = triplet
+    .map((el, ind) => ind)
+    .sort((a, b) => triplet[a] - triplet[b]);
+  return sorted[1];
+}
+
+console.log(gimme([5, 10, 14]));
+*/
+
+// #15
+/*
+After a hard quarter in the office you decide to get some rest on a vacation. So you will book a flight for you and your girlfriend and try to leave all the mess behind you.
+You will need a rental car in order for you to get around in your vacation. The manager of the car rental makes you some good offers.
+Every day you rent the car costs $40. If you rent the car for 7 or more days, you get $50 off your total. Alternatively, if you rent the car for 3 or more days, you get $20 off your total.
+Write a code that gives out the total amount for different days(d).
+*/
+/*
+function rentalCarCost(d) {
+  if (d >= 7) {
+    return d * 40 - 50;
+  }
+  if (d >= 3 && d < 7) {
+    return d * 40 - 20;
+  }
+  if (d < 3) {
+    return d * 40;
+  }
+}
+
+console.log(rentalCarCost(1));
+*/
+
+// #16
+
+/*
+ Find the sum of all multiples of n below m
+Keep in Mind
+    n and m are natural numbers (positive integers)
+    m is excluded from the multiples
+Examples
+sumMul(2, 9)   ==> 2 + 4 + 6 + 8 = 20
+sumMul(3, 13)  ==> 3 + 6 + 9 + 12 = 30
+sumMul(4, 123) ==> 4 + 8 + 12 + ... = 1860
+sumMul(4, -7)  ==> "INVALID"
+*/
+function sumMul(n, m) {
+  if (n <= 0 || m <= 0) {
+    return "INVALID";
+  }
+
+  let sum = 0;
+  for (let i = n; i < m; i += n) {
+    sum += i;
+  }
+  return sum;
+}
+
+console.log(sumMul(2, 9));
