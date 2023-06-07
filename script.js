@@ -3753,6 +3753,7 @@ Implement the function which takes an array containing the names of people that 
 ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
 Note: For 4 or more names, the number in "and 2 others" simply increases.
 */
+/*
 function likes(names) {
   let length = names.length;
 
@@ -3771,21 +3772,29 @@ function likes(names) {
 }
 
 console.log(likes(["Alex", "Jacob", "Mark", "Max"]));
-
-/*
-function calculator(a, b, sign) {
-  if (typeof a === "number" && typeof b === "number") {
-    switch (sign) {
-      case "+":
-        return a + b;
-      case "-":
-        return a - b;
-      case "/":
-        return a / b;
-      case "*":
-        return a * b;
-    }
-  }
-  return "unknown value";
-} 
 */
+
+// #10
+/*
+Your task, is to create N×N multiplication table, of size provided in parameter.
+For example, when given size is 3:
+1 2 3
+2 4 6
+3 6 9
+For the given example, the return value should be:
+[[1,2,3],[2,4,6],[3,6,9]]
+*/
+multiplicationTable = function (size) {
+  const table = [];
+  for (let i = 1; i <= size; i++) {
+    const row = [];
+
+    for (let j = 1; j <= size; j++) {
+      row.push(i * j);
+    }
+    table.push(row);
+  }
+  return table;
+};
+
+console.log(multiplicationTable(3));
