@@ -3784,6 +3784,7 @@ For example, when given size is 3:
 For the given example, the return value should be:
 [[1,2,3],[2,4,6],[3,6,9]]
 */
+/*
 multiplicationTable = function (size) {
   const table = [];
   for (let i = 1; i <= size; i++) {
@@ -3798,3 +3799,36 @@ multiplicationTable = function (size) {
 };
 
 console.log(multiplicationTable(3));
+*/
+
+// #11
+/*
+Write a function that when given a URL as a string, parses out just the domain name and returns it as a string. For example:
+* url = "http://github.com/carbonfive/raygun" -> domain name = "github"
+* url = "http://www.zombie-bites.com"         -> domain name = "zombie-bites"
+* url = "https://www.cnet.com"                -> domain name = cnet"
+*/
+// First Sol
+/*
+function domainName(url) {
+  const domainRegex =
+    /^(?:https?:\/\/)?(?:www\.)?([^:/\n?.]+)(?:\.[a-z]{2,})?/i;
+  const match = url.match(domainRegex);
+
+  if (match && match[1]) {
+    return match[1];
+  }
+
+  return ""; // If domain is not found
+}
+
+console.log(domainName("http://github.com/carbonfive/raygun"));
+*/
+// Sec sol
+function domainName(url) {
+  url = url.replace("http://", "");
+  url = url.replace("https://", "");
+  url = url.replace("www", "");
+  return url.split(".")[0];
+}
+console.log(domainName("http://github.com/carbonfive/raygun"));
