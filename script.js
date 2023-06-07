@@ -3529,6 +3529,7 @@ sumMul(3, 13)  ==> 3 + 6 + 9 + 12 = 30
 sumMul(4, 123) ==> 4 + 8 + 12 + ... = 1860
 sumMul(4, -7)  ==> "INVALID"
 */
+/*
 function sumMul(n, m) {
   if (n <= 0 || m <= 0) {
     return "INVALID";
@@ -3542,3 +3543,38 @@ function sumMul(n, m) {
 }
 
 console.log(sumMul(2, 9));
+*/
+
+// 07.06.06
+
+// #1
+/*
+Write a small function that returns the values of an array that are not odd.
+All values in the array will be integers. Return the good values in the order they are given.
+*/
+/*
+function noOdds(values) {
+  return values.filter((el) => el % 2 === 0);
+}
+
+console.log(noOdds([0, 1, 2, 3]));
+*/
+
+// #2
+/*
+Write a function that takes a single string (word) as argument. The function must return an ordered list containing the indexes of all capital letters in the string.
+Example
+Test.assertSimilar( capitals('CodEWaRs'), [0,3,4,6] );
+*/
+var capitals = function (word) {
+  let letter = word.split("");
+  let res = [];
+  for (let i = 0; i < letter.length; i++) {
+    if (letter[i] === letter[i].toUpperCase()) {
+      res.push(i);
+    }
+  }
+  return res;
+};
+
+console.log(capitals("CodEWaRs"));
