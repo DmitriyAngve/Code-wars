@@ -4012,6 +4012,7 @@ lowercaseCount(""); ===> 0;
 lowercaseCount("ABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"); ===> 0
 lowercaseCount("abcdefghijklmnopqrstuvwxyz"); ===> 26
 */
+/*
 function lowercaseCount(str) {
   const lower = str.split("");
   let sum = 0;
@@ -4024,3 +4025,73 @@ function lowercaseCount(str) {
 }
 
 console.log(lowercaseCount("ABC123!@€£#$%^&*()_-+=}{[]|':;?/>.<,~"));
+*/
+
+// #11
+/*
+Remove all exclamation marks from sentence but ensure a exclamation mark at the end of string. For a beginner kata, you can assume that the input data is always a non empty string, no need to verify it.
+Examples
+remove("Hi!") === "Hi!"
+remove("Hi!!!") === "Hi!"
+remove("!Hi") === "Hi!"
+remove("!Hi!") === "Hi!"
+remove("Hi! Hi!") === "Hi Hi!"
+remove("Hi") === "Hi!"
+*/
+const remove = (s) => s.replace(/!/g, "") + "!";
+
+console.log(remove("!Hi!!!"));
+
+// #12
+/*
+This function takes two numbers as parameters, the first number being the coefficient, and the second number being the exponent.
+Your function should multiply the two numbers, and then subtract 1 from the exponent. Then, it has to return an expression (like 28x^7). "^1" should not be truncated when exponent = 2.
+For example:
+derive(7, 8)
+In this case, the function should multiply 7 and 8, and then subtract 1 from 8. It should output "56x^7", the first number 56 being the product of the two numbers, and the second number being the exponent minus 1.
+derive(7, 8) --> this should output "56x^7" 
+derive(5, 9) --> this should output "45x^8" 
+Notes:
+    The output of this function should be a string
+    The exponent will never be 1, and neither number will ever be 0
+*/
+/*
+function derive(coefficient, exponent) {
+  return `${coefficient * exponent}x^${exponent - 1}`;
+}
+console.log(derive(5, 9));
+*/
+
+// #13
+/*
+Build Tower
+Build a pyramid-shaped tower, as an array/list of strings, given a positive integer number of floors. A tower block is represented with "*" character.
+For example, a tower with 3 floors looks like this:
+[
+  "  *  ",
+  " *** ", 
+  "*****"
+]
+And a tower with 6 floors looks like this:
+[
+  "     *     ", 
+  "    ***    ", 
+  "   *****   ", 
+  "  *******  ", 
+  " ********* ", 
+  "***********"
+]
+*/
+function towerBuilder(nFloors) {
+  const tower = [];
+  const maxWidth = nFloors * 2 - 1;
+
+  for (let i = 1; i <= nFloors; i++) {
+    const currentWidth = i * 2 - 1;
+    const spaces = " ".repeat((maxWidth - currentWidth) / 2);
+    const level = spaces + "*".repeat(currentWidth) + spaces;
+    tower.push(level);
+  }
+  return tower;
+}
+console.log(towerBuilder(3));
