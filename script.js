@@ -3825,6 +3825,7 @@ function domainName(url) {
 console.log(domainName("http://github.com/carbonfive/raygun"));
 */
 // Sec sol
+/*
 function domainName(url) {
   url = url.replace("http://", "");
   url = url.replace("https://", "");
@@ -3832,3 +3833,20 @@ function domainName(url) {
   return url.split(".")[0];
 }
 console.log(domainName("http://github.com/carbonfive/raygun"));
+*/
+
+// 08.06.2023
+
+// #1
+/*
+Write a method that takes one argument as name and then greets that name, capitalized and ends with an exclamation point.
+Example:
+"riley" --> "Hello Riley!"
+"JACK"  --> "Hello Jack!"
+*/
+var greet = function (name) {
+  let result = name.toLowerCase();
+  return `Hello ${result.charAt(0).toUpperCase() + result.slice(1)}!`;
+};
+
+console.log(greet("JACK"));
