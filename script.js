@@ -3928,6 +3928,7 @@ longest(a, b) -> "abcdefklmopqwxy"
 a = "abcdefghijklmnopqrstuvwxyz"
 longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
 */
+/*
 function longest(s1, s2) {
   const combine = s1 + s2;
   const unique = [...new Set(combine)];
@@ -3935,3 +3936,54 @@ function longest(s1, s2) {
 }
 
 console.log(longest("aretheyhere", "yestheyarehere"));
+*/
+
+// #6
+/*
+You will be given an array and a limit value. You must check that all values in the array are below or equal to the limit value. If they are, return true. Else, return false.
+You can assume all values in the array are numbers.
+*/
+/*
+function smallEnough(a, limit) {
+  return a.every((el) => el <= limit);
+}
+
+console.log(smallEnough([78, 117, 110, 99, 104, 117, 107, 115], 100));
+*/
+
+// #7
+/*
+Given a string of arbitrary length with any ascii characters. Write a function to determine whether the string contains the whole word "English".
+The order of characters is important -- a string "abcEnglishdef" is correct but "abcnEglishsef" is not correct.
+Upper or lower case letter does not matter -- "eNglisH" is also correct.
+Return value as boolean values, true for the string to contains "English", false for it does not.
+*/
+/*
+function spEng(str) {
+  const regex = /english/i;
+  return regex.test(str);
+}
+
+console.log(spEng("egnlish"));
+
+*/
+
+// #8
+/*
+Find the mean (average) of a list of numbers in an array.
+Information
+To find the mean (average) of a set of numbers add all of the numbers together and divide by the number of values in the list.
+For an example list of 1, 3, 5, 7
+1. Add all of the numbers
+1+3+5+7 = 16
+2. Divide by the number of values in the list. In this example there are 4 numbers in the list.
+16/4 = 4
+3. The mean (or average) of this list is 4
+*/
+var findAverage = function (nums) {
+  const avg = nums.reduce((ac, number) => {
+    return ac + number;
+  });
+  return avg / nums.length;
+};
+console.log(findAverage([1, 3, 5, 7]));
