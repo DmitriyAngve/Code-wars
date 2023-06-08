@@ -3980,10 +3980,47 @@ For an example list of 1, 3, 5, 7
 16/4 = 4
 3. The mean (or average) of this list is 4
 */
+/*
 var findAverage = function (nums) {
-  const avg = nums.reduce((ac, number) => {
-    return ac + number;
-  });
-  return avg / nums.length;
+  return nums.reduce((a, b) => a + b, 0) / nums.length;
 };
 console.log(findAverage([1, 3, 5, 7]));
+*/
+
+// #9
+/*
+Write a function that returns the total surface area and volume of a box as an array: [area, volume]
+*/
+/*
+
+function getSize(width, height, depth) {
+  const first = 2 * (depth * width + depth * height + width * height);
+  const second = width * height * depth;
+  return [first, second];
+}
+console.log(getSize(4, 2, 6));
+*/
+
+// #10
+/*
+Your task is simply to count the total number of lowercase letters in a string.
+Examples
+lowercaseCount("abc"); ===> 3
+lowercaseCount("abcABC123"); ===> 3
+lowercaseCount("abcABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"); ===> 3
+lowercaseCount(""); ===> 0;
+lowercaseCount("ABC123!@€£#$%^&*()_-+=}{[]|\':;?/>.<,~"); ===> 0
+lowercaseCount("abcdefghijklmnopqrstuvwxyz"); ===> 26
+*/
+function lowercaseCount(str) {
+  const lower = str.split("");
+  let sum = 0;
+  for (let i = 0; i < lower.length; i++) {
+    if (lower[i].toLowerCase() === lower[i]) {
+      sum++;
+    }
+  }
+  return sum;
+}
+
+console.log(lowercaseCount("ABC123!@€£#$%^&*()_-+=}{[]|':;?/>.<,~"));
