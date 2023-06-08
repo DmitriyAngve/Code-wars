@@ -4038,9 +4038,11 @@ remove("!Hi!") === "Hi!"
 remove("Hi! Hi!") === "Hi Hi!"
 remove("Hi") === "Hi!"
 */
+/*
 const remove = (s) => s.replace(/!/g, "") + "!";
 
 console.log(remove("!Hi!!!"));
+*/
 
 // #12
 /*
@@ -4104,6 +4106,7 @@ Given a string, capitalize the letters that occupy even indexes and odd indexes 
 For example, capitalize("abcdef") = ['AbCdEf', 'aBcDeF']. See test cases for more examples.
 The input will be a lowercase string with no spaces.
 */
+/*
 function capitalize(s) {
   let even = "";
   let odd = "";
@@ -4120,3 +4123,34 @@ function capitalize(s) {
 }
 
 console.log(capitalize("mfwopimfwep!"));
+*/
+
+// #15
+
+/*
+You get any card as an argument. Your task is to return the suit of this card (in lowercase).
+Our deck (is preloaded):
+('3♣') -> return 'clubs'
+('3♦') -> return 'diamonds'
+('3♥') -> return 'hearts'
+('3♠') -> return 'spades'
+*/
+function defineSuit(card) {
+  let suit = card.split("");
+  // console.log(suit);
+  switch (suit[suit.length - 1]) {
+    case "♣":
+      return "clubs";
+    case "♦":
+      return "diamonds";
+    case "♥":
+      return "hearts";
+    case "♠":
+      return "spades";
+  }
+}
+
+console.log(defineSuit("3♣"));
+console.log(defineSuit("3♦"));
+console.log(defineSuit("3♥"));
+console.log(defineSuit("3♠"));
