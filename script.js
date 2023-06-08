@@ -3905,6 +3905,7 @@ Examples
 "4of Fo1r pe6ople g3ood th5e the2"  -->  "Fo1r the2 g3ood 4of th5e pe6ople"
 ""  -->  ""
 */
+/*
 function order(words) {
   return words
     .split(" ")
@@ -3915,3 +3916,22 @@ function order(words) {
 }
 
 console.log(order("is2 Thi1s T4est 3a"));
+*/
+
+// #5
+/*
+Take 2 strings s1 and s2 including only letters from a to z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+Examples:
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz"
+*/
+function longest(s1, s2) {
+  const combine = s1 + s2;
+  const unique = [...new Set(combine)];
+  return unique.sort().join("");
+}
+
+console.log(longest("aretheyhere", "yestheyarehere"));
