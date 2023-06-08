@@ -3844,9 +3844,51 @@ Example:
 "riley" --> "Hello Riley!"
 "JACK"  --> "Hello Jack!"
 */
+/*
 var greet = function (name) {
   let result = name.toLowerCase();
   return `Hello ${result.charAt(0).toUpperCase() + result.slice(1)}!`;
 };
 
 console.log(greet("JACK"));
+/
+
+// #2
+/*
+Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+For example, if this array were passed as an argument:
+["Telescopes", "Glasses", "Eyes", "Monocles"]
+Your function would return the following array:
+["Eyes", "Glasses", "Monocles", "Telescopes"]
+All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
+*/
+/*
+function sortByLength(array) {
+  return array.sort((a, b) => a.length - b.length);
+}
+
+console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
+*/
+
+// #3
+/*
+Write a function that accepts two integers and returns the remainder of dividing the larger value by the smaller value.
+Division by zero should return NaN.
+Examples:
+n = 17
+m = 5
+result = 2 (remainder of `17 / 5`)
+n = 13
+m = 72
+result = 7 (remainder of `72 / 13`)
+n = 0
+m = -1
+result = 0 (remainder of `0 / -1`)
+n = 0
+m = 1
+result - division by zero (refer to the specifications on how to handle this in your language)
+*/
+function remainder(n, m) {
+  return n > m ? n % m : m % n;
+}
+console.log(remainder(17, 5));
