@@ -4298,24 +4298,58 @@ solve("zodiacs") = 26
 For the word "strength", solve("strength") = 57
 -- The consonant substrings are: "str" and "ngth" with values "str" = 19 + 20 + 18 = 57 and "ngth" = 14 + 7 + 20 + 8 = 49. The highest is 57.
 */
+/*
 function solve(s) {
-  const constants = "bcdfghjklmnpqrstvwxyz";
-  let maxValue = 0;
-  let currentValue = 0;
+  let max = 0;
+  let current = 0;
+  const cst = "bcdfghjklmnpqrstvwxyz";
   for (let i = 0; i < s.length; i++) {
-    if (constants.includes(s[i])) {
-      currentValue += s.charCodeAt(i) - 96;
+    if (cst.includes(s[i])) {
+      current += s.charCodeAt(i) - 96;
     } else {
-      if (currentValue > maxValue) {
-        maxValue = currentValue;
+      if (current > max) {
+        max = current;
       }
-      currentValue = 0;
+      current = 0;
     }
   }
-  if (currentValue > maxValue) {
-    maxValue = currentValue;
-  }
-  return maxValue;
+  return max;
 }
 
 console.log(solve("catchphrase"));
+*/
+
+// #6
+/*
+Complete the function power_of_two/powerOfTwo (or equivalent, depending on your language) that determines if a given non-negative integer is a power of two. From the corresponding Wikipedia entry:
+    a power of two is a number of the form 2n where n is an integer, i.e. the result of exponentiation with number two as the base and integer n as the exponent.
+You may assume the input is always valid.
+Examples
+isPowerOfTwo(1024) // -> true
+isPowerOfTwo(4096) // -> true
+isPowerOfTwo(333)  // -> false
+Beware of certain edge cases - for example, 1 is a power of 2 since 2^0 = 1 and 0 is not a power of 2.
+*/
+/*
+function isPowerOfTwo(n) {
+  return Number.isInteger(Math.log2(n));
+}
+
+console.log(isPowerOfTwo(4096));
+console.log(isPowerOfTwo(536870912));
+*/
+
+// #7
+/*
+Given a sequence of numbers, find the largest pair sum in the sequence.
+For example
+[10, 14, 2, 23, 19] -->  42 (= 23 + 19)
+[99, 2, 2, 23, 19]  --> 122 (= 99 + 23)
+Input sequence contains minimum two elements and every element is an integer.
+*/
+function largestPairSum(numbers) {
+  let sorted = numbers.sort((a, b) => b - a);
+  return sorted[0] + sorted[1];
+}
+
+console.log(largestPairSum([10, 14, 2, 23, 19]));
