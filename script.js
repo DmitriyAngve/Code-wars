@@ -4193,6 +4193,8 @@ Output will be the shortened string, e.g., "Friday May 2".
 */
 
 // 19.06.2023
+
+// #1
 /*
 An AI has infected a text with a character!!
 This text is now fully mutated to this character.
@@ -4204,6 +4206,7 @@ text before = "abc"
 character   = "z"
 text after  = "zzz"
 */
+/*
 function contamination(text, char) {
   if (text === "") {
     return "";
@@ -4215,3 +4218,38 @@ function contamination(text, char) {
   }
 }
 console.log(contamination("abc", "z"));
+*/
+
+// #2
+/*
+Create a function called _if which takes 3 arguments: a value bool and 2 functions (which do not take any parameters): func1 and func2
+When bool is truthy, func1 should be called, otherwise call the func2.
+Example:
+_if(true, function(){console.log("True")}, function(){console.log("false")})
+// Logs 'True' to the console.
+}
+*/
+/*
+function _if(bool, func1, func2) {
+  if (bool) {
+    func1();
+  } else {
+    func2();
+  }
+}
+*/
+
+// #3
+/*
+The male gametes or sperm cells in humans and other mammals are heterogametic and contain one of two types of sex chromosomes. They are either X or Y. The female gametes or eggs however, contain only the X sex chromosome and are homogametic.
+The sperm cell determines the sex of an individual in this case. If a sperm cell containing an X chromosome fertilizes an egg, the resulting zygote will be XX or female. If the sperm cell contains a Y chromosome, then the resulting zygote will be XY or male.
+Determine if the sex of the offspring will be male or female based on the X or Y chromosome present in the male's sperm.
+If the sperm contains the X chromosome, return "Congratulations! You're going to have a daughter."; If the sperm contains the Y chromosome, return "Congratulations! You're going to have a son.";
+*/
+function chromosomeCheck(sperm) {
+  return sperm.includes("Y")
+    ? "Congratulations! You're going to have a son."
+    : "Congratulations! You're going to have a daughter.";
+}
+
+console.log(chromosomeCheck("XX"));
