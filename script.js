@@ -4171,6 +4171,7 @@ predictAge(65, 60, 75, 55, 60, 63, 64, 45) === 86
 Note: the result should be rounded down to the nearest integer.
 Some random tests might fail due to a bug in the JavaScript implementation. Simply resubmit if that happens to you.
 */
+/*
 function predictAge(age1, age2, age3, age4, age5, age6, age7, age8) {
   let array = [age1, age2, age3, age4, age5, age6, age7, age8];
   let result = array.reduce((acc, age) => acc + age * age, 0);
@@ -4178,3 +4179,39 @@ function predictAge(age1, age2, age3, age4, age5, age6, age7, age8) {
 }
 
 console.log(predictAge(65, 60, 75, 55, 60, 63, 64, 45));
+*/
+
+// 17.06
+/*
+You're re-designing a blog, and the blog's posts have the Weekday Month Day, time format for showing the date and time when a post was made, e.g., Friday May 2, 7pm.
+You're running out of screen real estate, and on some pages you want to display a shorter format, Weekday Month Day that omits the time.
+Write a function that takes the website date/time in its original string format and returns the shortened format.
+Input
+Input will always be a string, e.g., "Friday May 2, 7pm". 
+Output
+Output will be the shortened string, e.g., "Friday May 2".
+*/
+
+// 19.06.2023
+/*
+An AI has infected a text with a character!!
+This text is now fully mutated to this character.
+If the text or the character are empty, return an empty string.
+There will never be a case when both are empty as nothing is going on!!
+Note: The character is a string of length 1 or an empty string.
+Example
+text before = "abc"
+character   = "z"
+text after  = "zzz"
+*/
+function contamination(text, char) {
+  if (text === "") {
+    return "";
+  } else {
+    const arr = text.split("");
+    console.log(arr);
+    const replacer = arr.map(() => char);
+    return replacer.join("");
+  }
+}
+console.log(contamination("abc", "z"));
