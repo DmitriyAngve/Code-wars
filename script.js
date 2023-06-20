@@ -4408,6 +4408,7 @@ adjacentElementsProduct([-23, 4, -5, 99, -27, 329, -2, 7, -921])  ==>  return -1
 Explanation:
     The maximum product obtained from multiplying -2 * 7 = -14, and they're adjacent numbers in the array.
 */
+/*
 function adjacentElementsProduct(array) {
   let max = -Infinity;
   for (let i = 0; i < array.length - 1; i++) {
@@ -4420,3 +4421,45 @@ function adjacentElementsProduct(array) {
 }
 
 console.log(adjacentElementsProduct([5, 1, 2, 3, 1, 4]));
+*/
+
+// 20.06
+// #1
+/*
+You can immediately see that going "NORTH" and immediately "SOUTH" is not reasonable, better stay to the same place! So the task is to give to the man a simplified version of the plan. A better plan in this case is simply:
+["WEST"]
+or
+{ "WEST" }
+or
+[West]
+Other examples:
+In ["NORTH", "SOUTH", "EAST", "WEST"], the direction "NORTH" + "SOUTH" is going north and coming back right away.
+The path becomes ["EAST", "WEST"], now "EAST" and "WEST" annihilate each other, therefore, the final result is [] (nil in Clojure).
+In ["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"], "NORTH" and "SOUTH" are not directly opposite but they become directly opposite after the reduction of "EAST" and "WEST" so the whole path is reducible to ["WEST", "WEST"].
+Task
+Write a function dirReduc which will take an array of strings and returns an array of strings with the needless directions removed (W<->E or S<->N side by side). 
+*/
+function dirReduc(arr) {
+  const opposite = {
+    NORTH: "SOUTH",
+    SOUTH: "NORTH",
+    WEST: "EAST",
+    EAST: "WEST",
+  };
+  const truePath = [];
+
+  for (let direction of arr) {
+    const prev = truePath[truePath.length - 1];
+
+    if (prev === opposite[direction]) {
+      truePath.pop();
+    } else {
+      truePath.push(direction);
+    }
+  }
+  return truePath;
+}
+
+console.log(
+  dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])
+);
