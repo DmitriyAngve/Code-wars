@@ -4516,7 +4516,7 @@ function validateCode(code) {
 console.log(validateCode(511213));
 */
 
-// №5
+//#5
 /*
 John has invited some friends. His list is:
 s = "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill";
@@ -4528,27 +4528,39 @@ So the result of function meeting(s) will be:
 "(CORWILL, ALFRED)(CORWILL, FRED)(CORWILL, RAPHAEL)(CORWILL, WILFRED)(TORNBULL, BARNEY)(TORNBULL, BETTY)(TORNBULL, BJON)"
 It can happen that in two distinct families with the same family name two people have the same first name too.    
 */
+// FIRST SOLUTION
+// function meeting(s) {
+//   const upper = s.toUpperCase();
+//   const names = upper.split(";");
+//   const parsedNames = names.map((name) => {
+//     const [first, last] = name.split(":");
+//     return { first, last };
+//   });
 
+//   const sortedNames = parsedNames.sort((a, b) => {
+//     if (a.last === b.last) {
+//       return a.first.localeCompare(b.first);
+//     }
+//     return a.last.localeCompare(b.last);
+//   });
+
+//   const formattedNames = sortedNames.map(
+//     (name) => `(${name.last}, ${name.first})`
+//   );
+
+//   return formattedNames.join("");
+// }
+// SECOND SOLUTION
+/*
 function meeting(s) {
-  const upper = s.toUpperCase();
-  const names = upper.split(";");
-  const parsedNames = names.map((name) => {
-    const [first, last] = name.split(":");
-    return { first, last };
-  });
+  let string = s
+    .toUpperCase()
+    .split(";")
+    .map((x) => x.split(":").reverse().join(", "))
+    .sort()
+    .join(")(");
 
-  const sortedNames = parsedNames.sort((a, b) => {
-    if (a.last === b.last) {
-      return a.first.localeCompare(b.first);
-    }
-    return a.last.localeCompare(b.last);
-  });
-
-  const formattedNames = sortedNames.map(
-    (name) => `(${name.last}, ${name.first})`
-  );
-
-  return formattedNames.join("");
+  return "(" + string + ")";
 }
 
 console.log(
@@ -4556,3 +4568,23 @@ console.log(
     "Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn"
   )
 );
+*/
+
+// #6
+
+/*
+Some really funny web dev gave you a sequence of numbers from his API response as an sequence of strings!
+You need to cast the whole array to the correct type.
+Create the function that takes as a parameter a sequence of numbers represented as strings and outputs a sequence of numbers.
+ie:["1", "2", "3"] to [1, 2, 3]
+*/
+
+function toNumberArray(stringarray) {
+  let result = [];
+  for (let i = 0; i < stringarray.length; i++) {
+    result.push(Number(stringarray[i]));
+    console.log(result);
+  }
+  return result;
+}
+console.log(toNumberArray(["1", "2", "3"]));
