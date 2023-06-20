@@ -4439,6 +4439,7 @@ In ["NORTH", "EAST", "WEST", "SOUTH", "WEST", "WEST"], "NORTH" and "SOUTH" are n
 Task
 Write a function dirReduc which will take an array of strings and returns an array of strings with the needless directions removed (W<->E or S<->N side by side). 
 */
+/*
 function dirReduc(arr) {
   const opposite = {
     NORTH: "SOUTH",
@@ -4463,3 +4464,39 @@ function dirReduc(arr) {
 console.log(
   dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"])
 );
+*/
+
+// #2
+/*
+Time to test your basic knowledge in functions! Return the odds from a list:
+[1, 2, 3, 4, 5]  -->  [1, 3, 5]
+[2, 4, 6]        -->  []
+*/
+/*
+function odds(values) {
+  return values.filter((value) => value % 2 !== 0);
+}
+console.log(odds([1, 2, 3, 4, 5]));
+*/
+
+// #3
+/*
+Write a function, persistence, that takes in a positive parameter num and returns its multiplicative persistence, which is the number of times you must multiply the digits in num until you reach a single digit.
+For example (Input --> Output):
+39 --> 3 (because 3*9 = 27, 2*7 = 14, 1*4 = 4 and 4 has only one digit)
+999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
+4 --> 0 (because 4 is already a one-digit number)
+*/
+function persistence(num) {
+  let count = 0;
+  while (num >= 10) {
+    num = String(num)
+      .split("")
+      .map(Number)
+      .reduce((a, b) => a * b);
+    count++;
+  }
+  return count;
+}
+
+console.log(persistence(39));
