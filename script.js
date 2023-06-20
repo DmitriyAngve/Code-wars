@@ -4487,6 +4487,7 @@ For example (Input --> Output):
 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
 4 --> 0 (because 4 is already a one-digit number)
 */
+/*
 function persistence(num) {
   let count = 0;
   while (num >= 10) {
@@ -4500,3 +4501,58 @@ function persistence(num) {
 }
 
 console.log(persistence(39));
+*/
+
+// #4
+/*
+Basic regex tasks. Write a function that takes in a numeric code of any length. The function should check if the code begins with 1, 2, or 3 and return true if so. Return false otherwise.
+You can assume the input will always be a number.
+*/
+/*
+function validateCode(code) {
+  return /^[123]/.test(code) ? true : false;
+}
+
+console.log(validateCode(511213));
+*/
+
+// №5
+/*
+John has invited some friends. His list is:
+s = "Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill";
+Could you make a program that
+    makes this string uppercase
+    gives it sorted in alphabetical order by last name.
+When the last names are the same, sort them by first name. Last name and first name of a guest come in the result between parentheses separated by a comma.
+So the result of function meeting(s) will be:
+"(CORWILL, ALFRED)(CORWILL, FRED)(CORWILL, RAPHAEL)(CORWILL, WILFRED)(TORNBULL, BARNEY)(TORNBULL, BETTY)(TORNBULL, BJON)"
+It can happen that in two distinct families with the same family name two people have the same first name too.    
+*/
+
+function meeting(s) {
+  const upper = s.toUpperCase();
+  const names = upper.split(";");
+  const parsedNames = names.map((name) => {
+    const [first, last] = name.split(":");
+    return { first, last };
+  });
+
+  const sortedNames = parsedNames.sort((a, b) => {
+    if (a.last === b.last) {
+      return a.first.localeCompare(b.first);
+    }
+    return a.last.localeCompare(b.last);
+  });
+
+  const formattedNames = sortedNames.map(
+    (name) => `(${name.last}, ${name.first})`
+  );
+
+  return formattedNames.join("");
+}
+
+console.log(
+  meeting(
+    "Alexis:Wahl;John:Bell;Victoria:Schwarz;Abba:Dorny;Grace:Meta;Ann:Arno;Madison:STAN;Alex:Cornwell;Lewis:Kern;Megan:Stan;Alex:Korn"
+  )
+);
