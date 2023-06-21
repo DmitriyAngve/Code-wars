@@ -4704,6 +4704,7 @@ Examples
 'B' and 'g' returns 0
 '0' and '?' returns -1
 */
+/*
 function sameCase(a, b) {
   if (
     a.toUpperCase() === a.toLowerCase() ||
@@ -4721,3 +4722,51 @@ function sameCase(a, b) {
 }
 
 console.log(sameCase("B", "a"));
+*/
+
+// #5
+/*
+Finish the uefaEuro2016() function so it return string just like in the examples below:
+uefaEuro2016(['Germany', 'Ukraine'],[2, 0]) // "At match Germany - Ukraine, Germany won!"
+uefaEuro2016(['Belgium', 'Italy'],[0, 2]) // "At match Belgium - Italy, Italy won!"
+uefaEuro2016(['Portugal', 'Iceland'],[1, 1]) // "At match Portugal - Iceland, teams played draw."
+*/
+/*
+function uefaEuro2016(teams, scores) {
+  if (scores[0] === scores[1]) {
+    return `At match ${teams[0]} - ${teams[1]}, teams played draw.`;
+  }
+
+  if (scores[0] < scores[1]) {
+    return `At match ${teams[0]} - ${teams[1]}, ${teams[1]} won!`;
+  } else {
+    return `At match ${teams[0]} - ${teams[1]}, ${teams[0]} won!`;
+  }
+}
+
+console.log(uefaEuro2016(["Belgium", "Italy"], [2, 2]));
+*/
+
+// #6
+/*
+Sum all the numbers of a given array ( cq. list ), except the highest and the lowest element ( by value, not by index! ).
+The highest or lowest element respectively is a single element at each edge, even if there are more than one with the same value.
+Mind the input validation.
+Example
+{ 6, 2, 1, 8, 10 } => 16
+{ 1, 1, 11, 2, 3 } => 6
+Input validation
+If an empty value ( null, None, Nothing etc. ) is given instead of an array, or the given array is an empty list or a list with only 1 element, return 0.
+ */
+function sumArray(array) {
+  if (!Array.isArray(array) || array.length <= 1) {
+    return 0;
+  }
+
+  const sortedArray = array.slice().sort((a, b) => a - b);
+  const sum = sortedArray.slice(1, -1).reduce((acc, curr) => acc + curr, 0);
+
+  return sum;
+}
+
+console.log(sumArray([6, 2, 1, 8, 10]));
