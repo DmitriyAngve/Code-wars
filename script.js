@@ -4646,6 +4646,7 @@ Examples (input -> output)
 * [1, 3, 5, 7, 9], [10, 8, 6, 4, 2] -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 * [1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12] -> [1, 2, 3, 4, 5, 7, 9, 10, 11, 12]
 */
+/*
 function mergeArrays(arr1, arr2) {
   if (arr1 === [] && arr2 === []) {
     return [];
@@ -4653,9 +4654,36 @@ function mergeArrays(arr1, arr2) {
   const newArr = arr1.concat(arr2);
   const sorted = newArr.sort((a, b) => a - b);
   const set = [...new Set(sorted)];
-
-  console.log(set);
   return set;
 }
 
 console.log(mergeArrays([1, 1, 1, 3, 5, 7, 9], [10, 8, 8, 6, 4, 2]));
+*/
+
+// #3
+
+/*
+Consider the word "abode". We can see that the letter a is in position 1 and b is in position 2. In the alphabet, a and b are also in positions 1 and 2. Notice also that d and e in abode occupy the positions they would occupy in the alphabet, which are positions 4 and 5.
+Given an array of words, return an array of the number of letters that occupy their positions in the alphabet for each word. For example,
+solve(["abode","ABc","xyzD"]) = [4, 3, 1]
+*/
+function solve(arr) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const result = [];
+
+  for (let word of arr) {
+    let count = 0;
+    for (let i = 0; i < word.length; i++) {
+      const letter = word[i].toLowerCase();
+      const position = alphabet.indexOf(letter) + 1;
+
+      if (position === i + 1) {
+        count++;
+      }
+    }
+    result.push(count);
+  }
+  return result;
+}
+
+console.log(solve(["abode", "ABc", "xyzD"]));
