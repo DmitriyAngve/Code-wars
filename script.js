@@ -4890,6 +4890,7 @@ Write a function which removes from string all non-digit characters and parse th
 Function:
 getNumberFromString(s)
 */
+/*
 function getNumberFromString(s) {
   const numeric = s.match(/\d/g).join("");
   console.log(numeric);
@@ -4897,3 +4898,52 @@ function getNumberFromString(s) {
 }
 
 console.log(getNumberFromString("123"));
+*/
+
+// #6
+
+/*
+Sort the Gift Code 
+Write a function called sortGiftCode/sort_gift_code/SortGiftCode that accepts a string containing up to 26 unique alphabetical characters, and returns a string containing the same characters in alphabetical order.
+Examples (Input -- => Output):
+"abcdef"                      -- => "abcdef"
+"pqksuvy"                     -- => "kpqsuvy"
+"zyxwvutsrqponmlkjihgfedcba"  -- => "abcdefghijklmnopqrstuvwxyz"
+*/
+/*
+function sortGiftCode(code) {
+  return code.split("").sort().join("");
+}
+
+console.log(sortGiftCode("zyxwvutsrqponmlkjihgfedcba"));
+*/
+
+// #7
+
+/*
+Complete the function that takes two numbers as input, num and nth and return the nth digit of num (counting from right to left).
+Note
+    If num is negative, ignore its sign and treat it as a positive value
+    If nth is not positive, return -1
+    Keep in mind that 42 = 00042. This means that findDigit(42, 5) would return 0
+Examples(num, nth --> output)
+5673, 4 --> 5
+129, 2 --> 2
+-2825, 3 --> 8
+-456, 4 --> 0
+0, 20 --> 0
+65, 0 --> -1
+24, -8 --> -1
+ */
+
+function findDigit(num, nth) {
+  if (nth <= 0) {
+    return -1;
+  }
+  num = Math.abs(num).toString();
+  if (nth > num.length) {
+    return 0;
+  }
+
+  return parseInt(num[num.length - nth]);
+}
