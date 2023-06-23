@@ -4935,7 +4935,7 @@ Examples(num, nth --> output)
 65, 0 --> -1
 24, -8 --> -1
  */
-
+/*
 function findDigit(num, nth) {
   if (nth <= 0) {
     return -1;
@@ -4947,3 +4947,25 @@ function findDigit(num, nth) {
 
   return parseInt(num[num.length - nth]);
 }
+*/
+
+// #8
+/*
+Count the number of occurrences of each character and return it as a (list of tuples) in order of appearance. For empty output return (an empty list).
+Consult the solution set-up for the exact data structure implementation depending on your language.
+Example:
+orderedCount("abracadabra") == [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d', 1]]
+*/
+const orderedCount = function (text) {
+  const charMap = new Map();
+  for (let char of text) {
+    if (charMap.has(char)) {
+      charMap.set(char, charMap.get(char) + 1);
+    } else {
+      charMap.set(char, 1);
+    }
+  }
+  return Array.from(charMap.entries());
+};
+
+console.log(orderedCount("abracadabra"));
