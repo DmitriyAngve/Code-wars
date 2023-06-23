@@ -4838,6 +4838,7 @@ numberToPower(2, 3)  // -> 8 ( = 2 * 2 * 2 )
 numberToPower(10, 6) // -> 1000000
 Note: Math.pow and some other Math functions like eval() and ** are disabled.
 */
+/*
 function numberToPower(number, power) {
   console.info(Math.log2(1024));
   let result = 1;
@@ -4849,3 +4850,50 @@ function numberToPower(number, power) {
 }
 
 console.log(numberToPower(4, 2));
+*/
+
+// #4
+/*
+Given a string s, write a method (function) that will return true if its a valid single integer or floating number or false if its not.
+Valid examples, should return true:
+isDigit("3")
+isDigit("  3  ")
+isDigit("-3.23")
+should return false:
+isDigit("3-4")
+isDigit("  3   5")
+isDigit("3 5")
+isDigit("zero")
+*/
+/*
+// FIRST
+// function isDigit(s) {
+//   s = s.trim();
+//   const pattern = /^-?\d+(\.\d+)?$/;
+//   return pattern.test(s);
+// }
+
+// SECOND
+function isDigit(s) {
+  return s == parseFloat(s);
+}
+
+console.log(isDigit("3-4"));
+console.log(isDigit("  3  "));
+console.log(isDigit("zero"));
+*/
+
+// #5
+
+/*
+Write a function which removes from string all non-digit characters and parse the remaining to number. E.g: "hell5o wor6ld" -> 56
+Function:
+getNumberFromString(s)
+*/
+function getNumberFromString(s) {
+  const numeric = s.match(/\d/g).join("");
+  console.log(numeric);
+  return Number(numeric);
+}
+
+console.log(getNumberFromString("123"));
