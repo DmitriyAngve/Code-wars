@@ -4758,6 +4758,7 @@ Example
 Input validation
 If an empty value ( null, None, Nothing etc. ) is given instead of an array, or the given array is an empty list or a list with only 1 element, return 0.
  */
+/*
 function sumArray(array) {
   if (!Array.isArray(array) || array.length <= 1) {
     return 0;
@@ -4770,3 +4771,26 @@ function sumArray(array) {
 }
 
 console.log(sumArray([6, 2, 1, 8, 10]));
+*/
+
+// 23.06
+
+// #1
+/*
+Find the number with the most digits.
+If two numbers in the argument array have the same number of digits, return the first one in the array.
+*/
+
+function findLongest(array) {
+  let longest = "";
+  for (let i = 0; i < array.length; i++) {
+    let str = String(array[i]);
+
+    if (str.length > longest.length) {
+      longest = str;
+    }
+  }
+  return parseInt(longest);
+}
+
+console.log(findLongest([1, 10, 100]));
