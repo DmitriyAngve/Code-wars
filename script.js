@@ -4956,6 +4956,7 @@ Consult the solution set-up for the exact data structure implementation dependin
 Example:
 orderedCount("abracadabra") == [['a', 5], ['b', 2], ['r', 2], ['c', 1], ['d', 1]]
 */
+/*
 const orderedCount = function (text) {
   const charMap = new Map();
   for (let char of text) {
@@ -4969,3 +4970,28 @@ const orderedCount = function (text) {
 };
 
 console.log(orderedCount("abracadabra"));
+*/
+
+// #9
+/*
+Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
+Example:
+Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9].
+Addendum:
+Please, keep in mind, that JavaScript is by default sorting objects alphabetically. For more information, please consult:
+*/
+/*
+"use strict";
+function flattenAndSort(array) {
+  const newArr = [].concat(...array).sort((a, b) => a - b);
+  return newArr;
+}
+
+console.log(
+  flattenAndSort([
+    [3, 2, 1],
+    [7, 9, 8],
+    [6, 4, 5],
+  ])
+);
+*/
