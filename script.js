@@ -4780,7 +4780,7 @@ console.log(sumArray([6, 2, 1, 8, 10]));
 Find the number with the most digits.
 If two numbers in the argument array have the same number of digits, return the first one in the array.
 */
-
+/*
 function findLongest(array) {
   let longest = "";
   for (let i = 0; i < array.length; i++) {
@@ -4794,3 +4794,35 @@ function findLongest(array) {
 }
 
 console.log(findLongest([1, 10, 100]));
+*/
+
+// #2
+/*
+In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your task is to convert that string to either lowercase only or uppercase only based on:
+    make as few changes as possible.
+    if the string contains equal number of uppercase and lowercase letters, convert the string to lowercase.
+For example:
+solve("coDe") = "code". Lowercase characters > uppercase. Change only the "D" to lowercase.
+solve("CODe") = "CODE". Uppercase characters > lowecase. Change only the "e" to uppercase.
+solve("coDE") = "code". Upper == lowercase. Change all to lowercase.
+*/
+function solve(s) {
+  let countLower = 0;
+  let countUpper = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === s[i].toLowerCase()) {
+      countLower++;
+    } else if (s[i] === s[i].toUpperCase()) {
+      countUpper++;
+    }
+  }
+  if (countLower > countUpper || countLower === countUpper) {
+    return s.toLowerCase();
+  } else if (countUpper > countLower) {
+    return s.toUpperCase();
+  } else {
+    return s;
+  }
+}
+
+console.log(solve("CODe"));
