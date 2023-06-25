@@ -5006,6 +5006,7 @@ Return true if the cuboid could have equal sides, return false otherwise.
 Return false for invalid numbers too (e.g volume or side is less than or equal to 0).
 Note: side will be an integer
 */
+/*
 var cubeChecker = function (volume, side) {
   if (volume <= 0 || side <= 0) {
     return false;
@@ -5015,3 +5016,28 @@ var cubeChecker = function (volume, side) {
 };
 
 console.log(cubeChecker(8, 2));
+*/
+
+// 25.06
+
+/*
+adding up all the whole numbers from 1 through a given number n.
+Your task is to help the young Carl Friedrich to solve this problem as quickly as you can; so, he can astonish his teacher and rescue his recreation interval.
+Here's, an example:
+f(n=100) // returns 5050 
+*/
+function f(n) {
+  if (typeof n !== "number" || !Number.isInteger(n)) {
+    return false;
+  }
+  if (n <= 0) {
+    return false;
+  }
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  return sum;
+}
+
+console.log(f("100"));
