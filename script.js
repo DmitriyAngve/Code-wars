@@ -5163,6 +5163,7 @@ E.g. If we have an array [1,2,3,4,6,7,8] then 1 then 2 then 3 then 4 are all con
 If the whole array is consecutive then return null.
 The array will always have at least 2 elements1 and all elements will be numbers. The numbers will also all be unique and in ascending order. The numbers could be positive or negative and the first non-consecutive could be either too!
 */
+/*
 function firstNonConsecutive(arr) {
   for (let i = 0; i < arr.length - 1; i++) {
     if (arr[i + 1] !== arr[i] + 1) {
@@ -5173,3 +5174,41 @@ function firstNonConsecutive(arr) {
 }
 
 console.log(firstNonConsecutive([1, 2, 3, 4, 6, 7, 8]));
+*/
+
+// #7
+/*
+Given a positive number n > 1 find the prime factor decomposition of n. The result will be a string with the following form:
+ "(p1**n1)(p2**n2)...(pk**nk)"
+with the p(i) in increasing order and n(i) empty if n(i) is 1.
+Example: n = 86240 should return "(2**5)(5)(7**2)(11)"
+*/
+function primeFactors(n) {
+  const factors = [];
+  let factor = 2;
+
+  while (factor <= Math.sqrt(n)) {
+    if (n % factor === 0) {
+      factors.push(factor);
+      n /= factor;
+    } else {
+      factor++;
+    }
+  }
+  if (n > 1) {
+    factors.push(n);
+  }
+  let result = "";
+  for (let i = 0; i < factors.length; i++) {
+    let count = 1;
+
+    while (i < factors.length - 1 && factors[i] === factors[i + 1]) {
+      count++;
+      i++;
+    }
+    result += `(${factors[i]}${count > 1 ? `**${count}` : ""})`;
+  }
+  return result;
+}
+
+console.log(primeFactors(7775460));
