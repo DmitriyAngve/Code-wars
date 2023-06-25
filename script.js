@@ -5057,7 +5057,7 @@ encrypt("01234", 3)  =>  "13024"  ->  "32104"  ->  "20314"
 Together with the encryption function, you should also implement a decryption function which reverses the process.
 If the string S is an empty value or the integer N is not positive, return the first argument without changes.
 */
-
+/*
 function encrypt(text, n) {
   if (n <= 0 || !text || text.length === 0) {
     return text;
@@ -5105,3 +5105,34 @@ function decrypt(encryptedText, n) {
 }
 
 console.log(encrypt("hsi  etTi sats!", 1));
+*/
+
+// #3
+/*
+Create a combat function that takes the player's current health and the amount of damage recieved, and returns the player's new health. Health can't be less than 0.
+*/
+/*
+function combat(health, damage) {
+  return health - damage > 0 ? health - damage : 0;
+}
+*/
+
+// #4
+/*
+You must implement a function that returns the difference between the largest and the smallest value in a given list / array (lst) received as the parameter.
+    lst contains integers, that means it may contain some negative numbers
+    if lst is empty or contains a single element, return 0
+    lst is not sorted
+[1, 2, 3, 4]   //  returns 3 because 4 -   1  == 3
+[1, 2, 3, -4]  //  returns 7 because 3 - (-4) == 7
+*/
+function maxDiff(list) {
+  if (list.length === 0 || list.length === 1) {
+    return 0;
+  }
+  let sorted = list.sort((a, b) => a - b);
+  console.log(sorted);
+  return list[list.length - 1] - list[0];
+}
+
+console.log(maxDiff([1, 2, 3, -4]));
