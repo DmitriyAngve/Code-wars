@@ -5126,6 +5126,8 @@ You must implement a function that returns the difference between the largest an
 [1, 2, 3, 4]   //  returns 3 because 4 -   1  == 3
 [1, 2, 3, -4]  //  returns 7 because 3 - (-4) == 7
 */
+
+/*
 function maxDiff(list) {
   if (list.length === 0 || list.length === 1) {
     return 0;
@@ -5136,3 +5138,17 @@ function maxDiff(list) {
 }
 
 console.log(maxDiff([1, 2, 3, -4]));
+*/
+
+// #5
+/*
+Your code will show Full name of the neighbor and the truncated version of the name as an array. If the number of the characters in name is less than or equal to two, it will return an array containing only the name as is"
+*/
+function whoIsPaying(name) {
+  if (name.length <= 2) {
+    return [name];
+  }
+  const sliced = name.slice(0, 2);
+  return [name, sliced];
+}
+console.log(whoIsPaying("Mexico"));
