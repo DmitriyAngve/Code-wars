@@ -5246,30 +5246,87 @@ Ex:
 dashatize(274) -> '2-7-4'
 dashatize(6815) -> '68-1-5'
 */
-function dashatize(num) {
-  if (isNaN(num)) {
-    return "NaN";
-  }
-  if (num === 0) {
-    return "0";
-  }
-  let result = [];
-  const arr = Math.abs(num).toString().split("");
-  console.log(arr);
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] % 2 === 1) {
-      if (result.length > 0 && result[result.length - 1] !== "-") {
-        result.push("-");
-      }
-      result.push(arr[i], "-");
-    } else {
-      result.push(arr[i]);
-    }
-  }
-  if (result[result.length - 1] === "-") {
-    result.pop();
-  }
-  return result.join("");
+
+// FIRST
+// function dashatize(num) {
+//   if (isNaN(num)) {
+//     return "NaN";
+//   }
+//   if (num === 0) {
+//     return "0";
+//   }
+//   let result = [];
+//   const arr = Math.abs(num).toString().split("");
+//   console.log(arr);
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] % 2 === 1) {
+//       if (result.length > 0 && result[result.length - 1] !== "-") {
+//         result.push("-");
+//       }
+//       result.push(arr[i], "-");
+//     } else {
+//       result.push(arr[i]);
+//     }
+//   }
+//   if (result[result.length - 1] === "-") {
+//     result.pop();
+//   }
+//   return result.join("");
+// }
+
+// SECOND
+// function dashatize(num) {
+//   return String(num)
+//     .replace(/([13579])/g, "-$1-")
+//     .replace(/--+/g, "-")
+//     .replace(/(^-|-$)/g, "");
+// }
+
+// THIRD
+// function dashatize(num) {
+//   return isNaN(num)
+//     ? "NaN"
+//     : num
+//         .toString()
+//         .match(/([13579]|[02468]+)/g)
+//         .join("-");
+// }
+
+// console.log(dashatize(2743));
+
+// #3
+/*
+Inspired by the development team at Vooza, write the function that
+    accepts the name of a programmer, and
+    returns the number of lightsabers owned by that person.
+The only person who owns lightsabers is Zach, by the way. He owns 18, which is an awesome number of lightsabers. Anyone else owns 0.
+Note: your function should have a default parameter.
+For example(Input --> Output):
+"anyone else" --> 0
+"Zach" --> 18
+*/
+/*
+function howManyLightsabersDoYouOwn(name) {
+  return name === "Zach" ? 18 : 0;
 }
 
-console.log(dashatize(2743));
+console.log(howManyLightsabersDoYouOwn("Adam"));
+console.log(howManyLightsabersDoYouOwn("Zach"));
+*/
+
+// #4
+/*
+Template Strings
+Template Strings, this kata is mainly aimed at the new JS ES6 Update introducing Template Strings
+Task
+Your task is to return the correct string using the Template String Feature.
+Input
+Two Strings, no validation is needed.
+Output
+You must output a string containing the two strings with the word ```' are '``` 
+*/
+var TempleStrings = function (obj, feature) {
+  return `${obj} are ${feature}`;
+};
+
+console.log(TempleStrings("animals", "good"));
