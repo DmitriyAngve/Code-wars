@@ -438,7 +438,6 @@ Note: The parameter is optional. So you have to give it a default value.
 
 */
 
-//First solution
 /*
 function arr(n) {
   let arr2 = [];
@@ -5227,6 +5226,7 @@ mango(3, 3) ==> 6    # 2 mangoes for $3 per unit = $6; +1 mango for free
 mango(5, 3) ==> 12   # 4 mangoes for $3 per unit = $12; +1 mango for free
 mango(9, 5) ==> 30   # 6 mangoes for $5 per unit = $30; +3 mangoes for free
 */
+/*
 function mango(quantity, price) {
   const paid = Math.floor(quantity / 3) * 2;
   const totalCost = paid * price;
@@ -5235,3 +5235,41 @@ function mango(quantity, price) {
 }
 
 console.log(mango(3, 3));
+*/
+
+// #2
+/*
+Given a variable n,
+If n is an integer, Return a string with dash'-'marks before and after each odd integer, but do not begin or end the string with a dash mark. If n is negative, then the negative sign should be removed.
+If n is not an integer, return the string "NaN".
+Ex:
+dashatize(274) -> '2-7-4'
+dashatize(6815) -> '68-1-5'
+*/
+function dashatize(num) {
+  if (isNaN(num)) {
+    return "NaN";
+  }
+  if (num === 0) {
+    return "0";
+  }
+  let result = [];
+  const arr = Math.abs(num).toString().split("");
+  console.log(arr);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 === 1) {
+      if (result.length > 0 && result[result.length - 1] !== "-") {
+        result.push("-");
+      }
+      result.push(arr[i], "-");
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  if (result[result.length - 1] === "-") {
+    result.pop();
+  }
+  return result.join("");
+}
+
+console.log(dashatize(2743));
