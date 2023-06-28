@@ -5476,12 +5476,15 @@ console.log(
 */
 
 // 28.06
+
+// #1
 /*
 Given a string made up of letters a, b, and/or c, switch the position of letters a and b (change a to b and vice versa). Leave any incidence of c untouched.
 Example:
 'acb' --> 'bca'
 'aabacbaa' --> 'bbabcabb'
 */
+/*
 function switcheroo(x) {
   let result = "";
   for (let i = 0; i < x.length; i++) {
@@ -5497,3 +5500,41 @@ function switcheroo(x) {
 }
 
 console.log(switcheroo("abc"));
+*/
+
+// #2
+/*
+Determine the total number of digits in the integer (n>=0) given as input to the function. For example, 9 is a single digit, 66 has 2 digits and 128685 has 6 digits. Be careful to avoid overflows/underflows.
+All inputs will be valid.
+*/
+/*
+function digits(n) {
+  return n.toString().length;
+}
+
+console.log(digits(9876543210));
+*/
+
+// #3
+/*
+You have to write a function that describe Leo:
+if oscar was (integer) 88, you have to return "Leo finally won the oscar! Leo is happy".
+if oscar was 86, you have to return "Not even for Wolf of wallstreet?!"
+if it was not 88 or 86 (and below 88) you should return "When will you give Leo an Oscar?"
+if it was over 88 you should return "Leo got one already!"
+*/
+function leo(oscar) {
+  switch (oscar) {
+    case 88:
+      return "Leo finally won the oscar! Leo is happy";
+      break;
+    case 86:
+      return "Not even for Wolf of wallstreet?!";
+      break;
+    default:
+      if (oscar < 88) return "When will you give Leo an Oscar?";
+      else return "Leo got one already!";
+  }
+}
+
+console.log(leo(89));
