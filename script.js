@@ -5441,6 +5441,7 @@ Bash note:
     input : 2 strings with substrings separated by ,
     output: number as a string
 */
+/*
 function mxdiflg(a1, a2) {
   if (a1.length === 0 || a2.length === 0) {
     return -1;
@@ -5472,3 +5473,27 @@ console.log(
     ["cccooommaaqqoxii", "gggqaffhhh", "tttoowwwmmww"]
   )
 );
+*/
+
+// 28.06
+/*
+Given a string made up of letters a, b, and/or c, switch the position of letters a and b (change a to b and vice versa). Leave any incidence of c untouched.
+Example:
+'acb' --> 'bca'
+'aabacbaa' --> 'bbabcabb'
+*/
+function switcheroo(x) {
+  let result = "";
+  for (let i = 0; i < x.length; i++) {
+    if (x[i] === "a") {
+      result += "b";
+    } else if (x[i] === "b") {
+      result += "a";
+    } else {
+      result += x[i];
+    }
+  }
+  return result;
+}
+
+console.log(switcheroo("abc"));
