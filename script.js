@@ -5523,6 +5523,7 @@ if oscar was 86, you have to return "Not even for Wolf of wallstreet?!"
 if it was not 88 or 86 (and below 88) you should return "When will you give Leo an Oscar?"
 if it was over 88 you should return "Leo got one already!"
 */
+/*
 function leo(oscar) {
   switch (oscar) {
     case 88:
@@ -5538,3 +5539,15 @@ function leo(oscar) {
 }
 
 console.log(leo(89));
+*/
+
+// #3
+/*
+Write function parseF which takes an input and returns a number or null if conversion is not possible. The input can be one of many different types so be aware.
+*/
+function parseF(s) {
+  const parsed = parseFloat(s);
+  return isNaN(parsed) ? null : parsed;
+}
+
+console.log(parseF());
