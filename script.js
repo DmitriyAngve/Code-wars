@@ -5752,6 +5752,7 @@ Complete the method which accepts an array of integers, and returns one of the f
     "no" - otherwise
 You can assume the array will always be valid, and there will always be one correct answer.
 */
+/*
 function isSortedAndHow(array) {
   if (array.every((num, ind) => ind === 0 || num >= array[ind - 1])) {
     return "yes, ascending";
@@ -5763,3 +5764,34 @@ function isSortedAndHow(array) {
 }
 
 console.log(isSortedAndHow([15, 7, 3, -8]));
+*/
+
+// #4
+/*
+Return the type of the sum of the two arguments
+*/
+/*
+function typeOfSum(a, b) {
+  return typeof (a + b);
+}
+console.log(typeOfSum(12, 1));
+console.log(typeOfSum(null, 1));
+console.log(typeOfSum(12, "a"));
+console.log(typeOfSum(null, undefined));
+*/
+
+// #5
+/*
+Write a function reverse which reverses a list.
+(the dedicated builtin(s) functionalities are deactivated)
+*/
+function reverse(array) {
+  let reversed = [];
+  for (let i = array.length - 1; i >= 0; i--) {
+    // ОБРАТНЫЙ ПОРЯДОК ИТЕРАЦИИ
+    reversed.push(array[i]);
+  }
+  return reversed;
+}
+
+console.log(reverse([1, null, 14, "two"]));
