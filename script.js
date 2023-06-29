@@ -5840,7 +5840,7 @@ Even indices 0, 2, 4, 6, so we have 'CdWr' as the first group
 odd ones are 1, 3, 5, 7, so the second group is 'oeas'
 And the final string to return is 'Cdwr oeas'
 */
-
+/*
 function sortMyString(arr) {
   let fisrtArr = [];
   let secondArr = [];
@@ -5855,3 +5855,26 @@ function sortMyString(arr) {
 }
 
 console.log(sortMyString("CodeWars"));
+*/
+
+// #8
+/*
+Given a mixed array of number and string representations of integers, add up the non-string integers and subtract the total of the string integers.
+Return as a number.
+*/
+function divCon(x) {
+  let str = 0;
+  let num = 0;
+  for (let i = 0; i < x.length; i++) {
+    if (typeof x[i] === "string") {
+      str += Number(x[i]);
+    }
+    if (typeof x[i] === "number") {
+      num += x[i];
+      console.log(num);
+    }
+  }
+  return num - str;
+}
+
+console.log(divCon([9, 3, "7", "3"]));
