@@ -5708,6 +5708,7 @@ Thus Mr. Scrooge has to wait for 3 years for the initial principal to amount to 
 Your task is to complete the method provided and return the number of years 'Y' as a whole in order for Mr. Scrooge to get the desired sum.
 Assumption: Assume that Desired Principal 'D' is always greater than the initial principal. However it is best to take into consideration that if Desired Principal 'D' is equal to Principal 'P' this should return 0 Years.
 */
+/*
 function calculateYears(principal, interest, tax, desired) {
   let years = 0;
 
@@ -5722,3 +5723,43 @@ function calculateYears(principal, interest, tax, desired) {
 }
 
 console.log(calculateYears(1000, 0.5, 0.18, 1100));
+*/
+
+// #2
+/*
+Remove all exclamation marks from the end of sentence.
+Examples
+remove("Hi!") === "Hi"
+remove("Hi!!!") === "Hi"
+remove("!Hi") === "!Hi"
+remove("!Hi!") === "!Hi"
+remove("Hi! Hi!") === "Hi! Hi"
+remove("Hi") === "Hi"
+*/
+/*
+function remove(str) {
+  return str.replace(/!+$/g, "");
+}
+
+console.log(remove("Hi! Hi!"));
+*/
+
+// #3
+/*
+Complete the method which accepts an array of integers, and returns one of the following:
+    "yes, ascending" - if the numbers in the array are sorted in an ascending order
+    "yes, descending" - if the numbers in the array are sorted in a descending order
+    "no" - otherwise
+You can assume the array will always be valid, and there will always be one correct answer.
+*/
+function isSortedAndHow(array) {
+  if (array.every((num, ind) => ind === 0 || num >= array[ind - 1])) {
+    return "yes, ascending";
+  }
+  if (array.every((num, ind) => ind === 0 || num <= array[ind - 1])) {
+    return "yes, descending";
+  }
+  return "no";
+}
+
+console.log(isSortedAndHow([15, 7, 3, -8]));
