@@ -5647,6 +5647,7 @@ s1 = "mmmmm m nnnnn y&friend&Paul has heavy hats! &"
 s2 = "my frie n d Joh n has ma n y ma n y frie n ds n&"
 mix(s1, s2) --> "1:mmmmmm/E:nnnnnn/1:aaaa/1:hhh/2:yyy/2:dd/2:ff/2:ii/2:rr/E:ee/E:ss"
 */
+/*
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
 function mix(s1, s2) {
@@ -5687,3 +5688,37 @@ console.log(
 console.log(
   mix("Are the kids at home? aaaaa fffff", "Yes they are here! aaaaa fffff")
 );
+*/
+
+// 29.06
+
+// #1
+/*
+  Let P be the Principal = 1000.00      
+  Let I be the Interest Rate = 0.05      
+  Let T be the Tax Rate = 0.18      
+  Let D be the Desired Sum = 1100.00
+After 1st Year -->
+  P = 1041.00
+After 2nd Year -->
+  P = 1083.86
+After 3rd Year -->  P = 1128.30
+
+Thus Mr. Scrooge has to wait for 3 years for the initial principal to amount to the desired sum.
+Your task is to complete the method provided and return the number of years 'Y' as a whole in order for Mr. Scrooge to get the desired sum.
+Assumption: Assume that Desired Principal 'D' is always greater than the initial principal. However it is best to take into consideration that if Desired Principal 'D' is equal to Principal 'P' this should return 0 Years.
+*/
+function calculateYears(principal, interest, tax, desired) {
+  let years = 0;
+
+  while (principal < desired) {
+    const interestEarned = principal * interest;
+    const taxPaid = interestEarned * tax;
+    principal += interestEarned - taxPaid;
+    years++;
+  }
+
+  return years;
+}
+
+console.log(calculateYears(1000, 0.5, 0.18, 1100));
