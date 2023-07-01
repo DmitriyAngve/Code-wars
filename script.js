@@ -5942,6 +5942,7 @@ For input: [3, 4, 4, 3, 6, 3]
 Expected output: [4, 6, 3]
 More examples can be found in the test cases.
 */
+/*
 function solve(arr) {
   const unique = [];
   const map = new Map();
@@ -5957,3 +5958,108 @@ function solve(arr) {
 }
 
 console.log(solve([3, 4, 4, 3, 6, 3]));
+*/
+
+// #2
+/*
+This is an easy twist to the example kata (provided by Codewars when learning how to create your own kata).
+Add the value "codewars" to the array websites 1,000 times.
+*/
+// add the value "codewars" to the websites array 1,000 times
+/*
+var websites = [];
+websites.length = 1000;
+websites.fill("codewars");
+*/
+
+// #3
+/*
+Step 1: Create a function called encode() to replace all the lowercase vowels in a given string with numbers according to the following pattern:
+a -> 1
+e -> 2
+i -> 3
+o -> 4
+u -> 5
+For example, encode("hello") would return "h2ll4". There is no need to worry about uppercase vowels in this kata.
+Step 2: Now create a function called decode() to turn the numbers back into vowels according to the same pattern shown above.
+For example, decode("h3 th2r2") would return "hi there".
+For the sake of simplicity, you can assume that any numbers passed into the function will correspond to vowels.
+*/
+// FIRST
+// function encode(string) {
+//   const vowels = /[aeiou]/;
+//   let result = "";
+//   for (let i = 0; i < string.length; i++) {
+//     if (vowels.test(string[i])) {
+//       switch (string[i]) {
+//         case "a":
+//           result += "1";
+//           break;
+//         case "e":
+//           result += "2";
+//           break;
+//         case "i":
+//           result += "3";
+//           break;
+//         case "o":
+//           result += "4";
+//           break;
+//         case "u":
+//           result += "5";
+//           break;
+//       }
+//     } else {
+//       result += string[i];
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(encode("How are you today?"));
+
+// function decode(string) {
+//   const vowels = /[12345]/;
+//   let result = "";
+//   for (let i = 0; i < string.length; i++) {
+//     if (vowels.test(string[i])) {
+//       switch (string[i]) {
+//         case "1":
+//           result += "a";
+//           break;
+//         case "2":
+//           result += "e";
+//           break;
+//         case "3":
+//           result += "i";
+//           break;
+//         case "4":
+//           result += "o";
+//           break;
+//         case "5":
+//           result += "u";
+//           break;
+//       }
+//     } else {
+//       result += string[i];
+//     }
+//   }
+//   return result;
+// }
+
+// console.log(decode("h2ll4"));
+
+// SECOND
+function encode(string) {
+  return string.replace(/[aeiou]/g, function (x) {
+    return "_aeiou".indexOf(x);
+  });
+}
+
+console.log(encode("hello"));
+
+function decode(string) {
+  return string.replace(/[1-5]/g, function (x) {
+    return "_aeiou".charAt(x);
+  });
+}
+console.log(decode("h2ll4"));
