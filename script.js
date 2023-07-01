@@ -5900,6 +5900,7 @@ Since the sum of its digits' factorial of 2! = 2 is equal to number itself, then
 strong_num(150) ==> return "Not Strong !!"
 Since the sum of its digits' factorial of 1! + 5! + 0! = 122 is not equal to number itself, Then it's Not Strong . 
 */
+/*
 function strong(n) {
   function factorial(num) {
     if (num === 0 || num === 1) {
@@ -5928,3 +5929,31 @@ function strong(n) {
 }
 
 console.log(strong(145));
+*/
+
+// 01.07
+/*
+Remove the duplicates from a list of integers, keeping the last ( rightmost ) occurrence of each element.
+Example:
+For input: [3, 4, 4, 3, 6, 3]
+    remove the 3 at index 0
+    remove the 4 at index 1
+    remove the 3 at index 3
+Expected output: [4, 6, 3]
+More examples can be found in the test cases.
+*/
+function solve(arr) {
+  const unique = [];
+  const map = new Map();
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    const element = arr[i];
+    if (!map.has(element)) {
+      map.set(element, true);
+      unique.unshift(element);
+    }
+  }
+  return unique;
+}
+
+console.log(solve([3, 4, 4, 3, 6, 3]));
