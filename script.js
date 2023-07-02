@@ -6162,6 +6162,7 @@ Examples:
 uniTotal("a") == 97
 uniTotal("aaa") == 291
 */
+/*
 function uniTotal(string) {
   const array = string.split("");
   console.log(array);
@@ -6173,3 +6174,24 @@ function uniTotal(string) {
 }
 
 console.log(uniTotal("aaa"));
+*/
+
+// №2
+/*
+Write function alternateCase which switch every letter in string from upper to lower and from lower to upper. E.g: Hello World -> hELLO wORLD
+*/
+function alternateCase(s) {
+  let result = "";
+  for (let i = 0; i < s.length; i++) {
+    if (s[i].toUpperCase() === s[i]) {
+      result += s[i].toLowerCase();
+    } else if (s[i].toLowerCase() === s[i]) {
+      result += s[i].toUpperCase();
+    } else {
+      result += s[i];
+    }
+  }
+  return result;
+}
+
+console.log(alternateCase("Hello World"));
