@@ -6133,8 +6133,10 @@ Notes:
     try not to modify the input list of distances ls
     in some languages this "list" is in fact a string (see the Sample Tests).
 */
+/*
 function chooseBestSum(t, k, ls) {
   let maxSum = -1;
+
   function dfs(start, count, sum) {
     if (count === 0) {
       if (sum <= t && sum > maxSum) {
@@ -6151,3 +6153,23 @@ function chooseBestSum(t, k, ls) {
 }
 
 console.log(chooseBestSum(174, 3, [50, 55, 56, 57, 58]));
+*/
+
+// #7
+/*
+You'll be given a string, and have to return the sum of all characters as an int. The function should be able to handle all printable ASCII characters.
+Examples:
+uniTotal("a") == 97
+uniTotal("aaa") == 291
+*/
+function uniTotal(string) {
+  const array = string.split("");
+  console.log(array);
+  let sum = 0;
+  for (let i = 0; i < array.length; i++) {
+    sum += array[i].charCodeAt(0);
+  }
+  return sum;
+}
+
+console.log(uniTotal("aaa"));
