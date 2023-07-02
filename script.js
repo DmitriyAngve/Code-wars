@@ -6218,6 +6218,7 @@ Examples (input -> output)
 'This looks5 grea8t!' -> 'This looks great!'
 Your harried co-workers are looking to you for a solution to take this garbled text and remove all of the numbers. Your program will take in a string and clean out all numeric characters, and return a string with spacing and special characters ~#$%^&!@*():;"'.,? all intact.
 */
+/*
 // FIRST
 // function stringClean(s) {
 //   let result = "";
@@ -6235,3 +6236,34 @@ function stringClean(s) {
 }
 
 console.log(stringClean("(E3at m2e2!!)"));
+*/
+
+// #4
+/*
+Modify the spacify function so that it returns the given string with spaces inserted between each character.
+spacify("hello world") // returns "h e l l o   w o r l d"
+*/
+/*
+function spacify(str) {
+  return str.split("").join(" ");
+}
+console.log(spacify("hello world"));
+*/
+
+// #5
+/*
+If the winner is George Saint Pierre he will obviously say:
+    "I am not impressed by your performance."
+If the winner is Conor McGregor he will most undoubtedly say:
+    "I'd like to take this chance to apologize.. To absolutely NOBODY!"
+Note
+The given name may varies in casing, eg., it can be "George Saint Pierre" or "geOrGe saiNT pieRRE". Your solution should treat both as the same thing (case-insensitive). 
+*/
+var quote = function (fighter) {
+  return fighter.toLowerCase() === "george saint pierre"
+    ? "I am not impressed by your performance."
+    : "I'd like to take this chance to apologize.. To absolutely NOBODY!";
+};
+
+console.log(quote("George Saint Pierre"));
+console.log(quote("Conor McGregor"));
