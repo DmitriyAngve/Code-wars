@@ -6259,6 +6259,7 @@ If the winner is Conor McGregor he will most undoubtedly say:
 Note
 The given name may varies in casing, eg., it can be "George Saint Pierre" or "geOrGe saiNT pieRRE". Your solution should treat both as the same thing (case-insensitive). 
 */
+/*
 var quote = function (fighter) {
   return fighter.toLowerCase() === "george saint pierre"
     ? "I am not impressed by your performance."
@@ -6267,3 +6268,66 @@ var quote = function (fighter) {
 
 console.log(quote("George Saint Pierre"));
 console.log(quote("Conor McGregor"));
+*/
+
+// #6
+/*
+To complete this Kata you need to make a function multiplyAll/multiply_all which takes an array of integers as an argument. This function must return another function, which takes a single integer as an argument and returns a new array.
+The returned array should consist of each of the elements from the first array multiplied by the integer.
+Example:
+multiplyAll([1, 2, 3])(2) = [2, 4, 6];
+You must not mutate the original array.
+*/
+/*
+function multiplyAll(x) {
+  return function (multiplier) {
+    return x.map((el, ind) => el * multiplier);
+  };
+}
+*/
+
+// #7
+
+/*
+Create a function that finds the integral of the expression passed.
+In order to find the integral all you need to do is add one to the exponent (the second argument), and divide the coefficient (the first argument) by that new number.
+For example for 3x^2, the integral would be 1x^3: we added 1 to the exponent, and divided the coefficient by that new number).
+Notes:
+    The output should be a string.
+    The coefficient and exponent is always a positive integer.
+Examples
+ 3, 2  -->  "1x^3"
+12, 5  -->  "2x^6"
+20, 1  -->  "10x^2"
+40, 3  -->  "10x^4"
+90, 2  -->  "30x^3"
+*/
+/*
+function integrate(coefficient, exponent) {
+  const first = exponent + 1;
+  const second = coefficient / first;
+  return `${second}x^${first}`;
+}
+console.log(integrate(12, 5));
+*/
+
+// 04.07.2023
+/*
+Task
+Given an array/list of integers, find the Nth smallest element in the array.
+Notes
+    Array/list size is at least 3.
+    Array/list's numbers could be a mixture of positives , negatives and zeros.
+    Repetition in array/list's numbers could occur, so don't remove duplications.
+Input >> Output Examples
+arr=[3,1,2]            n=2    ==> return 2 
+arr=[15,20,7,10,4,3]   n=3    ==> return 7 
+arr=[2,169,13,-5,0,-1] n=4    ==> return 2 
+arr=[2,1,3,3,1,2],     n=3    ==> return 2 
+*/
+function nthSmallest(arr, pos) {
+  const sorted = arr.sort((a, b) => a - b);
+  return sorted[pos - 1];
+}
+
+console.log(nthSmallest([3, 1, 2], 2));
