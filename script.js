@@ -6471,6 +6471,7 @@ In this Kata, you will be given a string and your task will be to return a list 
 Solve("*'&ABCDabcde12345") = [4,5,5,3]. 
 --the order is: uppercase letters, lowercase, numbers and special characters.
 */
+/*
 function solve(s) {
   let countUpper = 0;
   let countLower = 0;
@@ -6493,3 +6494,20 @@ function solve(s) {
 }
 
 console.log(solve("*'&ABCDabcde12345")); // [4, 5, 5, 3]
+*/
+
+// #7
+/*
+You can print your name on a billboard ad. Find out how much it will cost you. Each character has a default price of £30, but that can be different if you are given 2 parameters instead of 1.
+You can not use multiplier "*" operator.
+If your name would be Jeong-Ho Aristotelis, ad would cost £600. 20 leters * 30 = 600 (Space counts as a character).
+*/
+function billboard(name, price = 30) {
+  console.log([...name]);
+  return [...name].reduce((cost, char) => {
+    cost += price;
+    return cost;
+  }, 0);
+}
+
+console.log(billboard("Hjalmar Liupold", 40));
