@@ -6382,38 +6382,114 @@ Example:
 list_squared(1, 250) --> [[1, 1], [42, 2500], [246, 84100]]
 list_squared(42, 250) --> [[42, 2500], [246, 84100]]
 */
+// FIRST
+// function listSquared(m, n) {
+//   let result = [];
+//   for (let num = m; num <= n; num++) {
+//     let divisors = findDivisors(num);
+//     let sumOfSquaredDivisors = divisors.reduce(
+//       (acc, val) => acc + val * val,
+//       0
+//     );
+//     if (isSquare(sumOfSquaredDivisors)) {
+//       result.push([num, sumOfSquaredDivisors]);
+//     }
+//   }
+//   return result;
+// }
+// function findDivisors(num) {
+//   let divisors = [];
+//   for (let i = 1; i <= num; i++) {
+//     if (num % i === 0) {
+//       divisors.push(i);
+//     }
+//   }
+//   return divisors;
+// }
+// function isSquare(num) {
+//   return Math.sqrt(num) % 1 === 0;
+// }
+/*
+// SECOND
 function listSquared(m, n) {
+  // пустой массив для результата, в конце вернем
   let result = [];
-
+  // перебираем числа от "m" до "n"
   for (let num = m; num <= n; num++) {
-    let divisors = findDivisors(num);
-    let sumOfSquaredDivisors = divisors.reduce(
-      (acc, val) => acc + val * val,
-      0
-    );
+    // создадим пустой массив для записи делителей, будем использовать для вычисления суммы квадратов делителей
+    let divisors = [];
+    // создадим для суммы
+    let sum = 0;
+    // проверяем, является ли "i" делителем числа "num".
+    for (let i = 1; i <= num; i++) {
+      // Если остаток от деления равен 0, то пушим в массив "divisors"
+      if (num % i === 0) {
+        divisors.push(i);
+      }
+    }
+    // применяем метод "reduce" к "divisors", чтобы получить сумму квадратов каждого элемента
+    sum = divisors.reduce((acc, val) => acc + val * val, 0);
 
-    if (isSquare(sumOfSquaredDivisors)) {
-      result.push([num, sumOfSquaredDivisors]);
+    // Делаем проверку, является ли полученная сумма квадратов сама по себе квадратом какого-то числа (заодного проверив, что это число целое(деление на 1 = 0))
+    if (Math.sqrt(sum) % 1 === 0) {
+      // если после примененя квадратного корня к получившемуся числу после суммирования квадратов элементов массива "divisots" не осталось остатка, то пушим в пустой массив "result"
+      result.push([num, sum]);
     }
   }
-
   return result;
 }
 
-function findDivisors(num) {
-  let divisors = [];
+console.log(listSquared(1, 250));
+console.log(listSquared(42, 250));
+*/
 
-  for (let i = 1; i <= num; i++) {
-    if (num % i === 0) {
-      divisors.push(i);
+// #4
+/*
+Implement String#digit? (in Java StringUtils.isDigit(String)), which should return true if given object is a digit (0-9), false otherwise.
+*/
+/*
+String.prototype.digit = function () {
+  return /^\d$/.test(this);
+};
+
+
+// #5
+/*
+You are running the calculation 2 + 2 * 2 + 2 * 2 and expect to get the answer 32 but instead the function keeps returning 10. Fix the function to make it return 32 without changing the number or the operators.
+*/
+/*
+function orderOperations() {
+  return (2 + 2) * (2 + 2) * 2;
+}
+
+console.log(orderOperations());
+*/
+
+// #6
+/*
+In this Kata, you will be given a string and your task will be to return a list of ints detailing the count of uppercase letters, lowercase, numbers and special characters, as follows.
+Solve("*'&ABCDabcde12345") = [4,5,5,3]. 
+--the order is: uppercase letters, lowercase, numbers and special characters.
+*/
+function solve(s) {
+  let countUpper = 0;
+  let countLower = 0;
+  let countDigit = 0;
+  let countSpecial = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    if (/[A-Z]/.test(s[i])) {
+      countUpper++;
+    } else if (/[a-z]/.test(s[i])) {
+      countLower++;
+    } else if (/[0-9]/.test(s[i])) {
+      countDigit++;
+    } else {
+      countSpecial++;
     }
   }
 
-  return divisors;
+  return [countUpper, countLower, countDigit, countSpecial];
 }
 
-function isSquare(num) {
-  return Math.sqrt(num) % 1 === 0;
-}
-console.log(listSquared(1, 250));
-console.log(listSquared(42, 250));
+console.log(solve("*'&ABCDabcde12345")); // [4, 5, 5, 3]
