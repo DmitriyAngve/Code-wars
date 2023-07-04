@@ -6502,6 +6502,7 @@ You can print your name on a billboard ad. Find out how much it will cost you. E
 You can not use multiplier "*" operator.
 If your name would be Jeong-Ho Aristotelis, ad would cost £600. 20 leters * 30 = 600 (Space counts as a character).
 */
+/*
 function billboard(name, price = 30) {
   console.log([...name]);
   return [...name].reduce((cost, char) => {
@@ -6511,3 +6512,71 @@ function billboard(name, price = 30) {
 }
 
 console.log(billboard("Hjalmar Liupold", 40));
+*/
+/*
+function cap(string) {
+  const arr = string.split("");
+  console.log(arr);
+  arr[0] = arr[0].toUpperCase();
+  console.log(arr);
+  return arr.join("");
+}
+console.log(cap("jgfnfownfowenwe jngweraoimngwoijw jm3 friop3m4pio "));
+*/
+/*
+const marks = [50, 60, 70, 80, 90];
+
+function findMin(arr) {
+  // const sorted = arr.sort((a, b) => a - b);
+  // return sorted[0];
+
+  return Math.min(...arr);
+}
+
+function findMax(arr) {
+  // const sorted = arr.sort((a, b) => b - a);
+  // return sorted[0];
+  if (arr.length === 0) {
+    return undefined;
+  }
+  let max = 0;
+  arr.forEach((num) => {
+    if (num > max) {
+      max = num;
+    }
+  });
+  return max;
+}
+
+console.log(findMin(marks));
+
+console.log(findMax(marks));
+
+console.log([..."gopeerpo edef d"]);
+*/
+// console.log("welcome to JS World"[0].toUpperCase());
+/*
+const arr = [1, 2, 3, 4, 4];
+
+function duplicate(arr) {
+  const unique = [...new Set(arr)];
+  return unique;
+}
+console.log(duplicate(arr));
+*/
+/*
+let cities = ["Saint-Petersburg", "Riga", "Milan"];
+console.log(cities);
+cities = [];
+console.log(cities);
+*/
+
+const arr = [11, 5, 4, 61, 23, 66, 24, 10, 3, 7];
+function sortedByEven(arr) {
+  const odd = arr.filter((num) => num % 2 === 1);
+  const sorted = odd.sort((a, b) => a - b);
+  const result = arr.map((num) => (num % 2 === 1 ? sorted.shift() : num));
+  return result;
+}
+
+console.log(sortedByEven(arr));
