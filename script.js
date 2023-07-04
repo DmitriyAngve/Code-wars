@@ -6325,9 +6325,47 @@ arr=[15,20,7,10,4,3]   n=3    ==> return 7
 arr=[2,169,13,-5,0,-1] n=4    ==> return 2 
 arr=[2,1,3,3,1,2],     n=3    ==> return 2 
 */
+/*
 function nthSmallest(arr, pos) {
   const sorted = arr.sort((a, b) => a - b);
   return sorted[pos - 1];
 }
 
 console.log(nthSmallest([3, 1, 2], 2));
+*/
+
+// #2
+/*
+Several people are standing in a row divided into two teams.
+The first person goes into team 1, the second goes into team 2, the third goes into team 1, and so on.
+Task
+Given an array of positive integers (the weights of the people), return a new array/tuple of two integers, where the first one is the total weight of team 1, and the second one is the total weight of team 2.
+Notes
+    Array size is at least 1.
+    All numbers will be positive.
+    Input >> Output Examples
+rowWeights([13, 27, 49])  ==>  return (62, 27)
+Explanation:
+The first element 62 is the total weight of team 1, and the second element 27 is the total weight of team 2.
+rowWeights([50, 60, 70, 80])  ==>  return (120, 140)
+Explanation:
+The first element 120 is the total weight of team 1, and the second element 140 is the total weight of team 2.
+rowWeights([80])  ==>  return (80, 0)
+Explanation:
+The first element 80 is the total weight of team 1, and the second element 0 is the total weight of team 2.
+*/
+function rowWeights(array) {
+  let first = 0;
+  let second = 0;
+  for (let i = 0; i < array.length; i++) {
+    if (i % 2 === 0) {
+      first += array[i];
+    } else {
+      second += array[i];
+    }
+  }
+  return [first, second];
+}
+
+console.log(rowWeights([50, 60, 70, 80]));
+console.log(rowWeights([70, 58, 75, 34, 91]));
