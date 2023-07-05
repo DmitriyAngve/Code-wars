@@ -6570,7 +6570,7 @@ console.log(cities);
 cities = [];
 console.log(cities);
 */
-
+/*
 const arr = [11, 5, 4, 61, 23, 66, 24, 10, 3, 7];
 function sortedByEven(arr) {
   const odd = arr.filter((num) => num % 2 === 1);
@@ -6580,3 +6580,39 @@ function sortedByEven(arr) {
 }
 
 console.log(sortedByEven(arr));
+*/
+
+// 05.07
+/*
+Define a function that takes an integer argument and returns a logical value true or false depending on if the integer is a prime.
+Per Wikipedia, a prime number ( or a prime ) is a natural number greater than 1 that has no positive divisors other than 1 and itself.
+Requirements
+    You can assume you will be given an integer input.
+    You can not assume that the integer will be only positive. You may be given negative numbers as well ( or 0 ).
+    NOTE on performance: There are no fancy optimizations required, but still the most trivial solutions might time out. Numbers go up to 2^31 ( or similar, depending on language ). Looping all the way up to n, or n/2, will be too slow.
+Example
+is_prime(1)   false 
+is_prime(2)   true  
+is_prime(-1)  false 
+*/
+
+function isPrime(num) {
+  // Задаем условие для поиска простого числа, оно не равно 0, не меньше 0, и не равно 1
+  if (num === 0 || num < 0 || num === 1) {
+    return false;
+  }
+  // тут начинаем итерацию с 2, потому что 1 это не простое число, его сразу откидываем. Проверяем входящее "num", делиться ли оно на любое число от 2 до квадратного корня от "num" без остатка. Если такое число найдено, то сразу выполняется false
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isPrime(0));
+console.log(isPrime(1));
+console.log(isPrime(2));
+console.log(isPrime(73));
+console.log(isPrime(-1));
+console.log(isPrime(4));
