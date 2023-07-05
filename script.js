@@ -6704,6 +6704,8 @@ Examples:
 - h = 3, bounce = 1, window = 1.5, result is -1 
 (Condition 2) not fulfilled).
 */
+/*
+// FIRST
 function bouncingBall(h, bounce, window) {
   if (h <= 0 || bounce <= 0 || bounce >= 1 || window >= h) {
     return -1;
@@ -6718,3 +6720,29 @@ function bouncingBall(h, bounce, window) {
 
 console.log(bouncingBall(30.0, 0.66, 1.5));
 console.log(bouncingBall(3.0, 1.0, 1.5));
+*/
+/*
+// SECOND
+function bouncingBall(h, bounce, window) {
+  if (h <= 0 || bounce <= 0 || bounce >= 1 || window >= h) {
+    return -1;
+  }
+
+  function jumpCount(newH, count) {
+    if (newH <= window) {
+      return count; // Останавливаем рекурсию, когда новая высота меньше или равна высоте окна
+    }
+    newH *= bounce; // Высчитываем высоту после отскока
+
+    if (newH > window) {
+      count += 2; // Добавляем 2 к счетчику, если новая высота больше высоты окна
+    }
+
+    return jumpCount(newH, count); // Рекурсивный вызов для следующего отскока
+  }
+  return jumpCount(h, 1); // Начинаем с 1, чтобы учесть исходное падение
+}
+
+console.log(bouncingBall(30.0, 0.66, 1.5));
+console.log(bouncingBall(3.0, 1.0, 1.5));
+*/
