@@ -6746,3 +6746,24 @@ function bouncingBall(h, bounce, window) {
 console.log(bouncingBall(30.0, 0.66, 1.5));
 console.log(bouncingBall(3.0, 1.0, 1.5));
 */
+
+// 06.07.2023
+// #1
+/*
+Given an array/list of integers, find the Nth smallest element in the array.
+Notes
+    Array/list size is at least 3.
+    Array/list's numbers could be a mixture of positives , negatives and zeros.
+    Repetition in array/list's numbers could occur, so don't remove duplications.
+Input >> Output Examples
+arr=[3,1,2]            n=2    ==> return 2 
+arr=[15,20,7,10,4,3]   n=3    ==> return 7 
+arr=[2,169,13,-5,0,-1] n=4    ==> return 2 
+arr=[2,1,3,3,1,2],     n=3    ==> return 2 
+*/
+function nthSmallest(arr, pos) {
+  const sorted = arr.sort((a, b) => a - b);
+  return sorted[pos - 1];
+}
+
+console.log(nthSmallest([3, 1, 2], 2));
