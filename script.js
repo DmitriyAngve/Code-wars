@@ -6761,9 +6761,27 @@ arr=[15,20,7,10,4,3]   n=3    ==> return 7
 arr=[2,169,13,-5,0,-1] n=4    ==> return 2 
 arr=[2,1,3,3,1,2],     n=3    ==> return 2 
 */
+/*
 function nthSmallest(arr, pos) {
   const sorted = arr.sort((a, b) => a - b);
   return sorted[pos - 1];
 }
 
 console.log(nthSmallest([3, 1, 2], 2));
+*/
+
+// #2
+/*
+Color Ghost
+Create a class Ghost
+Ghost objects are instantiated without any arguments.
+Ghost objects are given a random color attribute of "white" or "yellow" or "purple" or "red" when instantiated
+ghost = new Ghost();
+ghost.color //=> "white" or "yellow" or "purple" or "red"
+*/
+class Ghost {
+  constructor() {
+    const colors = ["white", "yellow", "purple", "red"];
+    this.color = colors[Math.floor(Math.random() * colors.length)];
+  }
+}
