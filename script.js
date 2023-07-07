@@ -6989,9 +6989,9 @@ Your car is old, it breaks easily. The shock absorbers are gone and you think it
 Unfortunately for you, your drive is very bumpy! Given a string showing either flat road (_) or bumps (n). If you are able to reach home safely by encountering 15 bumps or less, return Woohoo!, otherwise return Car Dead
 
 */
+/*
 function bump(x) {
   const str = x.split("");
-
   let count = 0;
   for (let i = 0; i < str.length; i++) {
     if (str[i] === "n") {
@@ -7003,3 +7003,36 @@ function bump(x) {
 
 console.log(bump("__nn_nnnn__n_n___n____nn__nnn"));
 console.log(bump("_nnnnnnn_n__n______nn__nn_nnn"));
+*/
+
+// #5
+/*
+Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product .
+Notes
+    Array/list will contain positives only .
+    Array/list will always have even size
+Input >> Output Examples
+minSum({5,4,2,3}) ==> return (22) 
+Explanation:
+    The minimum sum obtained from summing each two integers product ,  5*2 + 3*4 = 22
+minSum({12,6,10,26,3,24}) ==> return (342)
+Explanation:
+    The minimum sum obtained from summing each two integers product ,  26*3 + 24*6 + 12*10 = 342
+minSum({9,2,8,7,5,4,0,6}) ==> return (74)
+Explanation:
+    The minimum sum obtained from summing each two integers product ,  9*0 + 8*2 +7*4 +6*5 = 74
+*/
+function minSum(arr) {
+  arr.sort((a, b) => a - b);
+  let left = 0;
+  let right = arr.length - 1;
+  let sum = 0;
+  while (left < right) {
+    sum += arr[left] * arr[right];
+    left++;
+    right--;
+  }
+  return sum;
+}
+
+console.log(minSum([5, 4, 2, 3]));
