@@ -6818,6 +6818,7 @@ console.log(deleteNth([20, 37, 20, 21, 1, 1, 1, 2], 1));
 */
 
 // 07.07.2023
+// #1
 /*
  Replace all vowel to exclamation mark in the sentence. aeiouAEIOU is vowel.
 Examples
@@ -6826,8 +6827,35 @@ replace("!Hi! Hi!") === "!H!! H!!"
 replace("aeiou") === "!!!!!"
 replace("ABCDE") === "!BCD!"
 */
+/*
 function replac(s) {
   const regExp = new RegExp(/[aeiou]/gi);
   return s.replace(regExp, "!");
 }
 console.log(replac("Aeiou!!!"));
+*/
+
+// #2
+/*
+In this Kata your task will be to return the count of pairs that have consecutive numbers as follows:
+pairs([1,2,5,8,-4,-3,7,6,5]) = 3
+The pairs are selected as follows [(1,2),(5,8),(-4,-3),(7,6),5]
+--the first pair is (1,2) and the numbers in the pair are consecutive; Count = 1
+--the second pair is (5,8) and are not consecutive
+--the third pair is (-4,-3), consecutive. Count = 2
+--the fourth pair is (7,6), also consecutive. Count = 3. 
+--the last digit has no pair, so we ignore.
+*/ // if (ar.length % 2 === 1) {
+//   ar.splice(ar.length - 1, 1);
+// }
+
+function pairs(arr) {
+  let count = 0;
+  for (let i = 0; i < arr.length; i += 2) {
+    if (Math.abs(arr[i] - arr[i + 1]) === 1) {
+      count += 1;
+    }
+  }
+  return count;
+}
+console.log(pairs([21, 20, 22, 40, 39, -56, 30, -55, 95, 94]));
