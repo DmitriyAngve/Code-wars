@@ -7052,13 +7052,46 @@ Example:
 "zzbaabcd" -> 4
 "" -> 0
 */
+/*
 function longestPalindrome(s) {
   if (!s) return 0;
+  // первый цикл итерирует от длины строки s до 1. Он представляет длину подстрок, которые будут проверяться на палиндром
   for (let c = s.length; c > 0; c--) {
+    // второй цикл итерирует по индексам строки s от 0 до s.length-c. Он представляет длину подстрок, которые будут проверяться
     for (let i = 0; i <= s.length - c; i++) {
+      // эта строка извлекает подстроку из строки s, начиная с индекса i, и имеющую длину "c"
       let check = s.substr(i, c);
+      // Проверка на палиндром
       if (check === check.split("").reverse().join("")) return c;
     }
   }
 }
 console.log(longestPalindrome("baablkj12345432133d"));
+*/
+
+// #7
+/*
+Philip's just turned four and he wants to know how old he will be in various years in the future such as 2090 or 3044. His parents can't keep up calculating this so they've begged you to help them out by writing a programme that can answer Philip's endless questions.
+Your task is to write a function that takes two parameters: the year of birth and the year to count years in relation to. As Philip is getting more curious every day he may soon want to know how many years it was until he would be born, so your function needs to work with both dates in the future and in the past.
+Provide output in this format: For dates in the future: "You are ... year(s) old." For dates in the past: "You will be born in ... year(s)." If the year of birth equals the year requested return: "You were born this very year!"
+"..." are to be replaced by the number, followed and proceeded by a single space. Mind that you need to account for both "year" and "years", depending on the result.
+*/
+function calculateAge(yearOfBirth, yearToCount) {
+  const age = yearToCount - yearOfBirth;
+
+  if (age === 0) {
+    return "You were born this very year!";
+  } else if (age > 0) {
+    return `You are ${age} ${age === 1 ? "year" : "years"} old.`;
+  } else {
+    return `You will be born in ${Math.abs(age)} ${
+      Math.abs(age) === 1 ? "year" : "years"
+    }.`;
+  }
+}
+
+console.log(calculateAge(2012, 2016));
+console.log(calculateAge(2000, 1990));
+console.log(calculateAge(900, 2900));
+console.log(calculateAge(2012, 2012));
+console.log(calculateAge(2011, 2012));
