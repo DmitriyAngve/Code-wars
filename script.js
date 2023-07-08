@@ -7076,6 +7076,7 @@ Your task is to write a function that takes two parameters: the year of birth an
 Provide output in this format: For dates in the future: "You are ... year(s) old." For dates in the past: "You will be born in ... year(s)." If the year of birth equals the year requested return: "You were born this very year!"
 "..." are to be replaced by the number, followed and proceeded by a single space. Mind that you need to account for both "year" and "years", depending on the result.
 */
+/*
 function calculateAge(yearOfBirth, yearToCount) {
   const age = yearToCount - yearOfBirth;
 
@@ -7095,3 +7096,41 @@ console.log(calculateAge(2000, 1990));
 console.log(calculateAge(900, 2900));
 console.log(calculateAge(2012, 2012));
 console.log(calculateAge(2011, 2012));
+*/
+
+// 08.07.2023
+/*
+You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
+For each word:
+    the second and the last letter is switched (e.g. Hello becomes Holle)
+    the first letter is replaced by its character code (e.g. H becomes 72)
+Note: there are no special characters used, only letters and spaces
+Examples
+decipherThis('72olle 103doo 100ya'); // 'Hello good day'
+decipherThis('82yade 115te 103o'); // 'Ready set go'
+*/
+function decipherThis(str) {
+  let words = str.split(" ");
+
+  let decipheredWords = words.map((word) => {
+    let charCode = word.match(/\d+/)[0];
+    let decodedWord = word.replace(/\d+/, String.fromCharCode(charCode));
+
+    if (decodedWord.length > 1) {
+      let secondLetter = decodedWord[1];
+      let lastLetter = decodedWord[decodedWord.length - 1];
+
+      decodedWord =
+        decodedWord.substr(0, 1) + lastLetter + decodedWord.substr(2);
+      decodedWord =
+        decodedWord.substr(0, decodedWord.length - 1) + secondLetter;
+    }
+
+    return decodedWord;
+  });
+
+  return decipheredWords.join(" ");
+}
+
+console.log(decipherThis("72olle 103doo 100ya")); // 'Hello good day'
+console.log(decipherThis("82yade 115te 103o")); // 'Ready set go'
