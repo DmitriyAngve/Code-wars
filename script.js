@@ -7180,6 +7180,7 @@ Examples
 "Lets go to the movies"       -->  "L  E  T  S  G  O  T  O  T  H  E  M  O  V  I  E  S"
 "Why isn't my code working?"  -->  "W  H  Y  I  S  N  '  T  M  Y  C  O  D  E  W  O  R  K  I  N  G  ?"
 */
+/*
 function vaporcode(string) {
   let str = string.toUpperCase().split("");
   console.log(str);
@@ -7193,3 +7194,47 @@ function vaporcode(string) {
 }
 
 console.log(vaporcode("Lets go to the movies"));
+*/
+
+// #3
+/*
+The word i18n is a common abbreviation of internationalization in the developer community, used instead of typing the whole word and trying to spell it correctly. Similarly, a11y is an abbreviation of accessibility.
+Write a function that takes a string and turns any and all "words" (see below) within that string of length 4 or greater into an abbreviation, following these rules:
+    A "word" is a sequence of alphabetical characters. By this definition, any other character like a space or hyphen (eg. "elephant-ride") will split up a series of letters into two words (eg. "elephant" and "ride").
+    The abbreviated version of the word should have the first letter, then the number of removed characters, then the last letter (eg. "elephant ride" => "e6t r2e").
+Example
+abbreviate("elephant-rides are really fun!")
+//          ^^^^^^^^*^^^^^*^^^*^^^^^^*^^^*
+// words (^):   "elephant" "rides" "are" "really" "fun"
+//                123456     123     1     1234     1
+// ignore short words:               X              X
+// abbreviate:    "e6t"     "r3s"  "are"  "r4y"   "fun"
+// all non-word characters (*) remain in place
+//                     "-"      " "    " "     " "     "!"
+=== "e6t-r3s are r4y fun!"
+*/
+function abbreviate(string) {
+  // Разбиваем строку на слова, используя регулярное выражение /b\/, которое соотвествует границам слов
+  const words = string.split(/\b/);
+  console.log(words);
+
+  // Применяем функцию map() к массиву слов
+  const abbreviation = words.map((word) => {
+    // Проверяем, соответствует ли слово условиям для сокращения (с помощью регулярного выражения /\w+/ - содержит ли строка один или более символов, которые являются буквами, цифрами или символом подчеркивания)
+    if (word.length >= 4 && /\w+/.test(word)) {
+      // Если да, то создаем аббревиатуру
+      const firstLetter = word[0]; // первая буква
+      const lastLetter = word[word.length - 1]; // последняя буква
+      const removedChar = word.slice(1, -1).length; // количество удаленных букв
+
+      // Составляем аббревиатуру, собирая первую, последнюю буквы и количество удаленных
+      return `${firstLetter}${removedChar}${lastLetter}`;
+    } else {
+      return word;
+    }
+  });
+
+  return abbreviation.join("");
+}
+
+console.log(abbreviate("elephant-rides are really fun!"));
