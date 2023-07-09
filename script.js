@@ -7138,6 +7138,8 @@ console.log(decipherThis("82yade 115te 103o")); // 'Ready set go'
 */
 
 // 09.07.2023
+
+// #1
 /*
 Given an unsorted array of 3 positive integers [ n1, n2, n3 ], determine if it is possible to form a Pythagorean Triple using those 3 integers.
 A Pythagorean Triple consists of arranging 3 integers, such that:
@@ -7148,6 +7150,7 @@ Examples
 [13, 12, 5] : it is possible to form a Pythagorean Triple using these 3 integers: 52 + 122 = 132
 [100, 3, 999] : it is NOT possible to form a Pythagorean Triple using these 3 integers - no matter how you arrange them, you will never find a way to satisfy the equation a2 + b2 = c2
 */
+/*
 function isPythagoreanTriple(integers) {
   let first = Math.pow(integers[0], 2);
   let second = Math.pow(integers[1], 2);
@@ -7166,3 +7169,27 @@ function isPythagoreanTriple(integers) {
 
 console.log(isPythagoreanTriple([3, 4, 5]));
 console.log(isPythagoreanTriple([3, 4, 9]));
+*/
+
+// #2
+/*
+
+Write a function that converts any sentence into a V A P O R W A V E sentence. a V A P O R W A V E sentence converts all the letters into uppercase, and adds 2 spaces between each letter (or special character) to create this V A P O R W A V E effect.
+Note that spaces should be ignored in this case.
+Examples
+"Lets go to the movies"       -->  "L  E  T  S  G  O  T  O  T  H  E  M  O  V  I  E  S"
+"Why isn't my code working?"  -->  "W  H  Y  I  S  N  '  T  M  Y  C  O  D  E  W  O  R  K  I  N  G  ?"
+*/
+function vaporcode(string) {
+  let str = string.toUpperCase().split("");
+  console.log(str);
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      str.splice(i, 1);
+      i--;
+    }
+  }
+  return str.join("  ");
+}
+
+console.log(vaporcode("Lets go to the movies"));
