@@ -7259,6 +7259,7 @@ Assume the first parameter will always be an array filled with at least 1 number
 min([1,2,3,4,5], 'value') // => 1
 min([1,2,3,4,5], 'index') // => 0
 */
+/*
 function min(arr, toReturn) {
   let minValue = Math.min(...arr);
   if (toReturn === "value") {
@@ -7270,3 +7271,22 @@ function min(arr, toReturn) {
 
 console.log(min([1, 2, 3, 4, 5], "value"));
 console.log(min([1, 2, 3, 4, 5], "index"));
+*/
+
+// #5
+/*
+Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
+It should remove all values from list a, which are present in list b keeping their order.
+arrayDiff([1,2],[1]) == [2]
+If a value is present in b, all of its occurrences must be removed from the other:
+arrayDiff([1,2,2,2,3],[2]) == [1,3]
+*/
+
+function arrayDiff(a, b) {
+  if (a.length === 0 || b.length === 0) {
+    return a;
+  }
+  return a.filter((value) => !b.includes(value));
+}
+
+console.log(arrayDiff([1, 2, 2, 3, 3], [1, 2]));
