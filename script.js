@@ -7306,18 +7306,65 @@ Don't forget the space after the closing parentheses!
 // }
 
 // console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
-
+/*
 // SECOND
-// function createPhoneNumber(numbers) {
-//   numbers = numbers.join("");
-//   return (
-//     "(" +
-//     numbers.substring(0, 3) +
-//     ") " +
-//     numbers.substring(3, 6) +
-//     "-" +
-//     numbers.substring(6)
-//   );
-// }
+function createPhoneNumber(numbers) {
+  numbers = numbers.join("");
+  return (
+    "(" +
+    numbers.substring(0, 3) +
+    ") " +
+    numbers.substring(3, 6) +
+    "-" +
+    numbers.substring(6)
+  );
+}
 
-// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+*/
+
+// #7
+/*
+Create a function add(n)/Add(n) which returns a function that always adds n to any number
+
+var addOne = add(1);
+addOne(3); // 4
+var addThree = add(3);
+addThree(3); // 6
+*/
+/*
+function add(n) {
+  return function (x) {
+    return n + x;
+  };
+}
+*/
+
+// #8
+/*
+The goal of this exercise is to convert a string to a new string where each character in the new string is "(" if that character appears only once in the original string, or ")" if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate.
+Examples
+"din"      =>  "((("
+"recede"   =>  "()()()"
+"Success"  =>  ")())())"
+"(( @"     =>  "))((" 
+Notes
+Assertion messages may be unclear about what they display in some languages. If you read "...It Should encode XXX", the "XXX" is the expected result, not the input!
+*/
+function duplicateEncode(word) {
+  word = word.toLowerCase();
+  let result = "";
+
+  for (let i = 0; i < word.length; i++) {
+    if (word.indexOf(word[i]) === word.lastIndexOf(word[i])) {
+      result += "(";
+    } else {
+      result += ")";
+    }
+  }
+
+  return result;
+}
+
+console.log(duplicateEncode("recede"));
+console.log(duplicateEncode("din"));
