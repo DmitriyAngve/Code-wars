@@ -7213,6 +7213,9 @@ abbreviate("elephant-rides are really fun!")
 //                     "-"      " "    " "     " "     "!"
 === "e6t-r3s are r4y fun!"
 */
+
+// FIRST
+/*
 function abbreviate(string) {
   // Разбиваем строку на слова, используя регулярное выражение /b\/, которое соотвествует границам слов
   const words = string.split(/\b/);
@@ -7233,8 +7236,37 @@ function abbreviate(string) {
       return word;
     }
   });
-
   return abbreviation.join("");
 }
 
 console.log(abbreviate("elephant-rides are really fun!"));
+*/
+
+// SECOND
+/*
+function abbreviate(string) {
+  return string.replace(/\w{4,}/g, function (word) {
+    return word[0] + (word.length - 2) + word.slice(-1);
+  });
+}
+console.log(abbreviate("elephant-rides are really fun!"));
+*/
+
+// #4
+/*
+Write a function that can return the smallest value of an array or the index of that value. The function's 2nd parameter will tell whether it should return the value or the index.
+Assume the first parameter will always be an array filled with at least 1 number and no duplicates. Assume the second parameter will be a string holding one of two values: 'value' and 'index'.
+min([1,2,3,4,5], 'value') // => 1
+min([1,2,3,4,5], 'index') // => 0
+*/
+function min(arr, toReturn) {
+  let minValue = Math.min(...arr);
+  if (toReturn === "value") {
+    return minValue;
+  } else if (toReturn === "index") {
+    return arr.indexOf(minValue);
+  }
+}
+
+console.log(min([1, 2, 3, 4, 5], "value"));
+console.log(min([1, 2, 3, 4, 5], "index"));
