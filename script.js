@@ -7414,6 +7414,7 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in. Additionally, if the number is negative, return 0 (for languages that do have them).
 Note: If the number is a multiple of both 3 and 5, only count it once.
 */
+/*
 function solution(number) {
   if (number < 0) {
     return 0;
@@ -7429,4 +7430,33 @@ function solution(number) {
   return count;
 }
 
-console.log(solution(10));
+console.log(solution(100));
+*/
+
+// #3
+/*
+With the 1st floor being replaced by the ground floor and the 13th floor being removed, the numbers move down to take their place. In case of above 13, they move down by two because there are two omitted numbers below them.
+Basements (negatives) stay the same as the universal level.
+More information here
+Examples
+1  =>  0 
+0  =>  0
+5  =>  4
+15  =>  13
+-3  =>  -3
+*/
+function getRealFloor(n) {
+  if (n === 0 || n === 1) {
+    return 0;
+  } else if (n < 0) {
+    return n;
+  } else if (n > 1 && n < 13) {
+    return n - 1;
+  } else if (n >= 13) {
+    return n - 2;
+  } else {
+    return n;
+  }
+}
+
+console.log(getRealFloor(15));
