@@ -7351,6 +7351,7 @@ Examples
 Notes
 Assertion messages may be unclear about what they display in some languages. If you read "...It Should encode XXX", the "XXX" is the expected result, not the input!
 */
+/*
 function duplicateEncode(word) {
   word = word.toLowerCase();
   let result = "";
@@ -7368,3 +7369,39 @@ function duplicateEncode(word) {
 
 console.log(duplicateEncode("recede"));
 console.log(duplicateEncode("din"));
+*/
+
+// 10.07.2023
+
+// #1
+/*
+Take a number: 56789. Rotate left, you get 67895.
+Keep the first digit in place and rotate left the other digits: 68957.
+Keep the first two digits in place and rotate the other ones: 68579.
+Keep the first three digits and rotate left the rest: 68597. Now it is over since keeping the first four it remains only one digit which rotated is itself.
+You have the following sequence of numbers:
+56789 -> 67895 -> 68957 -> 68579 -> 68597
+and you must return the greatest: 68957.
+Task
+Write function max_rot(n) which given a positive integer n returns the maximum number you got doing rotations similar to the above example.
+So max_rot (or maxRot or ... depending on the language) is such as:
+    max_rot(56789) should return 68957
+    max_rot(38458215) should return 85821534
+*/
+function max_rot(n) {
+  // Преобразуем число в строку
+  let number = String(n);
+  // Создаем массив, первым элементом будет "number"
+  let rotations = [number];
+
+  // В цикле перебираем цифры числа "number". Он начинается с 0 и продолжается до предпоследней цифры, так как нет необходимости переворачивать последнюю цифру.
+  for (let i = 0; i < number.length - 1; i++) {
+    // В каждой итерации строка выполняет поворот, перемещая цифру с индексом "i" в конец числа "number". Это достигается путем создания трех подстрок из "number" (подстроки до цифры, подстроки после цифры, и самой цифры) Затем подстроки объединяются в нужном порядке, чтобы получить повертнутое число
+    number = number.slice(0, i) + number.slice(i + 1) + number[i];
+    rotations.push(number);
+  }
+
+  return Math.max(...rotations);
+}
+
+console.log(max_rot(38458215));
