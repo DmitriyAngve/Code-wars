@@ -7445,6 +7445,7 @@ Examples
 15  =>  13
 -3  =>  -3
 */
+/*
 function getRealFloor(n) {
   if (n === 0 || n === 1) {
     return 0;
@@ -7460,3 +7461,23 @@ function getRealFloor(n) {
 }
 
 console.log(getRealFloor(15));
+*/
+
+// #4
+/*
+Given three arrays of integers, return the sum of elements that are common in all three arrays.
+For example:
+common([1,2,3],[5,3,2],[7,3,2]) = 5 because 2 & 3 are common in all 3 arrays
+common([1,2,2,3],[5,3,2,2],[7,3,2,2]) = 7 because 2,2 & 3 are common in the 3 arrays
+*/
+const common = (a, b, c) => {
+  [a, b, c] = [a, b, c].map((el) =>
+    el.reduce((sum, num) => ((sum[num] = (sum[num] || 0) + 1), sum), {})
+  );
+  return Object.keys(a).reduce(
+    (sum, key) => sum + Math.min(a[key] || 0, b[key] || 0, c[key] || 0) * key,
+    0
+  );
+};
+
+console.log(common([1, 2, 3], [5, 3, 2], [7, 3, 2]));
