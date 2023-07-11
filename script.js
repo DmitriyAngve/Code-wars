@@ -7495,6 +7495,7 @@ For input array/list :
 the function should return :
 [1,4,3,8]
 */
+/*
 function doubleEveryOther(a) {
   return (doubled = a.map((num, index) => {
     if (index % 2 === 1) {
@@ -7506,3 +7507,54 @@ function doubleEveryOther(a) {
 }
 
 console.log(doubleEveryOther([1, 2, 3, 4]));
+*/
+
+// #2
+/*
+Your colleagues have been good enough(?) to buy you a birthday gift. Even though it is your birthday and not theirs, they have decided to play pass the parcel with it so that everyone has an even chance of winning. There are multiple presents, and you will receive one, but not all are nice... One even explodes and covers you in soil... strange office. To make up for this one present is a dog! Happy days! (do not buy dogs as presents, and if you do, never wrap them).
+Depending on the number ofromCodef passes in the game (y), and the present you unwrap (x), return as follows:
+x == goodpresent --> return x with num of passes added to each charCode (turn to charCode, add y to each, turn back)
+x == crap || x == empty --> return string sorted alphabetically
+x == bang --> return string turned to char codes, each code reduced by number of passes and summed to a single figure
+x == badpresent --> return 'Take this back!'
+x == dog, return 'pass out from excitement y times' (where y is the value given for y).
+*/
+function present(x, y) {
+  if (x === "goodpresent") {
+    let convertedStr = "";
+    for (let i = 0; i < x.length; i++) {
+      const char = x[i];
+      const ascii = char.charCodeAt() + y;
+      const convertedChar = String.fromCharCode(ascii);
+      convertedStr += convertedChar;
+    }
+    return convertedStr;
+  }
+  if (x === "empty") {
+    return x;
+  }
+
+  if (x === "crap") {
+    return x.split("").sort().join("");
+  }
+
+  if (x === "bang") {
+    const charCodes = x.split("").map((char) => char.charCodeAt() - y);
+    const sum = charCodes.reduce((acc, val) => acc + val, 0);
+    return sum;
+  }
+
+  if (x === "badpresent") {
+    return "Take this back!";
+  }
+
+  if (x === "dog") {
+    return `pass out from excitement ${y} times`;
+  }
+}
+
+console.log(present("goodpresent", 9));
+console.log(present("badpresent", 3));
+console.log(present("crap", 10));
+console.log(present("bang", 6));
+console.log(present("dog", 10));
