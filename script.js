@@ -7470,6 +7470,7 @@ For example:
 common([1,2,3],[5,3,2],[7,3,2]) = 5 because 2 & 3 are common in all 3 arrays
 common([1,2,2,3],[5,3,2,2],[7,3,2,2]) = 7 because 2,2 & 3 are common in the 3 arrays
 */
+/*
 const common = (a, b, c) => {
   [a, b, c] = [a, b, c].map((el) =>
     el.reduce((sum, num) => ((sum[num] = (sum[num] || 0) + 1), sum), {})
@@ -7481,3 +7482,27 @@ const common = (a, b, c) => {
 };
 
 console.log(common([1, 2, 3], [5, 3, 2], [7, 3, 2]));
+*/
+
+// 11.07.2023
+
+// #1
+/*
+Write a function that doubles every second integer in a list, starting from the left.
+Example:
+For input array/list :
+[1,2,3,4]
+the function should return :
+[1,4,3,8]
+*/
+function doubleEveryOther(a) {
+  return (doubled = a.map((num, index) => {
+    if (index % 2 === 1) {
+      return num * 2;
+    } else {
+      return num;
+    }
+  }));
+}
+
+console.log(doubleEveryOther([1, 2, 3, 4]));
