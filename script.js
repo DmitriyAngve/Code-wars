@@ -7714,6 +7714,7 @@ The first few Odious numbers: 1, 2, 4, 7, 8, 11, 13, 14, 16, 19
 You have to write a function that determine if a number is Evil of Odious, function should return "It's Evil!" in case of evil number and "It's Odious!" in case of odious number.
 good luck :)
 */
+/*
 function evil(n) {
   let binary = n.toString(2).split("");
   let count = 0;
@@ -7728,3 +7729,21 @@ function evil(n) {
 console.log(evil(1));
 console.log(evil(2));
 console.log(evil(3));
+*/
+
+// #8
+/*
+Write a function that takes an array of strings as an argument and returns a sorted array containing the same strings, ordered from shortest to longest.
+For example, if this array were passed as an argument:
+["Telescopes", "Glasses", "Eyes", "Monocles"]
+Your function would return the following array:
+["Eyes", "Glasses", "Monocles", "Telescopes"]
+All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
+*/
+function sortByLength(array) {
+  return array.sort((a, b) => a.length - b.length);
+}
+
+console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
+console.log(sortByLength(["", "Moderately", "Brains", "Pizza"]));
+console.log(sortByLength(["Longer", "Longest", "Short"]));
