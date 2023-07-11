@@ -7519,6 +7519,7 @@ x == bang --> return string turned to char codes, each code reduced by number of
 x == badpresent --> return 'Take this back!'
 x == dog, return 'pass out from excitement y times' (where y is the value given for y).
 */
+/*
 function present(x, y) {
   if (x === "goodpresent") {
     let convertedStr = "";
@@ -7558,3 +7559,33 @@ console.log(present("badpresent", 3));
 console.log(present("crap", 10));
 console.log(present("bang", 6));
 console.log(present("dog", 10));
+*/
+
+// #3
+/*
+A trick I learned in elementary school to determine whether or not a number was divisible by three is to add all of the integers in the number together and to divide the resulting sum by three. If there is no remainder from dividing the sum by three, then the original number is divisible by three as well.
+Given a series of digits as a string, determine if the number represented by the string is divisible by three.
+Example:
+"123"      -> true
+"8409"     -> true
+"100853"   -> false
+"33333333" -> true
+"7"        -> false
+Try to avoid using the % (modulo) operator.
+*/
+function divisibleByThree(str) {
+  let arr = str.split("");
+  console.log(arr);
+  const arrToNumber = arr.map((strDig) => {
+    return Number(strDig);
+  });
+  const divide = arrToNumber.reduce((acc, curr) => {
+    return acc + curr;
+  });
+  console.log(divide);
+  return divide % 3 === 0 ? true : false;
+}
+
+console.log(divisibleByThree("123"));
+console.log(divisibleByThree("19254"));
+console.log(divisibleByThree("88"));
