@@ -7740,6 +7740,7 @@ Your function would return the following array:
 ["Eyes", "Glasses", "Monocles", "Telescopes"]
 All of the strings in the array passed to your function will be different lengths, so you will not have to decide how to order multiple strings of the same length.
 */
+/*
 function sortByLength(array) {
   return array.sort((a, b) => a.length - b.length);
 }
@@ -7747,3 +7748,14 @@ function sortByLength(array) {
 console.log(sortByLength(["Telescopes", "Glasses", "Eyes", "Monocles"]));
 console.log(sortByLength(["", "Moderately", "Brains", "Pizza"]));
 console.log(sortByLength(["Longer", "Longest", "Short"]));
+*/
+
+// #9
+/*
+Given two arrays of integers m and n, test if they contain at least one identical element. Return true if they do; false if not.
+Your code must handle any value within the range of a 32-bit integer, and must be capable of handling either array being empty (which is a false result, as there are no duplicated elements).
+*/
+function duplicateElements(m, n) {
+  return m.some((v) => m.includes(v));
+}
+console.log(duplicateElements([1, 2, 3], [4, 5, 6]));
