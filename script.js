@@ -7615,6 +7615,7 @@ Return the resulting array.
 //   }
 //   return newArr;
 // }
+/*
 function trouble(x, t) {
   for (let i = 0; i < x.length; i++) {
     if (x[i] + x[i + 1] === t) {
@@ -7626,3 +7627,52 @@ function trouble(x, t) {
 }
 
 console.log(trouble([4, 1, 1, 1, 4], 2));
+*/
+
+// #5
+/*
+The main part of this game is merging identical tiles in a row.
+    Implement a function that models the process of merging all of the tile values in a single row.
+    This function takes the array line as a parameter and returns a new array with the tile values from line slid towards the front of the array (index 0) and merged.
+    A given tile can only merge once.
+    Empty grid squares are represented as zeros.
+    Your function should work on arrays containing arbitrary number of elements.
+Examples
+merge([2,0,2,2])  -->  [4,2,0,0]
+Another example with repeated merges:
+merge([4,4,8,16])  -->  [8,8,16,0]
+merge([8,8,16,0])  -->  [16,16,0,0]
+merge([16,16,0,0]) -->  [32,0,0,0]
+*/
+function merge(line) {
+  // Создаем новый массив с той же длиной, что и входной массив "line", заполняем его значениями 0
+  const result = Array(line.length).fill(0);
+  // Объявляем переменную для текущего индекса
+  let currentIndex = 0;
+  // Начинаем цикл
+  for (let i = 0; i < line.length; i++) {
+    const num = line[i];
+    // Проверяем, не является ли текущий элемент ненулевым
+    if (num !== 0) {
+      // Проверяем, равно ли значение в массиве "result" с индексом "result[currentIndex]"
+      if (result[currentIndex] === 0) {
+        // Присваивает текущий элемент "num" в массиве "result" по индексу "currentIndex"
+        result[currentIndex] = num;
+        // Проверяем, равно ли значение в массиве "result" по индексу "currentIndex"
+      } else if (result[currentIndex] === num) {
+        // Умножаем
+        result[currentIndex] *= 2;
+        // Увеличиваем значение на 1 и продолжаем итерироваться
+        currentIndex++;
+        // Если предыдущие значения не выполнятся, то есть текущий элемент "num" не равен 0 и не равен значению в массиве "result" по индексу "currentIndex"
+      } else {
+        // Переходим к следующей позиции
+        currentIndex++;
+        result[currentIndex] = num;
+      }
+    }
+  }
+  return result;
+}
+
+console.log(merge([2, 0, 2, 2]));
