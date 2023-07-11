@@ -7840,10 +7840,8 @@ Output:
 An array with any consecutive null elements surrounded by equal values replaced by that value.
 Note:
 Input will always be a valid array.
-The original array should not be modified.
-The output array might still contain null values. The values in the array can be of different data types, but as long as they are == they can be considered the same. In Haskell Maybe Int is used, hence numbers only and Nothing as an empty value
-Sometimes I forget to note when I stopped working on a project and started on a new one. In this case there will still be nulls in the resulting array. In this case I'll need to manually resolve the problem by checking my git logs or message timestamps for clues as to when I changed task. But that's not something you need to worry about in this kata.
 */
+/*
 function fill_gaps(arr) {
   const result = arr.slice();
   for (let i = 1; i < result.length - 1; i++) {
@@ -7858,3 +7856,41 @@ console.log(fill_gaps([1, null, 1, 2, null, 2]));
 console.log(fill_gaps([1, null, 2, null, 2, null, 1]));
 console.log(fill_gaps([1, null, null, null, 1]));
 console.log(fill_gaps([null, 1, null]));
+*/
+
+// #13
+/*
+Given an array/list [] of integers , Find the product of the k maximal numbers.
+Notes
+    Array/list size is at least 3.
+    Array/list's numbers Will be mixture of positives , negatives and zeros
+    Repetition of numbers in the array/list could occur.
+Input >> Output Examples
+maxProduct ({4, 3, 5}, 2) ==>  return (20)
+Explanation:
+    Since the size (k) equal 2 , then the subsequence of size 2 whose gives product of maxima is 5 * 4 = 20.
+maxProduct ({8, 10 , 9, 7}, 3) ==>  return (720)
+Explanation:
+    Since the size (k) equal 3 , then the subsequence of size 3 whose gives product of maxima is  8 * 9 * 10 = 720.
+maxProduct ({10, 8, 3, 2, 1, 4, 10}, 5) ==> return (9600)
+Explanation:
+    Since the size (k) equal 5 , then the subsequence of size 5 whose gives product of maxima is  10 * 10 * 8 * 4 * 3 = 9600.
+maxProduct ({-4, -27, -15, -6, -1}, 2) ==> return (4)
+Explanation:
+    Since the size (k) equal 2 , then the subsequence of size 2 whose gives product of maxima is  -4 * -1 = 4.
+maxProduct ({10, 3, -1, -27} , 3)  return (-30)
+Explanation:
+    Since the size (k) equal 3 , then the subsequence of size 3 whose gives product of maxima is 10 * 3 * -1 = -30 .
+*/
+function maxProduct(numbers, size) {
+  let sum = 1;
+  let arr = numbers.sort((a, b) => b - a);
+  console.log(arr);
+  for (let i = 0; i < size; i++) {
+    sum *= arr[i];
+  }
+
+  return sum;
+}
+
+console.log(maxProduct([4, 3, 5], 2));
