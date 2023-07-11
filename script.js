@@ -7755,7 +7755,39 @@ console.log(sortByLength(["Longer", "Longest", "Short"]));
 Given two arrays of integers m and n, test if they contain at least one identical element. Return true if they do; false if not.
 Your code must handle any value within the range of a 32-bit integer, and must be capable of handling either array being empty (which is a false result, as there are no duplicated elements).
 */
+/*
 function duplicateElements(m, n) {
   return m.some((v) => m.includes(v));
 }
 console.log(duplicateElements([1, 2, 3], [4, 5, 6]));
+*/
+
+// #10
+/*
+Our fruit guy has a bag of fruit (represented as an array of strings) where some fruits are rotten. He wants to replace all the rotten pieces of fruit with fresh ones. For example, given ["apple","rottenBanana","apple"] the replaced array should be ["apple","banana","apple"]. Your task is to implement a method that accepts an array of strings containing fruits should returns an array of strings where all the rotten fruits are replaced by good ones.
+Notes
+    If the array is null/nil/None or empty you should return empty array ([]).
+    The rotten fruit name will be in this camelcase (rottenFruit).
+    The returned array should be in lowercase.
+*/
+function removeRotten(bagOfFruits) {
+  if (!Array.isArray(bagOfFruits) || bagOfFruits.length === 0) {
+    return [];
+  }
+  let result = [];
+  let rotten = "rotten";
+  for (let i = 0; i < bagOfFruits.length; i++) {
+    let fruit = bagOfFruits[i];
+    if (fruit.includes(rotten)) {
+      result.push(fruit.replace(rotten, "").toLowerCase());
+    } else {
+      result.push(fruit);
+    }
+  }
+  return result;
+}
+
+console.log(
+  removeRotten(["apple", "rottenBanana", "kiwi", "melone", "orange"])
+);
+console.log(removeRotten([]));
