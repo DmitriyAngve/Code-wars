@@ -8001,6 +8001,7 @@ tidyNumber (2335) ==> return (true)
 Explanation:
 The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3 
 */
+/*
 function tidyNumber(n) {
   const array = n.toString().split("");
   const string1 = array.join(",");
@@ -8014,3 +8015,80 @@ function tidyNumber(n) {
 console.log(tidyNumber(12));
 console.log(tidyNumber(102));
 console.log(tidyNumber(2789));
+*/
+
+// #3
+/*
+A balanced number is a number where the sum of digits to the left of the middle digit(s) and the sum of digits to the right of the middle digit(s) are equal.
+If the number has an odd number of digits, then there is only one middle digit. (For example, 92645 has one middle digit, 6.) Otherwise, there are two middle digits. (For example, the middle digits of 1301 are 3 and 0.)
+The middle digit(s) should not be considered when determining whether a number is balanced or not, e.g. 413023 is a balanced number because the left sum and right sum are both 5.
+The task
+Given a number, find if it is balanced, and return the string "Balanced" or "Not Balanced" accordingly. The passed number will always be positive.
+Examples
+    7 ==> return "Balanced"
+    Explanation:
+    middle digit(s): 7
+    sum of all digits to the left of the middle digit(s) -> 0
+    sum of all digits to the right of the middle digit(s) -> 0
+    0 and 0 are equal, so it's balanced.
+    295591 ==> return "Not Balanced"
+    Explanation:
+    middle digit(s): 55
+    sum of all digits to the left of the middle digit(s) -> 11
+    sum of all digits to the right of the middle digit(s) -> 10
+    11 and 10 are not equal, so it's not balanced.
+    959 ==> return "Balanced"
+    Explanation:
+    middle digit(s): 5
+    sum of all digits to the left of the middle digit(s) -> 9
+    sum of all digits to the right of the middle digit(s) -> 9
+    9 and 9 are equal, so it's balanced.
+    27102983 ==> return "Not Balanced"
+    Explanation:
+    middle digit(s): 02
+    sum of all digits to the left of the middle digit(s) -> 10
+    sum of all digits to the right of the middle digit(s) -> 20
+    10 and 20 are not equal, so it's not balanced.
+*/
+//FIRST
+/*
+function balancedNum(number) {
+  const arr = number.toString().split("");
+  console.log(arr);
+  let middleIndex = Math.floor(arr.length / 2);
+  const leftPart = arr.slice(0, middleIndex);
+  const rightPart = arr.slice(-middleIndex);
+
+  const leftSum = [...leftPart].reduce((sum, dig) => sum + Number(dig), 0);
+  const rightSum = [...rightPart].reduce((sum, dig) => sum + Number(dig), 0);
+
+  return leftSum === rightSum ? "Balanced" : "Not Balanced";
+}
+
+console.log(balancedNum(432));
+console.log(balancedNum(959));
+console.log(balancedNum(7));
+console.log(balancedNum(56239814));
+
+*/
+// SECOND
+function balancedNum(number) {
+  const digits = String(number);
+  const middleIndex = Math.floor(digits.length / 2);
+
+  let leftSum = 0;
+  let rightSum = 0;
+
+  for (let i = 0; i < middleIndex; i++) {
+    leftSum += Number(digits[i]);
+    rightSum += Number(digits[digits.length - i - 1]);
+  }
+
+  return leftSum === rightSum ? "Not Balanced" : "Balanced";
+}
+
+console.log(balancedNum(432));
+console.log(balancedNum(959));
+console.log(balancedNum(7));
+console.log(balancedNum(56239814));
+console.log(balancedNum(1230987));
