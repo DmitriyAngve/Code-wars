@@ -8165,6 +8165,7 @@ disariumNumber(564) ==> return "Not !!"
 Explanation:
 Since , 51 + 62 + 43 = 105 != 564 , thus output is "Not !!"
 */
+/*
 function disariumNumber(n) {
   let arr = n.toString().split("");
   let sum = 0;
@@ -8177,3 +8178,63 @@ function disariumNumber(n) {
 console.log(disariumNumber(89));
 console.log(disariumNumber(564));
 console.log(disariumNumber(135));
+*/
+
+// 13.07.2023
+/*
+Jumping number is the number that All adjacent digits in it differ by 1.
+Task
+Given a number, Find if it is Jumping or not .
+Notes
+    Number passed is always Positiv .
+    Return the result as String.
+    The difference between ‘9’ and ‘0’ is not considered as 1.
+    All single digit numbers are considered as Jumping numbers.
+Input >> Output Examples
+jumpingNumber(9) ==> return "Jumping!!"
+Explanation:
+    It's single-digit number
+jumpingNumber(79) ==> return "Not!!"
+Explanation:
+    Adjacent digits don't differ by 1
+jumpingNumber(23) ==> return "Jumping!!"
+Explanation:
+    Adjacent digits differ by 1
+jumpingNumber(556847) ==> return "Not!!"
+Explanation:
+    Adjacent digits don't differ by 1
+jumpingNumber(4343456) ==> return "Jumping!!"
+Explanation:
+    Adjacent digits differ by 1
+jumpingNumber(89098) ==> return "Not!!"
+Explanation:
+    Adjacent digits don't differ by 1
+jumpingNumber(32) ==> return "Jumping!!"
+Explanation:
+    Adjacent digits differ by 1
+*/
+function jumpingNumber(n) {
+  const arr = n.toString().split("");
+  console.log(arr);
+  if (arr.length === 1) {
+    return "Jumping!!";
+  }
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (
+      parseInt(arr[i]) !== parseInt(arr[i + 1]) + 1 &&
+      parseInt(arr[i]) !== parseInt(arr[i + 1]) - 1
+    ) {
+      return "Not!!";
+    }
+  }
+
+  return "Jumping!!";
+}
+
+console.log(jumpingNumber(1));
+console.log(jumpingNumber(7));
+console.log(jumpingNumber(23));
+console.log(jumpingNumber(32));
+console.log(jumpingNumber(79));
+console.log(jumpingNumber(98789876));
