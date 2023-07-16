@@ -8449,7 +8449,7 @@ Explanation:
 Since the passed number is (6) ,Then the primorial should obtained by multiplying  2 * 3 * 5 * 7 * 11 * 13 = 30030 .
 Mathematically written as , P6# = 30030 .
 */
-
+/*
 function numPrimorial(n) {
   let count = 0; // Счетчик найденных простых чисел
   let num = 2; // Число, проверяемое на простоту
@@ -8480,3 +8480,29 @@ console.log(numPrimorial(3));
 console.log(numPrimorial(4));
 console.log(numPrimorial(5));
 console.log(numPrimorial(8));
+*/
+
+// #3
+/*
+Given Two integers a , b , find The sum of them , BUT You are not allowed to use the operators + and -
+Notes
+    The numbers (a,b) may be positive , negative values or zeros.
+    Returning value will be an integer.
+    Javascript: the Array reduce methods are disabled, along with eval, require, and module.
+Input >> Output Examples
+1- Add (5,19) ==> return (24) 
+2- Add (-27,18) ==> return (-9)
+3- Add (-14,-16) ==> return (-30)
+*/
+function add(a, b) {
+  while (b !== 0) {
+    let carry = a & b;
+    a = a ^ b;
+    b = carry << 1;
+  }
+  return a;
+}
+
+console.log(add(-14, -16));
+console.log(add(5, 19));
+console.log(add(23, 17));
