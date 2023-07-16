@@ -8364,6 +8364,7 @@ First and last bits as set bits.
 (7)10 = (111)2
 First and last bits as set bits.
 */
+/*
 function extraPerfect(n) {
   let start = 1;
   let result = [];
@@ -8382,3 +8383,45 @@ console.log(extraPerfect(3));
 console.log(extraPerfect(5));
 console.log(extraPerfect(3));
 console.log(extraPerfect(28));
+*/
+
+// 16.07.2023
+
+/*
+A Tidy number is a number whose digits are in non-decreasing order.
+Task
+Given a number, Find if it is Tidy or not .
+
+    Number passed is always Positive .
+    Return the result as a Boolean
+Input >> Output Examples
+tidyNumber (12) ==> return (true)
+Explanation:
+The number's digits { 1 , 2 } are in non-Decreasing Order (i.e) 1 <= 2 .
+tidyNumber (32) ==> return (false)
+Explanation:
+The Number's Digits { 3, 2} are not in non-Decreasing Order (i.e) 3 > 2 .
+tidyNumber (1024) ==> return (false)
+Explanation:
+The Number's Digits {1 , 0, 2, 4} are not in non-Decreasing Order as 0 <= 1 .
+tidyNumber (13579) ==> return (true)
+Explanation:
+The number's digits {1 , 3, 5, 7, 9} are in non-Decreasing Order .
+tidyNumber (2335) ==> return (true)
+Explanation:
+The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3
+*/
+
+function tidyNumber(n) {
+  let arr = n.toString().split("");
+  let str1 = arr.join("");
+  let sorted = arr.sort((a, b) => a - b);
+  let str2 = sorted.join("");
+
+  return str1 === str2 ? true : false;
+}
+
+console.log(tidyNumber(12));
+console.log(tidyNumber(102));
+console.log(tidyNumber(2789));
+console.log(tidyNumber(2335));
