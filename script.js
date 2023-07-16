@@ -8561,7 +8561,6 @@ console.log(equal5());
 */
 
 // #5
-
 /*
 I will give you an integer. Give me back a shape that is as long and wide as the integer. The integer will be a whole number between 1 and 50.
 Example
@@ -8586,8 +8585,47 @@ function generateShape(n) {
 */
 
 // SECOND
+/*
 function generateShape(n) {
   return ("+".repeat(n) + "\n").repeat(n).trim();
 }
 
 console.log(generateShape(9));
+*/
+
+// #6
+/*
+Write a function called calculate that takes 3 values. The first and third values are numbers. The second value is a character. If the character is "+" , "-", "*", or "/", the function will return the result of the corresponding mathematical function on the two numbers. If the string is not one of the specified characters, the function should return null.
+calculate(2,"+", 4); //Should return 6
+calculate(6,"-", 1.5); //Should return 4.5
+calculate(-4,"*", 8); //Should return -32
+calculate(49,"/", -7); //Should return -7
+calculate(8,"m", 2); //Should return null
+calculate(4,"/",0) //should return null
+*/
+function calculate(num1, operation, num2) {
+  if (!["+", "-", "/", "*"].includes(operation)) {
+    return null;
+  }
+
+  switch (operation) {
+    case "+":
+      return num1 + num2;
+    case "-":
+      return num1 - num2;
+    case "*":
+      return num1 * num2;
+    case "/":
+      if (num2 === 0) {
+        return null;
+      }
+      return num1 / num2;
+  }
+}
+
+console.log(calculate(-3, "+", 0));
+console.log(calculate(6, "-", 1.5));
+console.log(calculate(-4, "*", 8));
+console.log(calculate(49, "/", -7));
+console.log(calculate(4, "/", 0));
+console.log(calculate(4, "m", 4));
