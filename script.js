@@ -8387,6 +8387,7 @@ console.log(extraPerfect(28));
 
 // 16.07.2023
 
+// #1
 /*
 A Tidy number is a number whose digits are in non-decreasing order.
 Task
@@ -8411,7 +8412,7 @@ tidyNumber (2335) ==> return (true)
 Explanation:
 The number's digits {2 , 3, 3, 5} are in non-Decreasing Order , Note 3 <= 3
 */
-
+/*
 function tidyNumber(n) {
   let arr = n.toString().split("");
   let str1 = arr.join("");
@@ -8425,3 +8426,57 @@ console.log(tidyNumber(12));
 console.log(tidyNumber(102));
 console.log(tidyNumber(2789));
 console.log(tidyNumber(2335));
+*/
+
+// #2
+/*
+Is similar to factorial of a number, In primorial, not all the natural numbers get multiplied, only prime numbers are multiplied to calculate the primorial of a number. It's denoted with P# and it is the product of the first n prime numbers.
+Task
+Given a number N , calculate its primorial. !alt !alt
+Notes
+    Only positive numbers will be passed (N > 0)
+Input >> Output Examples:
+1- numPrimorial (3) ==> return (30)
+Explanation:
+Since the passed number is (3) ,Then the primorial should obtained by multiplying 2 * 3 * 5 = 30 .
+Mathematically written as , P3# = 30 .
+2- numPrimorial (5) ==> return (2310)
+Explanation:
+Since the passed number is (5) ,Then the primorial should obtained by multiplying  2 * 3 * 5 * 7 * 11 = 2310 .
+Mathematically written as , P5# = 2310 .
+3- numPrimorial (6) ==> return (30030)
+Explanation:
+Since the passed number is (6) ,Then the primorial should obtained by multiplying  2 * 3 * 5 * 7 * 11 * 13 = 30030 .
+Mathematically written as , P6# = 30030 .
+*/
+
+function numPrimorial(n) {
+  let count = 0; // Счетчик найденных простых чисел
+  let num = 2; // Число, проверяемое на простоту
+  let primorial = 1; // Переменная для хранения примориальных чисел
+
+  while (count < n) {
+    let isPrime = true; // Флаг, указывающий, является ли num простым числом
+
+    // Сама проверка, является ли num простым числом
+    for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+      if (num % i === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+
+    if (isPrime) {
+      primorial *= num;
+      count++;
+    }
+
+    num++;
+  }
+  return primorial;
+}
+
+console.log(numPrimorial(3));
+console.log(numPrimorial(4));
+console.log(numPrimorial(5));
+console.log(numPrimorial(8));
