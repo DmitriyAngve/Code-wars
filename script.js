@@ -8518,7 +8518,7 @@ I've written five function equal1,equal2,equal3,equal4,equal5, defines six globa
 When you have finished the work, click "Run Tests" to see if your code is working properly.
 In the end, click "Submit" to submit your code pass this kata.
 */
-
+/*
 let v1 = 50,
   v2 = 100,
   v3 = 150,
@@ -8526,7 +8526,7 @@ let v1 = 50,
   v5 = 2,
   v6 = 250;
 
-function equal1() {
+function equal2() {
   let a = v1,
     b = v1;
   return a + b;
@@ -8558,3 +8558,36 @@ function equal5() {
 }
 
 console.log(equal5());
+*/
+
+// #5
+
+/*
+I will give you an integer. Give me back a shape that is as long and wide as the integer. The integer will be a whole number between 1 and 50.
+Example
+n = 3, so I expect a 3x3 square back just like below as a string:
++++
++++
++++
+*/
+// FIRST
+/*
+function generateShape(n) {
+  let shape = "";
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      shape += "+";
+    }
+    shape += "\n"; // Add a new line after each row
+  }
+  shape = shape.trim() + "\n"; // Add an extra new line at the end
+  return shape;
+}
+*/
+
+// SECOND
+function generateShape(n) {
+  return ("+".repeat(n) + "\n").repeat(n).trim();
+}
+
+console.log(generateShape(9));
