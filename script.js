@@ -8603,6 +8603,7 @@ calculate(49,"/", -7); //Should return -7
 calculate(8,"m", 2); //Should return null
 calculate(4,"/",0) //should return null
 */
+/*
 function calculate(num1, operation, num2) {
   if (!["+", "-", "/", "*"].includes(operation)) {
     return null;
@@ -8629,3 +8630,25 @@ console.log(calculate(-4, "*", 8));
 console.log(calculate(49, "/", -7));
 console.log(calculate(4, "/", 0));
 console.log(calculate(4, "m", 4));
+*/
+
+// #8
+/*
+Modify the kebabize function so that it converts a camel case string into a kebab case.
+"camelsHaveThreeHumps"  -->  "camels-have-three-humps"
+"camelsHave3Humps"  -->  "camels-have-humps"
+"CAMEL"  -->  "c-a-m-e-l"
+Notes:
+    the returned string should only contain lowercase letters
+*/
+function kebabize(str) {
+  const newStr = str.replace(/\d/g, "");
+  const lower = newStr.replace(/([A-Z])/g, "-$1").toLowerCase();
+  if (lower.startsWith("-")) {
+    return lower.slice(1);
+  }
+  return lower;
+}
+
+console.log(kebabize("myCamelCased3String"));
+console.log(kebabize("-vkr"));
