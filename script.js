@@ -8641,6 +8641,7 @@ Modify the kebabize function so that it converts a camel case string into a keba
 Notes:
     the returned string should only contain lowercase letters
 */
+/*
 function kebabize(str) {
   const newStr = str.replace(/\d/g, "");
   const lower = newStr.replace(/([A-Z])/g, "-$1").toLowerCase();
@@ -8652,3 +8653,31 @@ function kebabize(str) {
 
 console.log(kebabize("myCamelCased3String"));
 console.log(kebabize("-vkr"));
+*/
+
+// 17.07.2023
+
+// #1
+/*
+Given a string made of digits [0-9], return a string where each digit is repeated a number of times equals to its value.
+Examples
+explode("312")
+should return :
+"333122"
+explode("102269")
+should return :
+"12222666666999999999"
+*/
+function explode(s) {
+  let array = s.split("");
+  console.log(array);
+
+  const repeat = array.flatMap((item) =>
+    Array.from({ length: item }, () => item)
+  );
+  return repeat.join("");
+}
+
+console.log(explode("2"));
+console.log(explode("102269"));
+console.log(explode("0"));
