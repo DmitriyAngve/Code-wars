@@ -8802,6 +8802,7 @@ Complete the solution so that it returns a formatted string. The return value sh
 Example:
 solution(5) // should return "Value is 00005"
 */
+/*
 function solution(value) {
   // Метод "padStart" всталяет элементы внутрь массива
   let pad = String(value).padStart(5, "0");
@@ -8812,3 +8813,25 @@ console.log(solution(5));
 console.log(solution(1204));
 console.log(solution(109));
 console.log(solution(0));
+*/
+
+// #7
+/*
+Determine if the poker hand is flush, meaning if the five cards are of the same suit.
+Your function will be passed a list/array of 5 strings, each representing a poker card in the format "5H" (5 of hearts), meaning the value of the card followed by the initial of its suit (Hearts, Spades, Diamonds or Clubs). No jokers included.
+Your function should return true if the hand is a flush, false otherwise.
+The possible card values are 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K, A
+Examples
+["AS", "3S", "9S", "KS", "4S"]  ==> true
+["AD", "4S", "7H", "KS", "10S"] ==> false
+*/
+function isFlush(cards) {
+  // удаляет все значения, оставив только масть
+  const suits = cards.map((card) => card.slice(-1));
+  // проверяем, что все масти одинаковые
+  return suits.every((suit) => suit === suits[0]);
+}
+
+console.log(isFlush(["AS", "3S", "9S", "KS", "4S"]));
+console.log(isFlush(["AD", "4S", "7H", "KC", "5S"]));
+console.log(isFlush(["10D", "4D", "QD", "KD", "5D"]));
