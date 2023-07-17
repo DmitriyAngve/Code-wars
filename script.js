@@ -8716,6 +8716,7 @@ first(arr, 2) //=> ['a', 'b']
 first(arr, 3) //=> ['a', 'b', 'c'];
 first(arr, 0) //=> [];
 */
+/*
 function first(arr, n = 1) {
   return arr.splice(0, n);
 }
@@ -8723,3 +8724,22 @@ function first(arr, n = 1) {
 console.log(first(["a", "b", "c", "d", "e"], 2));
 console.log(first(["a", "b", "c", "d", "e"], 4));
 console.log(first(["a", "b", "c", "d", "e"]));
+*/
+
+// #4
+/*
+In this kata, we will make a function to test whether a period is late.
+Our function will take three parameters:
+last - The Date object with the date of the last period
+today - The Date object with the date of the check
+cycleLength - Integer representing the length of the cycle in days
+Return true if the number of days passed from last to today is greater than cycleLength. Otherwise, return false.
+*/
+function periodIsLate(last, today, cycleLength) {
+  const difInMilSec = today - last;
+  const difInDays = difInMilSec / (1000 * 60 * 60 * 24);
+
+  return difInDays > cycleLength ? true : false;
+}
+
+console.log(periodIsLate());
