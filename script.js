@@ -8690,6 +8690,7 @@ Basic Classes, this kata is mainly aimed at the new JS ES6 Update introducing cl
 Task
 Your task is to complete this Class, the Person class has been created. You must fill in the Constructor method to accept a name as string and an age as number, complete the get Info property and getInfo method/Info getter which should return johns age is 34
 */
+/*
 class Person {
   constructor(name, age) {
     this.name = name;
@@ -8702,3 +8703,23 @@ class Person {
 }
 
 const person1 = new Person("John", 36);
+*/
+
+// #3
+/*
+Write a function to get the first element(s) of a sequence. Passing a parameter n (default=1) will return the first n element(s) of the sequence.
+If n == 0 return an empty sequence []
+Examples
+var arr = ['a', 'b', 'c', 'd', 'e'];
+first(arr) //=> ['a'];
+first(arr, 2) //=> ['a', 'b']
+first(arr, 3) //=> ['a', 'b', 'c'];
+first(arr, 0) //=> [];
+*/
+function first(arr, n = 1) {
+  return arr.splice(0, n);
+}
+
+console.log(first(["a", "b", "c", "d", "e"], 2));
+console.log(first(["a", "b", "c", "d", "e"], 4));
+console.log(first(["a", "b", "c", "d", "e"]));
