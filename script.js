@@ -8825,8 +8825,9 @@ Examples
 ["AS", "3S", "9S", "KS", "4S"]  ==> true
 ["AD", "4S", "7H", "KS", "10S"] ==> false
 */
+/*
 function isFlush(cards) {
-  // удаляет все значения, оставив только масть
+  // удаляем все значения, оставив только масть
   const suits = cards.map((card) => card.slice(-1));
   // проверяем, что все масти одинаковые
   return suits.every((suit) => suit === suits[0]);
@@ -8835,3 +8836,43 @@ function isFlush(cards) {
 console.log(isFlush(["AS", "3S", "9S", "KS", "4S"]));
 console.log(isFlush(["AD", "4S", "7H", "KC", "5S"]));
 console.log(isFlush(["10D", "4D", "QD", "KD", "5D"]));
+*/
+
+// #8
+/*
+This is the first part. You can solve the second part here when you are done with this. Multiply two numbers! Simple!
+    The arguments are passed as strings.
+    The numbers may be way very large
+    Answer should be returned as a string
+    The returned "number" should not start with zeros e.g. 0123 is invalid
+Note: 100 randomly generated tests!
+*/
+function multiply(a, b) {
+  // Преобразуем входные строки в массивы цифр
+  const num1 = a.split("").map(Number);
+  const num2 = b.split("").map(Number);
+
+  // Инициализируем массив для хранения результата умножения
+  const result = Array(num1.length + num2.length).fill(0);
+
+  // Выполняем умножение
+  for (let i = num1.length - 1; i >= 0; i--) {
+    for (let j = num2.length - 1; j >= 0; j--) {
+      const product = num1[i] * num2[j];
+      const pos1 = i + j;
+      const pos2 = i + j + 1;
+      const sum = product + result[pos2];
+
+      result[pos1] += Math.floor(sum / 10);
+      result[pos2] = sum % 10;
+    }
+  }
+
+  // Удаляем ведущие нули и преобразуем массив результата в строку
+  const multiplied = result.join("").replace(/^0+/, "");
+
+  return multiplied || "0"; // Возвращаем '0', если результат пустой
+}
+
+console.log(multiply("98765", "56894"));
+console.log(multiply("000001", "3"));
