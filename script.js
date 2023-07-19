@@ -8896,6 +8896,7 @@ Then return the difference between the sum of the digits in total1 and total2:
 -------------------------
                        6
 */
+/*
 function calc(x) {
   const total1 = x
     .split("")
@@ -8918,3 +8919,53 @@ function calc(x) {
 
 console.log(calc("abcdef"));
 console.log(calc("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+
+*/
+
+// #2
+/*
+You are given a secret message you need to decipher. Here are the things you need to know to decipher it:
+For each word:
+    the second and the last letter is switched (e.g. Hello becomes Holle)
+    the first letter is replaced by its character code (e.g. H becomes 72)
+Note: there are no special characters used, only letters and spaces
+Examples
+decipherThis('72olle 103doo 100ya'); // 'Hello good day'
+decipherThis('82yade 115te 103o'); // 'Ready set go'
+*/
+function decipherThis(str) {
+  let arr = str.split(" ").map((word) => {
+    let charCode = word.match(/\d+/)[0];
+
+    let decodedWord = word.replace(/\d+/, String.fromCharCode(charCode));
+
+    if (decodedWord.length > 1) {
+      let secondLetter = decodedWord[1];
+      let lastLetter = decodedWord[decodedWord.length - 1];
+
+      decodedWord =
+        decodedWord.substr(0, 1) + lastLetter + decodedWord.substr(2);
+
+      decodedWord =
+        decodedWord.substr(0, decodedWord.length - 1) + secondLetter;
+    }
+    return decodedWord;
+  });
+  return arr.join(" ");
+}
+
+console.log(
+  decipherThis("72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o")
+);
+
+//       decodedWord =
+//         decodedWord.substr(0, 1) + lastLetter + decodedWord.substr(2);
+//       decodedWord =
+//         decodedWord.substr(0, decodedWord.length - 1) + secondLetter;
+//     }
+
+//     return decodedWord;
+//   });
+
+//   return decipheredWords.join(" ");
+// }
