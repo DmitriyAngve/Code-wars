@@ -8978,6 +8978,8 @@ minSum({9,2,8,7,5,4,0,6}) ==> return (74)
 Explanation:
     The minimum sum obtained from summing each two integers product ,  9*0 + 8*2 +7*4 +6*5 = 74
 */
+// FIRST
+/*
 function minSum(arr) {
   arr.sort((a, b) => a - b);
   let left = 0;
@@ -8992,15 +8994,56 @@ function minSum(arr) {
 }
 
 console.log(minSum([12, 6, 10, 26, 3, 24]));
-// function minSum(arr) {
-//   arr.sort((a, b) => a - b);
-//   let left = 0;
-//   let right = arr.length - 1;
-//   let sum = 0;
-//   while (left < right) {
-//     sum += arr[left] * arr[right];
-//     left++;
-//     right--;
-//   }
-//   return sum;
-// }
+*/
+
+// SECOND
+/*
+function minSum(arr) {
+  return arr
+    .sort((a, b) => a - b)
+    .slice(0, arr.length / 2)
+    .reduce(
+      (acc, curr, index) => (acc += curr * arr[arr.length - index - 1]),
+      0
+    );
+}
+console.log(minSum([12, 6, 10, 26, 3, 24]));
+*/
+
+// #4
+/*
+Task
+Given an array/list [] of integers , Find the product of the k maximal numbers.
+Notes
+    Array/list size is at least 3.
+    Array/list's numbers Will be mixture of positives , negatives and zeros
+    Repetition of numbers in the array/list could occur.
+Input >> Output Examples
+maxProduct ({4, 3, 5}, 2) ==>  return (20)
+Explanation:
+    Since the size (k) equal 2 , then the subsequence of size 2 whose gives product of maxima is 5 * 4 = 20.
+maxProduct ({8, 10 , 9, 7}, 3) ==>  return (720)
+Explanation:
+    Since the size (k) equal 3 , then the subsequence of size 3 whose gives product of maxima is  8 * 9 * 10 = 720.
+maxProduct ({10, 8, 3, 2, 1, 4, 10}, 5) ==> return (9600)
+Explanation:
+    Since the size (k) equal 5 , then the subsequence of size 5 whose gives product of maxima is  10 * 10 * 8 * 4 * 3 = 9600.
+maxProduct ({-4, -27, -15, -6, -1}, 2) ==> return (4)
+Explanation:
+    Since the size (k) equal 2 , then the subsequence of size 2 whose gives product of maxima is  -4 * -1 = 4.
+maxProduct ({10, 3, -1, -27} , 3)  return (-30)
+Explanation:
+    Since the size (k) equal 3 , then the subsequence of size 3 whose gives product of maxima is 10 * 3 * -1 = -30.
+*/
+
+function maxProduct(numbers, size) {
+  let sorted = numbers.sort((a, b) => b - a);
+  console.log(sorted);
+  let sum = 1;
+  for (let i = 0; i < size; i++) {
+    sum *= sorted[i];
+  }
+  return sum;
+}
+
+console.log(maxProduct([-4, -27, -15, -6, -1], 2));
