@@ -8847,6 +8847,7 @@ This is the first part. You can solve the second part here when you are done wit
     The returned "number" should not start with zeros e.g. 0123 is invalid
 Note: 100 randomly generated tests!
 */
+/*
 function multiply(a, b) {
   // Преобразуем входные строки в массивы цифр
   const num1 = a.split("").map(Number);
@@ -8876,3 +8877,44 @@ function multiply(a, b) {
 
 console.log(multiply("98765", "56894"));
 console.log(multiply("000001", "3"));
+*/
+
+// 19.07.2023
+
+// #1
+/*
+Given a string, turn each character into its ASCII character code and join them together to create a number - let's call this number total1:
+'ABC' --> 'A' = 65, 'B' = 66, 'C' = 67 --> 656667
+Then replace any incidence of the number 7 with the number 1, and call this number 'total2':
+total1 = 656667
+              ^
+total2 = 656661
+              ^
+Then return the difference between the sum of the digits in total1 and total2:
+  (6 + 5 + 6 + 6 + 6 + 7)
+- (6 + 5 + 6 + 6 + 6 + 1)
+-------------------------
+                       6
+*/
+function calc(x) {
+  const total1 = x
+    .split("")
+    .map((char) => char.charCodeAt())
+    .join("");
+  console.log(total1);
+
+  const total2 = total1.replace(/7/g, "1");
+  console.log(total2);
+
+  const sum1 = total1
+    .split("")
+    .reduce((sum, digit) => sum + parseInt(digit), 0);
+  const sum2 = total2
+    .split("")
+    .reduce((sum, digit) => sum + parseInt(digit), 0);
+
+  return sum1 - sum2;
+}
+
+console.log(calc("abcdef"));
+console.log(calc("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"));
