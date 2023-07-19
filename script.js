@@ -8933,6 +8933,7 @@ Examples
 decipherThis('72olle 103doo 100ya'); // 'Hello good day'
 decipherThis('82yade 115te 103o'); // 'Ready set go'
 */
+/*
 function decipherThis(str) {
   let arr = str.split(" ").map((word) => {
     let charCode = word.match(/\d+/)[0];
@@ -8957,15 +8958,49 @@ function decipherThis(str) {
 console.log(
   decipherThis("72eva 97 103o 97t 116sih 97dn 115ee 104wo 121uo 100o")
 );
+*/
 
-//       decodedWord =
-//         decodedWord.substr(0, 1) + lastLetter + decodedWord.substr(2);
-//       decodedWord =
-//         decodedWord.substr(0, decodedWord.length - 1) + secondLetter;
-//     }
+// #3
+/*
+Task
+Given an array of integers , Find the minimum sum which is obtained from summing each Two integers product .
+Notes
+    Array/list will contain positives only .
+    Array/list will always have even size
+Input >> Output Examples
+minSum({5,4,2,3}) ==> return (22) 
+Explanation:
+    The minimum sum obtained from summing each two integers product ,  5*2 + 3*4 = 22
+minSum({12,6,10,26,3,24}) ==> return (342)
+Explanation:
+    The minimum sum obtained from summing each two integers product ,  26*3 + 24*6 + 12*10 = 342
+minSum({9,2,8,7,5,4,0,6}) ==> return (74)
+Explanation:
+    The minimum sum obtained from summing each two integers product ,  9*0 + 8*2 +7*4 +6*5 = 74
+*/
+function minSum(arr) {
+  arr.sort((a, b) => a - b);
+  let left = 0;
+  let right = arr.length - 1;
+  let sum = 0;
+  while (left < right) {
+    sum += arr[left] * arr[right];
+    left++;
+    right--;
+  }
+  return sum;
+}
 
-//     return decodedWord;
-//   });
-
-//   return decipheredWords.join(" ");
+console.log(minSum([12, 6, 10, 26, 3, 24]));
+// function minSum(arr) {
+//   arr.sort((a, b) => a - b);
+//   let left = 0;
+//   let right = arr.length - 1;
+//   let sum = 0;
+//   while (left < right) {
+//     sum += arr[left] * arr[right];
+//     left++;
+//     right--;
+//   }
+//   return sum;
 // }
