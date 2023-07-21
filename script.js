@@ -9225,6 +9225,7 @@ You know that a piece of paper has a thickness of 0.0001m. Given distance in uni
 
 Note: Of course you can't do half a fold. You should know what this means ;P
 */
+/*
 function foldTo(distance) {
   if (distance < -0) {
     return null;
@@ -9241,3 +9242,26 @@ function foldTo(distance) {
 }
 
 console.log(foldTo(384000000));
+*/
+
+// #3
+/*
+A magic index in an array A[1...n-1] is defined to be an index such that A[i] = i. Given a sorted array of distinct integers, write a method to find a magic index, if one exists, in array A.
+findMagic([-20,-10,2,10,20]); // Returns 2
+*/
+
+function findMagic(arr) {
+  if (!arr.length) {
+    return -1;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr.length) {
+      return -1;
+    } else if (arr[i] === i) {
+      return i;
+    }
+  }
+}
+
+console.log(findMagic([-20, -10, 2, 10, 20]));
