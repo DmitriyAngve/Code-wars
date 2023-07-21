@@ -9329,6 +9329,7 @@ t = 3
 Work through the array from left to right.
 Return the resulting array.
 */
+/*
 function trouble(x, t) {
   for (let i = 0; i < x.length; i++) {
     if (x[i] + x[i + 1] === t) {
@@ -9340,13 +9341,36 @@ function trouble(x, t) {
 }
 
 console.log(trouble([4, 1, 1, 1, 4], 2));
+*/
 
-// function trouble(x, t) {
-//   for (let i = 0; i < x.length; i++) {
-//     if (x[i] + x[i + 1] === t) {
-//       x.splice(i + 1, 1);
-//       i--;
-//     }
-//   }
-//   return x;
-// }
+// #7
+/*
+Punky loves wearing different colored socks, but Henry can't stand it.
+Given an array of different colored socks, return a pair depending on who was picking them out.
+Example:
+getSocks('Punky', ['red','blue','blue','green']) -> ['red', 'blue']
+Note that Punky can have any two colored socks, in any order, as long as they are different and both exist. Henry always picks a matching pair.
+If there is no possible combination of socks, return an empty array.
+*/
+function getSocks(name, socks) {
+  if (name === "Punky") {
+    for (let i = 0; i < socks.length - 1; i++) {
+      for (let j = i + 1; j < socks.length; j++) {
+        if (socks[i] !== socks[j]) {
+          return [socks[i], socks[j]];
+        }
+      }
+    }
+  } else if (person === "Henry") {
+    const colorCount = {};
+    for (const sock of socks) {
+      colorCount[sock] = (colorCount[sock] || 0) + 1;
+      if (colorCount[sock] === 2) {
+        return [sock, sock];
+      }
+    }
+  }
+  return [];
+}
+
+console.log(getSocks("Punky", ["red", "blue", "blue", "green"]));
