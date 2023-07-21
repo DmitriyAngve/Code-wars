@@ -9276,6 +9276,7 @@ You need to return the highest scoring word as a string.
 If two words score the same, return the word that appears earliest in the original string.
 All letters will be lowercase and all inputs will be valid.
 */
+/*
 function high(x) {
   let words = x.split(" ");
 
@@ -9293,19 +9294,24 @@ function high(x) {
 }
 
 console.log(high("man i need a taxi up to ubud"));
-// function high(x) {
-//   const words = x.split(" ");
+*/
 
-//   const maxWord = words.reduce((maxWord, word) => {
-//     const score = word.split("").reduce((total, letter) => {
-//       return total + (letter.charCodeAt(0) - 96);
-//     }, 0);
+// #5
+/*
+Challenge:
+Given a two-dimensional array of integers, return the flattened version of the array with all the integers in the sorted (ascending) order.
+Example:
+Given [[3, 2, 1], [4, 6, 5], [], [9, 7, 8]], your function should return [1, 2, 3, 4, 5, 6, 7, 8, 9].
+*/
+"use strict";
+function flattenAndSort(array) {
+  return [].concat(...array).sort((a, b) => a - b);
+}
 
-//     if (score > (maxWord.score || 0)) {
-//       return { word, score };
-//     } else {
-//       return maxWord;
-//     }
-//   }, {});
-//   return maxWord.word || "";
-// }
+console.log(
+  flattenAndSort([
+    [3, 2, 1],
+    [7, 9, 8],
+    [6, 4, 5],
+  ])
+);
