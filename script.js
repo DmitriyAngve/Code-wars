@@ -9249,7 +9249,7 @@ console.log(foldTo(384000000));
 A magic index in an array A[1...n-1] is defined to be an index such that A[i] = i. Given a sorted array of distinct integers, write a method to find a magic index, if one exists, in array A.
 findMagic([-20,-10,2,10,20]); // Returns 2
 */
-
+/*
 function findMagic(arr) {
   if (!arr.length) {
     return -1;
@@ -9265,3 +9265,47 @@ function findMagic(arr) {
 }
 
 console.log(findMagic([-20, -10, 2, 10, 20]));
+*/
+
+// #4
+/*
+Given a string of words, you need to find the highest scoring word.
+Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc.
+For example, the score of abad is 8 (1 + 2 + 1 + 4).
+You need to return the highest scoring word as a string.
+If two words score the same, return the word that appears earliest in the original string.
+All letters will be lowercase and all inputs will be valid.
+*/
+function high(x) {
+  let words = x.split(" ");
+
+  const maxWord = words.reduce((maxWord, word) => {
+    const score = word.split("").reduce((total, letter) => {
+      return total + (letter.charCodeAt(0) - 96);
+    }, 0);
+    if (score > (maxWord.score || 0)) {
+      return { word, score };
+    } else {
+      return maxWord;
+    }
+  }, {});
+  return maxWord.word || "";
+}
+
+console.log(high("man i need a taxi up to ubud"));
+// function high(x) {
+//   const words = x.split(" ");
+
+//   const maxWord = words.reduce((maxWord, word) => {
+//     const score = word.split("").reduce((total, letter) => {
+//       return total + (letter.charCodeAt(0) - 96);
+//     }, 0);
+
+//     if (score > (maxWord.score || 0)) {
+//       return { word, score };
+//     } else {
+//       return maxWord;
+//     }
+//   }, {});
+//   return maxWord.word || "";
+// }
