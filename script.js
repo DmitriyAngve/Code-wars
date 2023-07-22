@@ -9352,6 +9352,7 @@ getSocks('Punky', ['red','blue','blue','green']) -> ['red', 'blue']
 Note that Punky can have any two colored socks, in any order, as long as they are different and both exist. Henry always picks a matching pair.
 If there is no possible combination of socks, return an empty array.
 */
+/*
 function getSocks(name, socks) {
   if (name === "Punky") {
     for (let i = 0; i < socks.length - 1; i++) {
@@ -9374,3 +9375,43 @@ function getSocks(name, socks) {
 }
 
 console.log(getSocks("Punky", ["red", "blue", "blue", "green"]));
+*/
+
+// 22.07.2023
+
+// #1
+/*
+Complete the function, which calculates how much you need to tip based on the total amount of the bill and the service.
+You need to consider the following ratings:
+    Terrible: tip 0%
+    Poor: tip 5%
+    Good: tip 10%
+    Great: tip 15%
+    Excellent: tip 20%
+The rating is case insensitive (so "great" = "GREAT"). If an unrecognised rating is received, then you need to return:
+    "Rating not recognised" in Javascript, Python and Ruby...
+Because you're a nice person, you always round up the tip, regardless of the service.
+*/
+function calculateTip(amount, rating) {
+  const lower = rating.toLowerCase();
+  switch (lower) {
+    case "terrible":
+      return 0;
+    case "poor":
+      return Math.round(amount * 0.05);
+    case "good":
+      return Math.round(amount * 0.1);
+    case "great":
+      return Math.round(amount * 0.15);
+    case "excellent":
+      return Math.round(amount * 0.2);
+    default:
+      return 0;
+  }
+}
+
+console.log(calculateTip(20, "Terrible"));
+console.log(calculateTip(20, "Poor"));
+console.log(calculateTip(20, "Good"));
+console.log(calculateTip(20, "Great"));
+console.log(calculateTip(20, "Excellent"));
