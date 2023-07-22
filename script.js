@@ -9392,21 +9392,22 @@ The rating is case insensitive (so "great" = "GREAT"). If an unrecognised rating
     "Rating not recognised" in Javascript, Python and Ruby...
 Because you're a nice person, you always round up the tip, regardless of the service.
 */
+/*
 function calculateTip(amount, rating) {
   const lower = rating.toLowerCase();
   switch (lower) {
     case "terrible":
       return 0;
     case "poor":
-      return Math.round(amount * 0.05);
+      return Math.ceil(amount * 0.05);
     case "good":
-      return Math.round(amount * 0.1);
+      return Math.ceil(amount * 0.1);
     case "great":
-      return Math.round(amount * 0.15);
+      return Math.ceil(amount * 0.15);
     case "excellent":
-      return Math.round(amount * 0.2);
+      return Math.ceil(amount * 0.2);
     default:
-      return 0;
+      return "Rating not recognised";
   }
 }
 
@@ -9415,3 +9416,42 @@ console.log(calculateTip(20, "Poor"));
 console.log(calculateTip(20, "Good"));
 console.log(calculateTip(20, "Great"));
 console.log(calculateTip(20, "Excellent"));
+*/
+
+// #2
+/*
+Write a function that will compare two values, one will be a number and one will be a string. Return true if they are the same character (regardless of their different data types) and return false if they are not.
+
+To make this challange harder and to promp the challenger to read up about coercion I have disabled some of the built in methods including .toString(), .join(), .split(), parseInt and .Number().
+
+*/
+/*
+function add(a, b) {
+  return a == b ? true : false;
+}
+
+console.log(add("1", 1));
+*/
+
+// #3
+/*
+Reverse every other word in a given string, then return the string. Throw away any leading or trailing whitespace, while ensuring there is exactly one space between each word. Punctuation marks should be treated as if they are a part of the word in this kata.
+*/
+
+function reverse(str) {
+  let arr = str.trim().split(" ");
+  let res = [];
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i];
+    if (i % 2 === 0) {
+      res.push(word);
+    } else {
+      word = word.split("").reverse().join("");
+      res.push(word);
+    }
+  }
+  return res.join(" ");
+}
+
+console.log(reverse("Reverse this string, please!"));
+// "Reverse siht string, !esaelp"
