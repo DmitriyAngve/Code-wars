@@ -9554,6 +9554,7 @@ In the society he lived in, people - women in particular - had to repress their 
 Now, basically, when a person hears about Freud, s/he hears "sex" because for Freud, everything was related to, and explained by sex.
 In this kata, the function will take a string as its argument, and return a string with every word replaced by the explanation to everything, according to Freud. Note that an empty string, or no arguments, should return an empty string.
 */
+/*
 function toFreud(string) {
   if (string.length === 0) {
     return "";
@@ -9566,3 +9567,32 @@ function toFreud(string) {
 
 console.log(toFreud("This is a test"));
 console.log(toFreud(""));
+*/
+
+// #2
+/*
+Create a function that returns the CSV representation of a two-dimensional numeric array.
+Example:
+input:
+   [[ 0, 1, 2, 3, 4 ],
+    [ 10,11,12,13,14 ],
+    [ 20,21,22,23,24 ],
+    [ 30,31,32,33,34 ]]     
+output:
+     '0,1,2,3,4\n'
+    +'10,11,12,13,14\n'
+    +'20,21,22,23,24\n'
+    +'30,31,32,33,34'
+*/
+function toCsvText(array) {
+  return array.map((row) => row.join(",")).join("\n");
+}
+
+console.log(
+  toCsvText([
+    [0, 1, 2, 3, 4],
+    [10, 11, 12, 13, 14],
+    [20, 21, 22, 23, 24],
+    [30, 31, 32, 33, 34],
+  ])
+);
