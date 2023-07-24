@@ -9437,7 +9437,7 @@ console.log(add("1", 1));
 /*
 Reverse every other word in a given string, then return the string. Throw away any leading or trailing whitespace, while ensuring there is exactly one space between each word. Punctuation marks should be treated as if they are a part of the word in this kata.
 */
-
+/*
 function reverse(str) {
   let arr = str.trim().split(" ");
   let res = [];
@@ -9455,3 +9455,17 @@ function reverse(str) {
 
 console.log(reverse("Reverse this string, please!"));
 // "Reverse siht string, !esaelp"
+*/
+
+// 24.07.2023
+
+// #1
+/*
+Complete the square sum function so that it squares each number passed into it and then sums the results together.
+For example, for [1, 2, 2] it should return 9 because 12+22+22=91^2 + 2^2 + 2^2 = 912+22+22=9.
+*/
+function squareSum(numbers) {
+  return numbers.reduce((acc, num) => acc + num * num, 0);
+}
+
+console.log(squareSum([1, 2]));
