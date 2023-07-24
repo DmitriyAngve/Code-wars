@@ -9464,8 +9464,30 @@ console.log(reverse("Reverse this string, please!"));
 Complete the square sum function so that it squares each number passed into it and then sums the results together.
 For example, for [1, 2, 2] it should return 9 because 12+22+22=91^2 + 2^2 + 2^2 = 912+22+22=9.
 */
+/*
 function squareSum(numbers) {
   return numbers.reduce((acc, num) => acc + num * num, 0);
 }
 
 console.log(squareSum([1, 2]));
+*/
+
+// #2
+/*
+Find the sum of the odd numbers within an array, after cubing the initial integers. The function should return undefined if any of the values aren't numbers.
+*/
+function cubeOdd(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    const num = arr[i];
+    if (typeof num !== "number") {
+      return undefined;
+    }
+    if (num % 2 !== 0) {
+      sum += Math.pow(num, 3);
+    }
+  }
+  return sum;
+}
+
+console.log(cubeOdd([1, 2, 3, 4]));
