@@ -9476,6 +9476,7 @@ console.log(squareSum([1, 2]));
 /*
 Find the sum of the odd numbers within an array, after cubing the initial integers. The function should return undefined if any of the values aren't numbers.
 */
+/*
 function cubeOdd(arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -9491,3 +9492,54 @@ function cubeOdd(arr) {
 }
 
 console.log(cubeOdd([1, 2, 3, 4]));
+*/
+
+// #3
+/*
+Complete the method which returns the number which is most frequent in the given input array. If there is a tie for most frequent number, return the largest number among them.
+Note: no empty arrays will be given.
+Examples
+[12, 10, 8, 12, 7, 6, 4, 10, 12]              -->  12
+[12, 10, 8, 12, 7, 6, 4, 10, 12, 10]          -->  12
+[12, 10, 8, 8, 3, 3, 3, 3, 2, 4, 10, 12, 10]  -->   3
+*/
+
+/*
+// FIRST
+function highestRank(arr) {
+  const frequencyCounter = {};
+  for (let num of arr) {
+    if (frequencyCounter[num]) {
+      frequencyCounter[num]++;
+    } else {
+      frequencyCounter[num] = 1;
+    }
+  }
+
+  let mostFrequentNumber;
+  let maxFrequency = 0;
+
+  for (let num in frequencyCounter) {
+    if (
+      frequencyCounter[num] > maxFrequency ||
+      (frequencyCounter[num] === maxFrequency && num > mostFrequentNumber)
+    ) {
+      maxFrequency = frequencyCounter[num];
+      mostFrequentNumber = num;
+    }
+  }
+
+  return Number(mostFrequentNumber);
+}
+
+console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12]));
+*/
+
+// SECOND
+function highestRank(arr) {
+  return arr.sort(
+    (a, b) =>
+      arr.filter((i) => i === b).length - arr.filter((i) => i === a).length
+  )[0];
+}
+console.log(highestRank([12, 10, 8, 12, 7, 6, 4, 10, 12]));
