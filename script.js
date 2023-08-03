@@ -1686,6 +1686,7 @@ console.log(sortArray([5, 3, 2, 8, 1, 4]));
 
 // 01.08.2023
 
+//#1
 /*
 Find the difference between the sum of the squares of the first n natural numbers (1 <= n <= 100) and the square of their sum.
 Example
@@ -1702,6 +1703,7 @@ For example, when n = 10:
 
 Hence the difference between square of the sum of the first ten natural numbers and the sum of the squares of those numbes is: 3025 - 385 = 2640
 */
+/*
 function differenceOfSquares(n) {
   let sumOfSquare = 0;
   let sumOfNumber = 0;
@@ -1717,3 +1719,6 @@ function differenceOfSquares(n) {
 }
 
 console.log(differenceOfSquares(5));
+*/
+
+// #2
